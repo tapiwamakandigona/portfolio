@@ -2,6 +2,62 @@
 // Smooth Scrolling & Navigation
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
+    // ============================================
+    // Mobile Navigation Toggle
+    // ============================================
+    const navToggle = document.getElementById('navToggle');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function toggleMobileNav() {
+        navToggle.classList.toggle('active');
+        mobileNavOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileNavOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+
+    function closeMobileNav() {
+        navToggle.classList.remove('active');
+        mobileNavOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (navToggle) {
+        navToggle.addEventListener('click', toggleMobileNav);
+        // Touch support for mobile
+        navToggle.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            toggleMobileNav();
+        });
+    }
+
+    // Close mobile nav when clicking overlay
+    if (mobileNavOverlay) {
+        mobileNavOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileNavOverlay) {
+                closeMobileNav();
+            }
+        });
+    }
+
+    // Mobile nav links - smooth scroll and close menu
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeMobileNav();
+
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                setTimeout(() => {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 300);
+            }
+        });
+    });
+
     // Navigation links smooth scroll
     const navLinks = document.querySelectorAll('.nav-link');
 
