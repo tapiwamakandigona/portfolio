@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+    <meta name="theme-color" content="#7C3AED">
+    <meta name="description" content="ZimBet - A classic Rock Paper Scissors betting game. Test your luck and strategy against the computer.">
+    <meta name="keywords" content="rock paper scissors, betting game, browser game, javascript game, zimbet">
+    <meta name="author" content="Tapiwa Makandigona">
+    <link rel="canonical" href="https://tapiwamakandigona.github.io/zimbet/">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ZimBet">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="ZimBet | Rock Paper Scissors Betting Game">
+    <meta property="og:description" content="Test your luck and strategy in this betting game. Can you beat the computer?">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tapiwamakandigona.github.io/zimbet/">
+    <meta property="og:image" content="https://tapiwamakandigona.github.io/zimbet/assets/icon-512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZimBet | Rock Paper Scissors Betting Game">
+    <meta name="twitter:description" content="Test your luck and strategy in this betting game. Can you beat the computer?">
+    <meta name="twitter:image" content="https://tapiwamakandigona.github.io/zimbet/assets/icon-512.png">
+
+    <title>ZimBet | Rock Paper Scissors Betting Game</title>
+
+    <!-- Fonts and Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Assuming styles.css exists, otherwise user should link their own -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
