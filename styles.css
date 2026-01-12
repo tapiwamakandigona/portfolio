@@ -523,16 +523,32 @@ img {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    color: var(--text-muted);
+    color: var(--text-secondary); /* Improved contrast */
     font-size: 0.85rem;
     animation: bounce 2s infinite;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.scroll-indicator:hover,
+.scroll-indicator:focus-visible {
+    color: var(--accent-primary);
+    animation: none; /* Stop bounce on hover to prevent jitter */
+    transform: translateX(-50%) translateY(5px);
+}
+
+.scroll-indicator:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 .scroll-arrow {
     width: 24px;
     height: 24px;
-    border-right: 2px solid var(--text-muted);
-    border-bottom: 2px solid var(--text-muted);
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
     transform: rotate(45deg);
 }
 
