@@ -1006,6 +1006,14 @@ section {
     padding: 10px;
     z-index: 1001;
     -webkit-tap-highlight-color: transparent;
+    background: transparent;
+    border: none;
+    color: inherit;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    border-radius: var(--border-radius-sm);
 }
 
 .nav-toggle span {
