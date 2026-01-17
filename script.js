@@ -10,12 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
     function toggleMobileNav() {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !isExpanded);
+
         navToggle.classList.toggle('active');
         mobileNavOverlay.classList.toggle('active');
         document.body.style.overflow = mobileNavOverlay.classList.contains('active') ? 'hidden' : '';
     }
 
     function closeMobileNav() {
+        navToggle.setAttribute('aria-expanded', 'false');
         navToggle.classList.remove('active');
         mobileNavOverlay.classList.remove('active');
         document.body.style.overflow = '';
