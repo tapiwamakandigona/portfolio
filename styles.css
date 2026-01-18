@@ -95,6 +95,36 @@ img {
 }
 
 /* ============================================
+   Accessibility
+============================================ */
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 2000;
+    padding: 12px 24px;
+    background: var(--bg-card);
+    color: var(--accent-primary);
+    font-weight: 600;
+    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+    border: 1px solid var(--accent-primary);
+    border-top: none;
+    transform: translateY(-100%);
+    transition: transform var(--transition-medium);
+    backdrop-filter: blur(10px);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    outline: none;
+    box-shadow: var(--shadow-glow);
+}
+
+#main-content:focus {
+    outline: none;
+}
+
+/* ============================================
    Background Animation
 ============================================ */
 .bg-animation {
