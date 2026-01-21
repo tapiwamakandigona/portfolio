@@ -714,7 +714,8 @@ section {
     transition: var(--transition-medium);
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card:focus-within {
     transform: translateY(-8px);
     border-color: rgba(99, 102, 241, 0.3);
     box-shadow: var(--shadow-glow);
@@ -822,7 +823,8 @@ section {
     transition: var(--transition-medium);
 }
 
-.project-card:hover .project-overlay {
+.project-card:hover .project-overlay,
+.project-card:focus-within .project-overlay {
     opacity: 1;
 }
 
