@@ -822,7 +822,8 @@ section {
     transition: var(--transition-medium);
 }
 
-.project-card:hover .project-overlay {
+.project-card:hover .project-overlay,
+.project-card:focus-within .project-overlay {
     opacity: 1;
 }
 
