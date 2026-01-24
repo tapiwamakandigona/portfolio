@@ -58,7 +58,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="loading">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader-logo">
+            <span class="bracket">&lt;</span>TM<span class="bracket">/&gt;</span>
+        </div>
+        <div class="loader-bar"></div>
+        <p class="loader-text">Initializing...</p>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Custom Cursor (Desktop only) -->
+    <div class="custom-cursor"></div>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- Animated Background -->
     <div class="bg-animation">
         <div class="gradient-orb orb-1"></div>
@@ -120,8 +138,9 @@
                     <span class="cursor">|</span>
                 </h2>
                 <p class="hero-description">
-                    I craft digital experiences through code. From interactive games to web applications,
-                    I bring ideas to life with creativity and technical precision.
+                    I transform ideas into immersive digital experiences. Specializing in game development
+                    and modern web applications, I combine creativity with clean code to build
+                    products that users love.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">
@@ -175,14 +194,14 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        I'm a passionate developer who loves turning ideas into reality through code.
-                        Whether it's creating immersive game experiences or building sleek web applications,
-                        I enjoy every step of the development process.
+                        I'm a self-taught developer with a passion for building things that live on the internet.
+                        My journey started with curiosity about how games work, and evolved into a deep love
+                        for creating interactive experiences.
                     </p>
                     <p>
-                        My journey in development has led me to explore various technologies and frameworks,
-                        always pushing the boundaries of what's possible. I believe in writing clean,
-                        efficient code and creating experiences that users love.
+                        I specialize in TypeScript, React, and game development frameworks like Three.js and Babylon.js.
+                        When I'm not coding, you'll find me exploring new technologies, gaming, or working on
+                        my next side project.
                     </p>
                     <div class="skills-grid">
                         <div class="skill-category">
@@ -451,7 +470,7 @@
             <p class="footer-text">
                 Designed & Built by <span class="highlight">Tapiwa Makandigona</span>
             </p>
-            <p class="footer-year">© 2024</p>
+            <p class="footer-year">© 2026</p>
         </div>
     </footer>
 
