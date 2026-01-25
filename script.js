@@ -24,23 +24,99 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingScreen.classList.add('hidden');
             document.body.classList.remove('loading');
         }
-    }, 4000);
+    }, 2000);
+
+    // Extra safety - try to hide immediately if window already loaded
+    if (document.readyState === 'complete') {
+        setTimeout(() => {
+            if (loadingScreen) {
+                loadingScreen.classList.add('hidden');
+                document.body.classList.remove('loading');
+            }
+        }, 500);
+    }
 
     // ============================================
-    // Scroll Progress Indicator
+    // Theme Toggle (Dark/Light Mode)
     // ============================================
-    const scrollProgress = document.querySelector('.scroll-progress');
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+
+    // Apply saved theme on load
+    if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            document.documentElement.setAttribute('data-theme', newTheme === 'light' ? 'light' : '');
+            localStorage.setItem('theme', newTheme);
+
+            // Add a smooth transition class
+            document.body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
+        });
+    }
+
+    // ============================================
+    // Scroll Progress Bar
+    // ============================================
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
 
     function updateScrollProgress() {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = (scrollTop / docHeight) * 100;
-        if (scrollProgress) {
-            scrollProgress.style.width = `${Math.min(progress, 100)}%`;
+        if (scrollProgressBar) {
+            scrollProgressBar.style.width = `${Math.min(progress, 100)}%`;
         }
     }
 
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+    // ============================================
+    // Gradient Word Cycling Animation
+    // ============================================
+    const gradientWord = document.querySelector('.gradient-word');
+    const words = ['Games', 'Web Apps', 'Experiences', 'Solutions', 'Ideas'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const pauseDuration = 2000;
+
+    function typeWord() {
+        if (!gradientWord) return;
+
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+            gradientWord.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            gradientWord.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let timeout = isDeleting ? deletingSpeed : typingSpeed;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            timeout = pauseDuration;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            timeout = 500;
+        }
+
+        setTimeout(typeWord, timeout);
+    }
+
+    // Start typing animation
+    setTimeout(typeWord, 1000);
 
     // ============================================
     // Custom Cursor (Desktop only)
@@ -220,43 +296,11 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // ============================================
-    // Typing Effect - Enhanced
+    // Typing Effect - Enhanced (uses .typing-text element)
+    // Note: This replaces the gradient word cycling above
     // ============================================
-    const titles = ['Developer', 'Game Creator', 'Problem Solver', 'Code Enthusiast'];
-    let titleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingElement = document.querySelector('.typing-text');
-
-    function typeEffect() {
-        if (!typingElement) return;
-
-        const currentTitle = titles[titleIndex];
-
-        if (isDeleting) {
-            typingElement.textContent = currentTitle.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingElement.textContent = currentTitle.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        let typeSpeed = isDeleting ? 50 : 100;
-
-        if (!isDeleting && charIndex === currentTitle.length) {
-            typeSpeed = 2000;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            titleIndex = (titleIndex + 1) % titles.length;
-            typeSpeed = 500;
-        }
-
-        setTimeout(typeEffect, typeSpeed);
-    }
-
-    // Start typing effect after loading screen hides
-    setTimeout(typeEffect, 2500);
+    // Typing effect is already handled by the gradient word cycling above
+    // This section is removed to avoid duplicate functionality
 
     // ============================================
     // Parallax Effect for Background Orbs
@@ -306,6 +350,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
+
+                // Update CSS variables for spotlight effect
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
 
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
