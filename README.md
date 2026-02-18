@@ -1,46 +1,40 @@
-# 🌐 Portfolio Website
+# Portfolio
 
-My personal developer portfolio showcasing my projects and skills.
+[![Live Site](https://img.shields.io/badge/Visit-tapiwamakandigona.github.io-blue?style=for-the-badge)](https://tapiwamakandigona.github.io/portfolio/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-[![Live Site](https://img.shields.io/badge/🌐_Visit_Site-Live-brightgreen?style=for-the-badge)](https://tapiwamakandigona.github.io/portfolio/)
+Personal developer portfolio showcasing projects, skills, and experience.
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+## Features
 
----
+- **Dark/Light Theme** toggle with smooth transitions
+- **Particle Background** with interactive canvas
+- **Scroll Animations** with intersection observer
+- **Custom Cursor** effect (desktop)
+- **Fully Responsive** mobile-first design
+- **SEO Optimized** with structured data (JSON-LD)
+- **Performance** vanilla HTML/CSS/JS, no framework overhead
 
-## ✨ Features
+## Projects Showcased
 
-- **Modern Design** - Clean, responsive layout with smooth animations
-- **Dark Theme** - Easy on the eyes with beautiful gradient accents
-- **Project Showcase** - Highlighting my best work with live demos
-- **Mobile Responsive** - Looks great on all devices
-- **Fast Loading** - Vanilla HTML/CSS/JS for optimal performance
+- **Zombie Survival FPS** - 3D browser game (Three.js)
+- **ZimPay** - Banking simulation (React + Supabase)
+- **ZimBet** - Casino gaming platform (React + Matter.js)
+- **Todo App** - Cross-platform todo list (APK + EXE)
+- **StatusPulse** - Service monitoring (Firebase)
+- **Developer Tools** - Open source CLI tools & npm packages
 
----
+## Tech
 
-## 🎯 Featured Projects
+HTML5, CSS3 (Custom Properties, Grid, Flexbox), JavaScript (ES6+, Canvas API, Intersection Observer)
 
-### 🎮 [Zombie Survival FPS](https://tapiwamakandigona.github.io/fps-game/)
-A 3D browser-based shooter built with Three.js
+## Local Development
 
-### 💳 [ZimPay Banking App](https://tapiwamakandigona.github.io/zimpay/)
-Modern banking simulation with React & Supabase
+```bash
+# Just open index.html in a browser, or:
+npx serve .
+```
 
----
+## License
 
-## 👨‍💻 Author
-
-**Tapiwa Makandigona**
-
-- 📧 Email: silentics.org@gmail.com
-- 💻 GitHub: [@tapiwamakandigona](https://github.com/tapiwamakandigona)
-
----
-
-<div align="center">
-
-*Designed & Built with ❤️ by Tapiwa Makandigona*
-
-</div>
+MIT
