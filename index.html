@@ -1,783 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5">
-    <meta name="theme-color" content="#0a0a0f">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="description"
-        content="Tapiwa Makandigona - Developer Portfolio. Explore my projects including games, web apps, and more.">
-    <meta name="keywords"
-        content="developer, game developer, portfolio, Tapiwa Makandigona, web development, javascript, typescript, three.js, react">
-    <meta name="author" content="Tapiwa Makandigona">
-    <link rel="canonical" href="https://tapiwamakandigona.github.io/">
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Tapiwa Makandigona | Developer Portfolio">
-    <meta property="og:description"
-        content="Developer Portfolio - Explore my projects including games, web apps, and more. Creating immersive digital experiences.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tapiwamakandigona.github.io/portfolio/">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tapiwamakandigona.github.io/portfolio/">
-    <meta name="twitter:title" content="Tapiwa Makandigona | Developer Portfolio">
-    <meta name="twitter:description"
-        content="Developer Portfolio - Explore my projects including games, web apps, and more. Building cool stuff with TypeScript, Three.js, and React.">
-    <meta name="twitter:image" content="https://tapiwamakandigona.github.io/portfolio/og-image.png">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Tapiwa Makandigona",
-      "url": "https://tapiwamakandigona.github.io/",
-      "jobTitle": "Developer",
-      "sameAs": [
-        "https://github.com/tapiwamakandigona"
-      ],
-      "description": "Full-stack developer building games, web apps, mobile apps, and open-source developer tools. Specializing in TypeScript, React, Three.js, and cross-platform development.",
-      "knowsAbout": ["Web Development", "Game Development", "Mobile Development", "JavaScript", "TypeScript", "Three.js", "React", "Node.js", "Supabase", "Firebase", "Electron", "Capacitor", "Android", "DevOps", "CI/CD", "Open Source"]
-    }
-    </script>
-
-    <title>Tapiwa Makandigona | Developer Portfolio</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tapiwa Makandigona — Developer</title>
+  <meta name="description" content="Developer from Harare, Zimbabwe. Building web apps, games, and tools with TypeScript and React.">
+  <meta property="og:title" content="Tapiwa Makandigona — Developer">
+  <meta property="og:description" content="Developer from Harare, Zimbabwe. Building web apps, games, and tools with TypeScript and React.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tapiwamakandigona.github.io/portfolio/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
-<body class="loading">
-    <a href="#projects" class="skip-link">Skip to projects</a>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader-logo">
-            <span class="bracket">&lt;</span>TM<span class="bracket">/&gt;</span>
-        </div>
-        <div class="loader-bar"></div>
-        <p class="loader-text">Initializing...</p>
+<body>
+  <!-- Nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-name">Tapiwa Makandigona</a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
     </div>
-    <!-- Failsafe: Force hide loading screen -->
-    <script>
-        setTimeout(function () {
-            var ls = document.getElementById('loadingScreen');
-            if (ls) {
-                ls.style.opacity = '0';
-                ls.style.visibility = 'hidden';
-                ls.style.pointerEvents = 'none';
-                document.body.classList.remove('loading');
-            }
-        }, 1500);
-    </script>
+  </header>
 
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress"></div>
-
-    <!-- Custom Cursor (Desktop only) -->
-    <div class="custom-cursor"></div>
-
-    <!-- Particle Background Canvas -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Tapiwa Makandigona</h1>
+    <p>Developer from Harare, Zimbabwe. I build web apps, games, and tools with TypeScript and React.</p>
+    <div class="hero-links">
+      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+      <a href="https://github.com/tapiwamakandigona" class="btn btn-secondary" target="_blank" rel="noopener">GitHub →</a>
     </div>
+  </section>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container">
-        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <article class="card featured">
+        <h3>TapRide</h3>
+        <p>Full-stack ride-hailing app with real-time GPS tracking, driver matching, in-app chat, fare estimation, and star ratings.</p>
+        <div class="tags">
+          <span>React</span><span>TypeScript</span><span>Supabase</span><span>Leaflet</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tapiwamakandigona/tapride" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://tapiwamakandigona.github.io/tapride/" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </article>
+
+      <article class="card featured">
+        <h3>LanLink</h3>
+        <p>LAN file transfer and messaging between PC and phone. Drag-and-drop files, chat, clipboard sharing, auto-discovery.</p>
+        <div class="tags">
+          <span>React</span><span>TypeScript</span><span>Electron</span><span>Capacitor</span><span>WebSocket</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tapiwamakandigona/lanlink" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Zombie FPS</h3>
+        <p>3D browser-based zombie survival shooter with wave progression, weapons, and mystery boxes.</p>
+        <div class="tags">
+          <span>TypeScript</span><span>Three.js</span><span>WebGL</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tapiwamakandigona/fps-game" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://tapiwamakandigona.github.io/fps-game/" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>ZimBet</h3>
+        <p>Casino platform with 6 provably fair games: Aviator, Plinko, Mines, Dice, Coinflip, Wheel.</p>
+        <div class="tags">
+          <span>React</span><span>TypeScript</span><span>Supabase</span><span>Canvas</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tapiwamakandigona/zimbet" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://tapiwamakandigona.github.io/zimbet/" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>ZimPay</h3>
+        <p>Modern banking simulation with transfers, auth, and dark/light themes.</p>
+        <div class="tags">
+          <span>React</span><span>TypeScript</span><span>Supabase</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://tapiwamakandigona.github.io/zimpay/" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>URL Shortener</h3>
+        <p>Full-stack with click analytics, QR codes, and custom aliases.</p>
+        <div class="tags">
+          <span>Express</span><span>React</span><span>TypeScript</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tapiwamakandigona/url-shortener" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Todo App</h3>
+        <p>Cross-platform app for Android, Windows, macOS, Linux, and Web from one codebase.</p>
+        <div class="tags">
+          <span>React</span><span>TypeScript</span><span>Capacitor</span><span>Electron</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tapiwamakandigona/todo-app" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://tapiwamakandigona.github.io/todo-app/" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Realtime Chat</h3>
+        <p>Chat rooms with typing indicators and message history.</p>
+        <div class="tags">
+          <span>React</span><span>TypeScript</span><span>Supabase Realtime</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/tapiwamakandigona/realtime-chat" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://tapiwamakandigona.github.io/realtime-chat/" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </article>
+
     </div>
+  </section>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>TM<span class="logo-bracket">/&gt;</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener noreferrer" class="nav-github"
-                aria-label="GitHub Profile">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                    <path
-                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                </svg>
-            </a>
-            <!-- Theme Toggle -->
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-                <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                    stroke-width="2">
-                    <circle cx="12" cy="12" r="5" />
-                    <path
-                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                </svg>
-                <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                    stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-            </button>
-            <!-- Mobile Menu Toggle -->
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"
-                aria-controls="mobileNavOverlay" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+  <!-- Contact -->
+  <footer id="contact" class="section footer">
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:silentics.org@gmail.com">silentics.org@gmail.com</a> · 
+      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
+    </p>
+    <p class="footer-note">Built by Tapiwa Makandigona</p>
+  </footer>
 
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
-        <nav class="mobile-nav-links">
-            <a href="#home" class="mobile-nav-link">Home</a>
-            <a href="#about" class="mobile-nav-link">About</a>
-            <a href="#projects" class="mobile-nav-link">Projects</a>
-            <a href="#contact" class="mobile-nav-link">Contact</a>
-        </nav>
-    </div>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <p class="hero-greeting">
-                    <span class="wave">👋</span> Hello, I'm
-                </p>
-                <h1 class="hero-name">
-                    <span class="name-gradient animated-gradient">Tapiwa Makandigona</span>
-                </h1>
-                <h2 class="hero-title">
-                    <span class="role-prefix">I build </span>
-                    <span class="typing-text gradient-word"></span>
-                    <span class="cursor">|</span>
-                </h2>
-                <p class="hero-description">
-                    I transform ideas into immersive digital experiences. Specializing in game development
-                    and modern web applications, I combine creativity with clean code to build
-                    products that users love.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View My Work</span>
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="code-window">
-                    <div class="window-header">
-                        <div class="window-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="window-title">developer.ts</span>
-                    </div>
-                    <div class="window-content">
-                        <pre><code><span class="keyword">const</span> <span class="variable">developer</span> = {
-  <span class="property">name</span>: <span class="string">"Tapiwa Makandigona"</span>,
-  <span class="property">role</span>: <span class="string">"Developer"</span>,
-  <span class="property">skills</span>: [
-    <span class="string">"TypeScript"</span>,
-    <span class="string">"Three.js"</span>,
-    <span class="string">"Game Dev"</span>,
-    <span class="string">"Web Dev"</span>
-  ],
-  <span class="property">passion</span>: <span class="string">"Building cool stuff"</span>
-};</code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" aria-label="About Me" class="about">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">01.</span> About Me
-            </h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a developer from Harare, Zimbabwe. I build web apps, 3D browser games, and cross-platform tools — mostly with TypeScript and React. I like making things that actually work end-to-end: auth flows, real-time features, maps, the whole stack.
-                    </p>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Languages</h4>
-                            <ul class="skill-list">
-                                <li><span class="skill-icon">▹</span> TypeScript</li>
-                                <li><span class="skill-icon">▹</span> React</li>
-                                <li><span class="skill-icon">▹</span> Three.js</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Technologies</h4>
-                            <ul class="skill-list">
-                                <li><span class="skill-icon">▹</span> Supabase</li>
-                                <li><span class="skill-icon">▹</span> Tailwind CSS</li>
-                                <li><span class="skill-icon">▹</span> Node.js</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <div class="avatar-3d-container">
-                        <div class="avatar-cube">
-                            <div class="cube-face front">
-                                <span class="face-initials">TM</span>
-                            </div>
-                            <div class="cube-face back">
-                                <span class="face-icon">💻</span>
-                            </div>
-                            <div class="cube-face right">
-                                <span class="face-icon">🎮</span>
-                            </div>
-                            <div class="cube-face left">
-                                <span class="face-icon">🚀</span>
-                            </div>
-                            <div class="cube-face top">
-                                <span class="face-icon">⚡</span>
-                            </div>
-                            <div class="cube-face bottom">
-                                <span class="face-icon">🔥</span>
-                            </div>
-                        </div>
-                        <div class="avatar-glow"></div>
-                        <div class="avatar-ring"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" aria-label="Projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">02.</span> My Projects
-            </h2>
-            <p class="section-subtitle">Here are some things I've built</p>
-
-            <div class="projects-grid">
-                <!-- Featured Project: TapRide -->
-                <article class="project-card featured">
-                    <div class="project-image">
-                        <div class="game-preview" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);">
-                            <div class="game-icon">🚗</div>
-                            <div class="game-particles">
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://tapiwamakandigona.github.io/tapride/" target="_blank"
-                                rel="noopener noreferrer" class="play-button">
-                                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                </svg>
-                                <span>View App</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-label">Featured Project</span>
-                        <h3 class="project-title">TapRide — Ride-Hailing Platform</h3>
-                        <p class="project-description">
-                            Full-stack ride-hailing app with real-time GPS tracking, driver matching, in-app chat, fare estimation, and star ratings. Built with React, TypeScript, Supabase, and Leaflet maps.
-                        </p>
-                        <ul class="project-tech">
-                            <li>React</li>
-                            <li>TypeScript</li>
-                            <li>Supabase</li>
-                            <li>Leaflet</li>
-                            <li>Capacitor</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/tapride" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="View Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                </svg>
-                            </a>
-                            <a href="https://tapiwamakandigona.github.io/tapride/" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Live Demo">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Featured Project: FPS Game -->
-                <article class="project-card featured">
-                    <div class="project-image">
-                        <div class="game-preview">
-                            <div class="game-icon">🎮</div>
-                            <div class="game-particles">
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://tapiwamakandigona.github.io/fps-game/" target="_blank"
-                                rel="noopener noreferrer" class="play-button">
-                                <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                                <span>Play Now</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-label">Featured Project</span>
-                        <h3 class="project-title">Zombie Survival FPS</h3>
-                        <p class="project-description">
-                            A thrilling 3D first-person shooter game built with Three.js.
-                            Battle through waves of zombies, collect weapons, and survive as long as you can.
-                            Features multiple enemy types, mystery boxes, shop stations, and mobile controls.
-                        </p>
-                        <ul class="project-tech">
-                            <li>TypeScript</li>
-                            <li>Three.js</li>
-                            <li>Howler.js</li>
-                            <li>Vite</li>
-                            <li>WebGL</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/fps-game" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="View Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path
-                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                </svg>
-                            </a>
-                            <a href="https://tapiwamakandigona.github.io/fps-game/" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Play Game">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- ZimBet Betting Game -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="game-preview"
-                            style="background: linear-gradient(135deg, #7C3AED 0%, #C026D3 100%);">
-                            <div class="game-icon">🎰</div>
-                            <div class="game-particles">
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://tapiwamakandigona.github.io/zimbet/" target="_blank"
-                                rel="noopener noreferrer" class="play-button">
-                                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                                </svg>
-                                <span>Place Your Bet</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-label">Browser Game</span>
-                        <h3 class="project-title">ZimBet</h3>
-                        <p class="project-description">
-                            Casino gaming platform with 6 provably fair games — Aviator (Crash), Plinko, Mines, Dice, Coinflip, and Wheel. Real-time multiplayer with Supabase.
-                        </p>
-                        <ul class="project-tech">
-                            <li>React</li>
-                            <li>TypeScript</li>
-                            <li>Supabase</li>
-                            <li>Canvas</li>
-                            <li>WebSocket</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/zimbet" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="View Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path
-                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                </svg>
-                            </a>
-                            <a href="https://tapiwamakandigona.github.io/zimbet/" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Play Game">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- ZimPay Banking App -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="game-preview"
-                            style="background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);">
-                            <div class="game-icon">💳</div>
-                            <div class="game-particles">
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://tapiwamakandigona.github.io/zimpay/" target="_blank"
-                                rel="noopener noreferrer" class="play-button">
-                                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                </svg>
-                                <span>Check it out</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-label">Web Application</span>
-                        <h3 class="project-title">ZimPay Banking App</h3>
-                        <p class="project-description">
-                            A modern banking simulation app with real-time money transfers,
-                            user authentication, beautiful dark/light themes, and a premium glassmorphism design.
-                            Features email verification, password reset, and profile management.
-                        </p>
-                        <ul class="project-tech">
-                            <li>React</li>
-                            <li>TypeScript</li>
-                            <li>Supabase</li>
-                            <li>Vite</li>
-                            <li>CSS3</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/zimpay" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="View Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path
-                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                </svg>
-                            </a>
-                            <a href="https://tapiwamakandigona.github.io/zimpay/" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Open App">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Todo App -->
-                <article class="project-card" data-category="app">
-                    <div class="project-image" style="background: linear-gradient(135deg, #1a1a2e, #e94560);">
-                        <div class="coming-soon-content">
-                            <span style="font-size:48px">&#10003;</span>
-                            <span class="coming-text" style="font-size:18px;font-weight:700">Todo App</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Todo App</h3>
-                        <p class="project-description">
-                            Beautiful dark-themed todo list available as Android APK, Windows EXE, macOS DMG, and web app. Offline support, smooth animations.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Capacitor</span>
-                            <span class="tag">Electron</span>
-                            <span class="tag">Android</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/todo-app" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="View Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <a href="https://github.com/tapiwamakandigona/todo-app/releases/latest" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Download">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Developer Tools -->
-                <article class="project-card" data-category="tools">
-                    <div class="project-image" style="background: linear-gradient(135deg, #12121a, #6366f1);">
-                        <div class="coming-soon-content">
-                            <span style="font-size:48px">&#9881;</span>
-                            <span class="coming-text" style="font-size:18px;font-weight:700">Open Source Tools</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Developer Tools</h3>
-                        <p class="project-description">
-                            A suite of open-source CLI tools and npm packages: env-guard, json-lint-cli, http-ping-cli, pwgen-cli, ts-color-utils, and md-preview-server.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">CLI</span>
-                            <span class="tag">npm</span>
-                            <span class="tag">Open Source</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona?tab=repositories" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="View All">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            
-                <!-- Analytics Dashboard -->
-                <article class="project-card" data-category="app">
-                    <div class="project-image" style="background: linear-gradient(135deg, #0f0f14, #6366f1);">
-                        <div class="coming-soon-content">
-                            <span style="font-size:48px">&#128202;</span>
-                            <span class="coming-text" style="font-size:18px;font-weight:700">Analytics Dashboard</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Analytics Dashboard</h3>
-                        <p class="project-description">
-                            Real-time analytics dashboard with KPI cards, revenue charts, user growth visualization, and transaction data tables. Custom SVG charts, no external dependencies.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">SVG Charts</span>
-                            <span class="tag">Data Viz</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/react-analytics-dashboard" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <a href="https://tapiwamakandigona.github.io/react-analytics-dashboard/" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Demo">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Realtime Chat -->
-                <article class="project-card" data-category="app">
-                    <div class="project-image" style="background: linear-gradient(135deg, #111119, #22c55e);">
-                        <div class="coming-soon-content">
-                            <span style="font-size:48px">&#128172;</span>
-                            <span class="coming-text" style="font-size:18px;font-weight:700">Realtime Chat</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Realtime Chat</h3>
-                        <p class="project-description">
-                            Real-time chat application with multiple rooms, user avatars, message grouping, and mobile-responsive design. Built for Supabase Realtime integration.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">WebSocket</span>
-                            <span class="tag">Supabase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/realtime-chat" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                            <a href="https://tapiwamakandigona.github.io/realtime-chat/" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Demo">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Express API Starter -->
-                <article class="project-card" data-category="tools">
-                    <div class="project-image" style="background: linear-gradient(135deg, #1a1a25, #eab308);">
-                        <div class="coming-soon-content">
-                            <span style="font-size:48px">&#9889;</span>
-                            <span class="coming-text" style="font-size:18px;font-weight:700">REST API Starter</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Express API Starter</h3>
-                        <p class="project-description">
-                            Production-ready REST API with JWT authentication, rate limiting, error handling, request logging, and full test coverage. Backend engineering showcase.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Express</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">JWT</span>
-                            <span class="tag">Jest</span>
-                            <span class="tag">Backend</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/express-api-starter" target="_blank"
-                                rel="noopener noreferrer" class="project-link" aria-label="Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Expense Tracker -->
-                <article class="project-card" data-category="app">
-                    <div class="project-image" style="background: linear-gradient(135deg, #0f0f14, #ef4444);">
-                        <div class="coming-soon-content">
-                            <span style="font-size:48px">&#128176;</span>
-                            <span class="coming-text" style="font-size:18px;font-weight:700">Expense Tracker</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Expense Tracker</h3>
-                        <p class="project-description">
-                            Personal finance tracker with income/expense categories, visual breakdowns, date filtering, and CSV export. All data stored locally.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Finance</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/expense-tracker" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            </a>
-                            <a href="https://tapiwamakandigona.github.io/expense-tracker/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Demo">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Markdown Notes -->
-                <article class="project-card" data-category="app">
-                    <div class="project-image" style="background: linear-gradient(135deg, #0f0f14, #8b5cf6);">
-                        <div class="coming-soon-content">
-                            <span style="font-size:48px">&#128221;</span>
-                            <span class="coming-text" style="font-size:18px;font-weight:700">Markdown Notes</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Markdown Notes</h3>
-                        <p class="project-description">
-                            Note-taking app with live Markdown preview, folders, search, pinning, and word count. Split-pane editor with monospace font.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Markdown</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/tapiwamakandigona/markdown-notes" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Source">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            </a>
-                            <a href="https://tapiwamakandigona.github.io/markdown-notes/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Demo">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-</div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" aria-label="Contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">03.</span> Get In Touch
-            </h2>
-            <div class="contact-content">
-                <p class="contact-text">
-                    I'm always open to new opportunities and collaborations.
-                    Whether you have a project idea, a question, or just want to say hello,
-                    feel free to reach out!
-                </p>
-                <a href="mailto:silentics.org@gmail.com" class="btn btn-primary btn-large">
-                    <span>Say Hello</span>
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                        <polyline points="22,6 12,13 2,6" />
-                    </svg>
-                </a>
-                <div class="social-links">
-                    <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener noreferrer"
-                        class="social-link" aria-label="GitHub Profile">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                            <path
-                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-text">
-                Designed & Built by <span class="highlight">Tapiwa Makandigona</span>
-            </p>
-            <p class="footer-year">© 2026</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
