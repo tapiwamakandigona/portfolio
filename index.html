@@ -1,156 +1,415 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tapiwa Makandigona — Developer</title>
-  <meta name="description" content="Developer from Harare, Zimbabwe. Building web apps, games, and tools with TypeScript and React.">
-  <meta property="og:title" content="Tapiwa Makandigona — Developer">
-  <meta property="og:description" content="Developer from Harare, Zimbabwe. Building web apps, games, and tools with TypeScript and React.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tapiwamakandigona.github.io/portfolio/">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta -->
+  <title>Tapiwa Makandigona — Full-Stack Developer</title>
+  <meta name="description" content="Full-stack developer from Harare, Zimbabwe. I build web apps, 3D games, and cross-platform tools with TypeScript, React, Supabase, and Three.js." />
+  <meta name="author" content="Tapiwa Makandigona" />
+  <meta name="keywords" content="Tapiwa Makandigona, full-stack developer, Zimbabwe, TypeScript, React, Supabase, Three.js, web developer" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://tapiwa.me/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tapiwa.me/" />
+  <meta property="og:title" content="Tapiwa Makandigona — Full-Stack Developer" />
+  <meta property="og:description" content="Full-stack developer from Harare, Zimbabwe. I build web apps, 3D games, and cross-platform tools with TypeScript, React, Supabase, and Three.js." />
+  <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tapiwa Makandigona — Full-Stack Developer" />
+  <meta name="twitter:description" content="Full-stack developer from Harare, Zimbabwe. Building web apps, games, and tools." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text y='.9em' font-size='65' x='17'>T</text></svg>" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Nav -->
-  <header class="nav">
+
+  <!-- ── Navigation ─────────────────────────────── -->
+  <header class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-name">Tapiwa Makandigona</a>
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-links">
+      <a href="#" class="nav-logo">tm<span class="logo-dot">.</span></a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <button class="theme-toggle" aria-label="Toggle theme">
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour scheme" title="Toggle dark/light mode">
+          <!-- Sun -->
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <!-- Moon -->
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
       </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Tapiwa Makandigona</h1>
-    <p>Developer from Harare, Zimbabwe. I build web apps, games, and tools with TypeScript and React.</p>
-    <div class="hero-links">
-      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
-      <a href="https://github.com/tapiwamakandigona" class="btn btn-secondary" target="_blank" rel="noopener">GitHub →</a>
+  <!-- ── Hero ───────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for work
+      </div>
+
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Tapiwa</span>
+      </h1>
+
+      <p class="hero-sub">
+        Full-stack developer from <span class="highlight">Harare, Zimbabwe 🇿🇼</span> — building
+        web apps, 3D browser games, and cross-platform tools with TypeScript and React.
+      </p>
+
+      <div class="hero-stack">
+        <span>TypeScript</span>
+        <span>React</span>
+        <span>Supabase</span>
+        <span>Three.js</span>
+        <span>Capacitor</span>
+        <span>Electron</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://github.com/tapiwamakandigona" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:silentics.org@gmail.com" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-
-      <article class="card featured">
-        <h3>TapRide</h3>
-        <p>Full-stack ride-hailing app with real-time GPS tracking, driver matching, in-app chat, fare estimation, and star ratings.</p>
-        <div class="tags">
-          <span>React</span><span>TypeScript</span><span>Supabase</span><span>Leaflet</span>
+  <!-- ── About ──────────────────────────────────── -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <h2 class="section-title reveal">About</h2>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>
+            I'm a self-taught full-stack developer passionate about building things that solve
+            real problems. I focus on delivering polished, production-ready apps — not just prototypes.
+          </p>
+          <p>
+            My core stack is <strong>React + TypeScript + Supabase</strong> for web apps, 
+            <strong>Three.js</strong> for anything 3D, and <strong>Capacitor + Electron</strong>
+            when I need to ship to mobile and desktop from a single codebase.
+          </p>
+          <p>
+            I also build CLI tools, npm libraries, and REST APIs when needed.
+            Always looking for interesting problems to work on — reach out if you have one.
+          </p>
         </div>
-        <div class="card-links">
-          <a href="https://github.com/tapiwamakandigona/tapride" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://tapiwamakandigona.github.io/tapride/" target="_blank" rel="noopener">Live Demo</a>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number" data-target="23">0</span>
+            <span class="stat-label">Public Repos</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="5">0</span>
+            <span class="stat-label">Platforms Shipped</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="10">0</span>
+            <span class="stat-label">CLI / Library Tools</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="1">0</span>
+            <span class="stat-label">Country</span>
+          </div>
         </div>
-      </article>
-
-      <article class="card featured">
-        <h3>LanLink</h3>
-        <p>LAN file transfer and messaging between PC and phone. Drag-and-drop files, chat, clipboard sharing, auto-discovery.</p>
-        <div class="tags">
-          <span>React</span><span>TypeScript</span><span>Electron</span><span>Capacitor</span><span>WebSocket</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/tapiwamakandigona/lanlink" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Zombie FPS</h3>
-        <p>3D browser-based zombie survival shooter with wave progression, weapons, and mystery boxes.</p>
-        <div class="tags">
-          <span>TypeScript</span><span>Three.js</span><span>WebGL</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/tapiwamakandigona/fps-game" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://tapiwamakandigona.github.io/fps-game/" target="_blank" rel="noopener">Live Demo</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>ZimBet</h3>
-        <p>Casino platform with 6 provably fair games: Aviator, Plinko, Mines, Dice, Coinflip, Wheel.</p>
-        <div class="tags">
-          <span>React</span><span>TypeScript</span><span>Supabase</span><span>Canvas</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/tapiwamakandigona/zimbet" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://tapiwamakandigona.github.io/zimbet/" target="_blank" rel="noopener">Live Demo</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>ZimPay</h3>
-        <p>Modern banking simulation with transfers, auth, and dark/light themes.</p>
-        <div class="tags">
-          <span>React</span><span>TypeScript</span><span>Supabase</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://tapiwamakandigona.github.io/zimpay/" target="_blank" rel="noopener">Live Demo</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>URL Shortener</h3>
-        <p>Full-stack with click analytics, QR codes, and custom aliases.</p>
-        <div class="tags">
-          <span>Express</span><span>React</span><span>TypeScript</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/tapiwamakandigona/url-shortener" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Todo App</h3>
-        <p>Cross-platform app for Android, Windows, macOS, Linux, and Web from one codebase.</p>
-        <div class="tags">
-          <span>React</span><span>TypeScript</span><span>Capacitor</span><span>Electron</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/tapiwamakandigona/todo-app" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://tapiwamakandigona.github.io/todo-app/" target="_blank" rel="noopener">Live Demo</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Realtime Chat</h3>
-        <p>Chat rooms with typing indicators and message history.</p>
-        <div class="tags">
-          <span>React</span><span>TypeScript</span><span>Supabase Realtime</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/tapiwamakandigona/realtime-chat" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://tapiwamakandigona.github.io/realtime-chat/" target="_blank" rel="noopener">Live Demo</a>
-        </div>
-      </article>
-
+      </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <footer id="contact" class="section footer">
-    <h2>Contact</h2>
-    <p>
-      <a href="mailto:silentics.org@gmail.com">silentics.org@gmail.com</a> · 
-      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
-    </p>
-    <p class="footer-note">Built by Tapiwa Makandigona</p>
+  <!-- ── Projects ───────────────────────────────── -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Projects</h2>
+
+      <div class="filter-bar reveal" role="group" aria-label="Filter projects by category">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+        <button class="filter-btn" data-filter="game">Games</button>
+        <button class="filter-btn" data-filter="tool">Tools</button>
+        <button class="filter-btn" data-filter="crossplatform">Cross-Platform</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <article class="card reveal" data-category="fullstack" data-tags="React,TypeScript,Supabase,Leaflet,Capacitor">
+          <div class="card-header">
+            <span class="card-icon">🚗</span>
+            <div class="card-badges">
+              <span class="badge badge-featured">Featured</span>
+            </div>
+          </div>
+          <h3 class="card-title">TapRide</h3>
+          <p class="card-desc">Full-stack ride-hailing app with real-time GPS tracking, driver matching, in-app chat, fare estimation, and star ratings.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Supabase</span><span>Leaflet</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/tapride" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+            <a href="https://tapiwamakandigona.github.io/tapride/" target="_blank" rel="noopener" class="card-link card-link-demo">Live Demo ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="game" data-tags="TypeScript,Three.js,WebGL">
+          <div class="card-header">
+            <span class="card-icon">🧟</span>
+            <div class="card-badges">
+              <span class="badge badge-featured">Featured</span>
+            </div>
+          </div>
+          <h3 class="card-title">Browser FPS Game</h3>
+          <p class="card-desc">3D zombie survival shooter running in the browser. Wave progression, particle systems, mystery boxes — no plugins required.</p>
+          <div class="tags"><span>TypeScript</span><span>Three.js</span><span>WebGL</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/fps-game" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+            <a href="https://tapiwamakandigona.github.io/fps-game/" target="_blank" rel="noopener" class="card-link card-link-demo">Play Now ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="fullstack" data-tags="React,TypeScript,Supabase,Canvas">
+          <div class="card-header">
+            <span class="card-icon">🎲</span>
+            <div class="card-badges">
+              <span class="badge badge-featured">Featured</span>
+            </div>
+          </div>
+          <h3 class="card-title">ZimBet</h3>
+          <p class="card-desc">Casino platform with 6 provably fair games: Aviator (Crash), Plinko, Mines, Dice, Coinflip, Wheel. Real-time multiplayer.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Supabase Realtime</span><span>Canvas</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/zimbet" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+            <a href="https://tapiwamakandigona.github.io/zimbet/" target="_blank" rel="noopener" class="card-link card-link-demo">Live Demo ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="crossplatform" data-tags="React,TypeScript,Electron,Capacitor,WebSocket">
+          <div class="card-header">
+            <span class="card-icon">📡</span>
+            <div class="card-badges">
+              <span class="badge badge-featured">Featured</span>
+            </div>
+          </div>
+          <h3 class="card-title">LanLink</h3>
+          <p class="card-desc">LAN file transfer & messaging between PC and Android. Drag-and-drop, clipboard sync, chat, auto-discovery over local network.</p>
+          <div class="tags"><span>Electron</span><span>Capacitor</span><span>WebSocket</span><span>TypeScript</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/lanlink" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="fullstack" data-tags="React,TypeScript,Tailwind,Supabase">
+          <div class="card-header">
+            <span class="card-icon">🏦</span>
+            <div class="card-badges"></div>
+          </div>
+          <h3 class="card-title">ZimPay</h3>
+          <p class="card-desc">Modern banking simulation with real-time transfers, Supabase auth, and dark/light themes.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Supabase</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+            <a href="https://tapiwamakandigona.github.io/zimpay/" target="_blank" rel="noopener" class="card-link card-link-demo">Live Demo ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="fullstack" data-tags="Express,React,TypeScript">
+          <div class="card-header">
+            <span class="card-icon">🔗</span>
+            <div class="card-badges"></div>
+          </div>
+          <h3 class="card-title">URL Shortener</h3>
+          <p class="card-desc">Full-stack URL shortener with click analytics, QR code generation, and custom aliases.</p>
+          <div class="tags"><span>Express</span><span>React</span><span>TypeScript</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/url-shortener" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="fullstack" data-tags="React,TypeScript,Supabase Realtime">
+          <div class="card-header">
+            <span class="card-icon">💬</span>
+            <div class="card-badges"></div>
+          </div>
+          <h3 class="card-title">Realtime Chat</h3>
+          <p class="card-desc">Chat rooms with typing indicators and persistent message history. Built on Supabase Realtime.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Supabase Realtime</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/realtime-chat" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+            <a href="https://tapiwamakandigona.github.io/realtime-chat/" target="_blank" rel="noopener" class="card-link card-link-demo">Live Demo ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="crossplatform" data-tags="React,TypeScript,Capacitor,Electron">
+          <div class="card-header">
+            <span class="card-icon">✅</span>
+            <div class="card-badges"></div>
+          </div>
+          <h3 class="card-title">Todo App</h3>
+          <p class="card-desc">One React codebase, five platforms: Android, Windows, macOS, Linux, and Web.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Capacitor</span><span>Electron</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/todo-app" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+            <a href="https://tapiwamakandigona.github.io/todo-app/" target="_blank" rel="noopener" class="card-link card-link-demo">Live Demo ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="tool" data-tags="TypeScript,React,Rollup">
+          <div class="card-header">
+            <span class="card-icon">📦</span>
+            <div class="card-badges"></div>
+          </div>
+          <h3 class="card-title">React UI Kit</h3>
+          <p class="card-desc">Zero-dependency React component library — Button, Input, Modal, Toast, Card, Badge. TypeScript-first with dark theme.</p>
+          <div class="tags"><span>TypeScript</span><span>React</span><span>Rollup</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/react-ui-kit" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="fullstack" data-tags="Express,TypeScript,Prisma,JWT">
+          <div class="card-header">
+            <span class="card-icon">🚀</span>
+            <div class="card-badges"></div>
+          </div>
+          <h3 class="card-title">Express API Starter</h3>
+          <p class="card-desc">Production-ready REST API starter with Express, TypeScript, Prisma ORM, JWT auth, validation, error handling, and tests.</p>
+          <div class="tags"><span>Express</span><span>TypeScript</span><span>Prisma</span><span>JWT</span></div>
+          <div class="card-links">
+            <a href="https://github.com/tapiwamakandigona/express-api-starter" target="_blank" rel="noopener" class="card-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              Code
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="view-all reveal">
+        <a href="https://github.com/tapiwamakandigona?tab=repositories" target="_blank" rel="noopener" class="btn btn-outline">
+          View All Repos on GitHub →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ─────────────────────────────────── -->
+  <section class="section section-alt" id="skills">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-group reveal">
+          <h3>Frontend</h3>
+          <ul>
+            <li><span class="skill-name">TypeScript</span><span class="skill-bar"><span style="--w:95%"></span></span></li>
+            <li><span class="skill-name">React</span><span class="skill-bar"><span style="--w:95%"></span></span></li>
+            <li><span class="skill-name">Tailwind CSS</span><span class="skill-bar"><span style="--w:88%"></span></span></li>
+            <li><span class="skill-name">Three.js / WebGL</span><span class="skill-bar"><span style="--w:78%"></span></span></li>
+            <li><span class="skill-name">HTML / CSS</span><span class="skill-bar"><span style="--w:92%"></span></span></li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3>Backend & Database</h3>
+          <ul>
+            <li><span class="skill-name">Node.js / Express</span><span class="skill-bar"><span style="--w:85%"></span></span></li>
+            <li><span class="skill-name">Supabase</span><span class="skill-bar"><span style="--w:90%"></span></span></li>
+            <li><span class="skill-name">PostgreSQL</span><span class="skill-bar"><span style="--w:80%"></span></span></li>
+            <li><span class="skill-name">Prisma ORM</span><span class="skill-bar"><span style="--w:82%"></span></span></li>
+            <li><span class="skill-name">REST APIs</span><span class="skill-bar"><span style="--w:90%"></span></span></li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3>Cross-Platform & Tooling</h3>
+          <ul>
+            <li><span class="skill-name">Capacitor (iOS/Android)</span><span class="skill-bar"><span style="--w:80%"></span></span></li>
+            <li><span class="skill-name">Electron (Desktop)</span><span class="skill-bar"><span style="--w:80%"></span></span></li>
+            <li><span class="skill-name">Vite / Rollup</span><span class="skill-bar"><span style="--w:85%"></span></span></li>
+            <li><span class="skill-name">Git / GitHub</span><span class="skill-bar"><span style="--w:90%"></span></span></li>
+            <li><span class="skill-name">Linux / CLI</span><span class="skill-bar"><span style="--w:82%"></span></span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ────────────────────────────────── -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Contact</h2>
+      <div class="contact-block reveal">
+        <p>I'm open to freelance work, collaboration, and interesting projects. Reach out directly:</p>
+        <a href="mailto:silentics.org@gmail.com" class="contact-email">silentics.org@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener" class="contact-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">tm<span class="logo-dot">.</span></span>
+      <p>Tapiwa Makandigona · Harare, Zimbabwe · <a href="mailto:silentics.org@gmail.com">silentics.org@gmail.com</a></p>
+      <p class="footer-note">Built with vanilla HTML, CSS & JS · Deployed on <a href="https://appwrite.io" target="_blank" rel="noopener">Appwrite</a></p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
