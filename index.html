@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tapiwa Makandigona</title>
-  <meta name="description" content="Full-stack developer from Harare, Zimbabwe. I build web apps, 3D browser games, and cross-platform tools." />
+  <meta name="description" content="Full-stack developer from Kwekwe, Zimbabwe. I build web apps, 3D browser games, and cross-platform tools." />
   <meta property="og:title" content="Tapiwa Makandigona" />
-  <meta property="og:description" content="Full-stack developer from Harare, Zimbabwe." />
+  <meta property="og:description" content="Full-stack developer from Kwekwe, Zimbabwe." />
   <meta property="og:url" content="https://tapiwa.me/" />
   <link rel="canonical" href="https://tapiwa.me/" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>T</text></svg>" />
@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#fafaf9" id="theme-meta" />
 </head>
 <body>
 
@@ -23,6 +23,9 @@
     <nav>
       <a href="mailto:silentics.org@gmail.com" id="email-link">Email</a>
       <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
     </nav>
   </header>
 
@@ -30,7 +33,7 @@
 
     <!-- HERO -->
     <section class="hero">
-      <p class="hero-location">Harare, Zimbabwe</p>
+      <p class="hero-location">Kwekwe, Zimbabwe</p>
       <h1 class="hero-title">
         Full-stack<br>
         developer.
@@ -172,24 +175,66 @@
       </a>
     </section>
 
+    <!-- RECOGNITION -->
+    <section class="section" id="recognition">
+      <h2 class="section-label">Recognition</h2>
+
+      <ol class="award-list">
+
+        <li class="award-item">
+          <div class="award-badge bronze">🥉</div>
+          <div class="award-body">
+            <div class="award-top">
+              <h3 class="award-title">Bronze Medal — AOAI</h3>
+              <span class="award-org">African Olympiad in Artificial Intelligence</span>
+            </div>
+            <p class="award-desc">Competed across African nations in AI problem-solving and algorithmic challenges. Awarded bronze.</p>
+          </div>
+        </li>
+
+        <li class="award-item">
+          <div class="award-badge gold">🌍</div>
+          <div class="award-body">
+            <div class="award-top">
+              <h3 class="award-title">4th Place — AOAI</h3>
+              <span class="award-org">African Olympiad in Artificial Intelligence</span>
+            </div>
+            <p class="award-desc">Represented Zimbabwe at the continental level, finishing 4th overall among top students across Africa.</p>
+          </div>
+        </li>
+
+        <li class="award-item">
+          <div class="award-badge">🏅</div>
+          <div class="award-body">
+            <div class="award-top">
+              <h3 class="award-title">Finalist — NOAI</h3>
+              <span class="award-org">National Olympiad in Artificial Intelligence · Zimbabwe</span>
+            </div>
+            <p class="award-desc">Reached the national final round, qualifying to represent Zimbabwe in continental competition.</p>
+          </div>
+        </li>
+
+      </ol>
+    </section>
+
     <!-- ABOUT -->
     <section class="section" id="about">
       <h2 class="section-label">About</h2>
       <div class="about-text">
         <p>
-          I'm a self-taught developer from Harare, Zimbabwe. I started building out of curiosity — 
-          first small scripts, then full products. Now I focus on the full picture: 
-          backend architecture, database design, responsive UI, and native packaging 
+          I'm a self-taught developer from Kwekwe, Zimbabwe. I started building out of curiosity —
+          first small scripts, then full products. Now I focus on the full picture:
+          backend architecture, database design, responsive UI, and native packaging
           so apps run on web, Android, Windows, and Linux from a single codebase.
         </p>
         <p>
-          My stack is <strong>React + TypeScript + Supabase</strong> for most things, 
-          <strong>Three.js</strong> when I need 3D, and 
-          <strong>Capacitor + Electron</strong> for cross-platform reach. 
+          My stack is <strong>React + TypeScript + Supabase</strong> for most things,
+          <strong>Three.js</strong> when I need 3D, and
+          <strong>Capacitor + Electron</strong> for cross-platform reach.
           I like building in the open.
         </p>
         <p>
-          Outside of code: game design, system design, and trying to make things 
+          Outside of code: game design, system design, and trying to make things
           that people actually use.
         </p>
       </div>
@@ -203,7 +248,7 @@
 
   <footer class="site-footer">
     <span>© <span id="yr"></span> Tapiwa Makandigona</span>
-    <span>Harare, Zimbabwe 🇿🇼</span>
+    <span>Kwekwe, Zimbabwe 🇿🇼</span>
     <a href="mailto:silentics.org@gmail.com">silentics.org@gmail.com</a>
   </footer>
 
