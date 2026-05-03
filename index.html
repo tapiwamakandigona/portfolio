@@ -14,13 +14,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#0a0a0a" />
 </head>
 <body>
 
   <header class="site-header">
     <span class="header-name">Tapiwa Makandigona</span>
     <nav>
-      <a href="mailto:silentics.org@gmail.com">Email</a>
+      <a href="mailto:silentics.org@gmail.com" id="email-link">Email</a>
       <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </header>
@@ -29,7 +30,7 @@
 
     <!-- HERO -->
     <section class="hero">
-      <p class="hero-location">Harare, Zimbabwe — available for work</p>
+      <p class="hero-location"><span class="avail-dot"></span>Harare, Zimbabwe — available for work</p>
       <h1 class="hero-title">
         Full-stack<br>
         developer.
@@ -201,10 +202,12 @@
   </main>
 
   <footer class="site-footer">
-    <span>© 2025 Tapiwa Makandigona</span>
+    <span>© <span id="yr"></span> Tapiwa Makandigona</span>
     <span>Harare, Zimbabwe 🇿🇼</span>
     <a href="mailto:silentics.org@gmail.com">silentics.org@gmail.com</a>
   </footer>
+
+  <button class="back-top" id="back-top" aria-label="Back to top">↑</button>
 
   <script src="script.js"></script>
 </body>
