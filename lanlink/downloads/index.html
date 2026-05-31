@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download LanLink</title>
+  <meta name="description" content="Download LanLink for Android, iOS, Windows and macOS. Free, no account required." />
+  <meta property="og:title" content="Download LanLink" />
+  <meta property="og:description" content="Download LanLink for Android, iOS, Windows and macOS." />
+  <meta property="og:url" content="https://tapiwa.me/lanlink/downloads/" />
+  <link rel="canonical" href="https://tapiwa.me/lanlink/downloads/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>T</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#fafaf9" id="theme-meta" />
+  <style>
+    .dl-grid { display: flex; flex-direction: column; gap: 14px; }
+    .dl-card {
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 18px 18px; transition: background .15s, border-color .15s;
+    }
+    .dl-card:hover { background: var(--surface); }
+    .dl-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .dl-icon { font-size: 22px; line-height: 1; }
+    .dl-name { font-size: 15px; font-weight: 500; color: var(--ink); }
+    .dl-sub { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin-top: 1px; }
+    .dl-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .dl-btn {
+      font-family: var(--mono); font-size: 12px; letter-spacing: .02em;
+      padding: 9px 16px; border-radius: 8px;
+      background: var(--accent); color: #fff; border: 1px solid var(--accent);
+      transition: opacity .15s;
+    }
+    .dl-btn:hover { opacity: .9; color: #fff; border-color: var(--accent); }
+    .dl-note { font-size: 13px; line-height: 1.6; color: var(--ink-2); margin-top: 10px; }
+    .dl-note strong { color: var(--ink); font-weight: 500; }
+    .dl-more { margin-top: 12px; }
+    .dl-more summary {
+      font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+      cursor: pointer; list-style: none;
+    }
+    .dl-more summary:hover { color: var(--ink); }
+    .dl-more[open] summary { margin-bottom: 10px; }
+    .dl-alt { display: flex; flex-wrap: wrap; gap: 8px; }
+    .dl-alt a {
+      font-family: var(--mono); font-size: 11px; color: var(--ink-2);
+      border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dl-alt a:hover { color: var(--ink); border-color: var(--ink-3); }
+    .dl-version {
+      font-family: var(--mono); font-size: 12px; color: var(--ink-3);
+      border: 1px solid var(--border); border-radius: 6px; padding: 3px 9px;
+      display: inline-block; margin-top: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/lanlink/">About LanLink</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <p class="hero-location">Free · No account required</p>
+      <h1 class="hero-title">Download<br>LanLink.</h1>
+      <p class="hero-bio">
+        Pick your platform below. Install LanLink on at least two devices, connect
+        them to the same Wi-Fi or hotspot, and start sending.
+      </p>
+      <span class="dl-version">Latest: <span id="ll-version">v3.3.0</span></span>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">Choose your device</h2>
+      <div class="dl-grid">
+
+        <!-- ANDROID -->
+        <div class="dl-card">
+          <div class="dl-head">
+            <span class="dl-icon">🤖</span>
+            <div>
+              <div class="dl-name">Android</div>
+              <div class="dl-sub">phones &amp; tablets · Android 8+</div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <a class="dl-btn" href="https://fra.cloud.appwrite.io/v1/storage/buckets/downloads/files/lanlink-android-universal/download?project=69e62515000e9e781653">Download APK</a>
+            <span class="dl-sub">universal · works on any phone</span>
+          </div>
+          <p class="dl-note">
+            Tap the file after downloading to install. Android may ask you to
+            <strong>allow installing from this source</strong> the first time — that's
+            normal for apps installed outside the Play Store.
+          </p>
+          <details class="dl-more">
+            <summary>Other Android builds</summary>
+            <div class="dl-alt">
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/downloads/files/lanlink-android-arm64/download?project=69e62515000e9e781653">arm64-v8a (smaller · most modern phones)</a>
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/downloads/files/lanlink-android-armeabi/download?project=69e62515000e9e781653">armeabi-v7a (older)</a>
+              <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/downloads/files/lanlink-android-x64/download?project=69e62515000e9e781653">x86_64 (emulator)</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- WINDOWS -->
+        <div class="dl-card">
+          <div class="dl-head">
+            <span class="dl-icon">🪟</span>
+            <div>
+              <div class="dl-name">Windows</div>
+              <div class="dl-sub">Windows 10 &amp; 11 · 64-bit</div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <a class="dl-btn" href="https://fra.cloud.appwrite.io/v1/storage/buckets/downloads/files/lanlink-windows/download?project=69e62515000e9e781653">Download installer</a>
+            <span class="dl-sub">.exe setup</span>
+          </div>
+          <p class="dl-note">
+            Run the installer. Windows SmartScreen may show a
+            <strong>"Windows protected your PC"</strong> notice because the app isn't
+            code-signed yet — click <strong>More info → Run anyway</strong> to continue.
+          </p>
+        </div>
+
+        <!-- MACOS -->
+        <div class="dl-card">
+          <div class="dl-head">
+            <span class="dl-icon">🍎</span>
+            <div>
+              <div class="dl-name">macOS</div>
+              <div class="dl-sub">Apple Silicon &amp; Intel</div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <a class="dl-btn" href="https://fra.cloud.appwrite.io/v1/storage/buckets/downloads/files/lanlink-macos/download?project=69e62515000e9e781653">Download .dmg</a>
+            <span class="dl-sub">disk image</span>
+          </div>
+          <p class="dl-note">
+            Open the .dmg and drag LanLink to Applications. Since the app isn't
+            notarized yet, the first launch needs
+            <strong>right-click → Open</strong> (or System Settings → Privacy &amp;
+            Security → Open Anyway).
+          </p>
+        </div>
+
+        <!-- IOS -->
+        <div class="dl-card">
+          <div class="dl-head">
+            <span class="dl-icon">📱</span>
+            <div>
+              <div class="dl-name">iOS</div>
+              <div class="dl-sub">iPhone &amp; iPad · advanced</div>
+            </div>
+          </div>
+          <div class="dl-row">
+            <a class="dl-btn" href="https://fra.cloud.appwrite.io/v1/storage/buckets/downloads/files/lanlink-ios/download?project=69e62515000e9e781653">Download .ipa</a>
+            <span class="dl-sub">unsigned</span>
+          </div>
+          <p class="dl-note">
+            The iOS build is <strong>unsigned</strong> and meant for sideloading via
+            tools like AltStore or Sideloadly, or your own developer signing. It
+            cannot be installed straight from Safari.
+          </p>
+        </div>
+
+      </div>
+      <a class="all-repos-link" href="/lanlink/">← What is LanLink?</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Made by Tapiwa Makandigona</span>
+    <a href="/">Portfolio</a>
+    <a href="/lanlink/">About</a>
+    <span>© <span id="yr">2026</span></span>
+  </footer>
+
+  <script src="/script.js"></script>
+  <script>
+    // Show the real latest version from the public release mirror; fall back
+    // to the hardcoded label if the request fails (offline, rate-limited).
+    fetch('https://api.github.com/repos/tapiwamakandigona/lanlink-downloads/releases/latest')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => { if (d && d.tag_name) document.getElementById('ll-version').textContent = d.tag_name; })
+      .catch(() => {});
+  </script>
+</body>
+</html>

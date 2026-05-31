@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZimPay — mobile banking simulation | Tapiwa Makandigona</title>
+  <meta name="description" content="ZimPay is a mobile-first banking simulation with real-time transfers, transaction history and secure authentication — built with React, TypeScript and Supabase." />
+  <meta name="author" content="Tapiwa Makandigona" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://tapiwa.me/zimpay/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tapiwa Makandigona" />
+  <meta property="og:title" content="ZimPay — mobile banking simulation" />
+  <meta property="og:description" content="Real-time transfers, transaction history and secure auth in a mobile-first banking simulation. React, TypeScript, Supabase." />
+  <meta property="og:url" content="https://tapiwa.me/zimpay/" />
+  <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>T</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#fafaf9" id="theme-meta" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ZimPay",
+    "url": "https://tapiwa.me/zimpay/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "description": "A mobile-first banking simulation with real-time transfers, transaction history and secure authentication.",
+    "author": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <style>
+    .pj-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .pj-btn {
+      font-family: var(--mono); font-size: 13px; letter-spacing: .02em;
+      padding: 11px 20px; border-radius: 8px; border: 1px solid transparent;
+      transition: background .15s, border-color .15s, color .15s, opacity .15s;
+    }
+    .pj-btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pj-btn-primary:hover { opacity: .9; color: #fff; border-color: var(--accent); }
+    .pj-btn-ghost { color: var(--ink-2); border-color: var(--border); }
+    .pj-btn-ghost:hover { color: var(--ink); border-color: var(--ink-3); }
+    .pj-feature-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .pj-feature {
+      display: grid; grid-template-columns: 28px 1fr; gap: 0 16px;
+      padding: 16px 8px; border-top: 1px solid var(--border);
+      margin: 0 -8px; border-radius: 6px; transition: background .15s;
+    }
+    .pj-feature:last-child { border-bottom: 1px solid var(--border); }
+    .pj-feature:hover { background: var(--surface); }
+    .pj-feature-icon { font-size: 16px; text-align: center; padding-top: 1px; }
+    .pj-feature h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+    .pj-feature p { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+    .pj-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-2);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px 18px;
+    }
+    .pj-note strong { color: var(--ink); font-weight: 500; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <p class="hero-location">Mobile banking simulation · 2023</p>
+      <h1 class="hero-title">ZimPay.</h1>
+      <p class="hero-bio">
+        A mobile-first banking simulation: sign in securely, send money between
+        accounts in real time, and review a full transaction history — a clean,
+        responsive take on a digital wallet.
+      </p>
+      <div class="pj-cta">
+        <a class="pj-btn pj-btn-primary" href="https://tapiwamakandigona.github.io/zimpay/" target="_blank" rel="noopener">Live demo</a>
+        <a class="pj-btn pj-btn-ghost" href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">What it does</h2>
+      <ul class="pj-feature-list">
+        <li class="pj-feature">
+          <span class="pj-feature-icon">💸</span>
+          <div>
+            <h3>Real-time transfers</h3>
+            <p>Move money between accounts and see balances update instantly, backed by Supabase.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">🧾</span>
+          <div>
+            <h3>Transaction history</h3>
+            <p>Every transfer is recorded and listed so you can scroll back through your full activity.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">🔐</span>
+          <div>
+            <h3>Secure authentication</h3>
+            <p>Accounts are protected with Supabase auth, so each user only ever sees their own data.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">📱</span>
+          <div>
+            <h3>Mobile-first design</h3>
+            <p>The layout is built for the phone first and scales up cleanly to larger screens.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">Built with</h2>
+      <div class="stack-row">
+        <span>React</span><span>TypeScript</span><span>Supabase</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">How it's built</h2>
+      <p class="pj-note">
+        ZimPay is a <strong>React + TypeScript</strong> single-page app using
+        <strong>Supabase</strong> for authentication, the accounts/transactions database and
+        real-time balance updates. It's designed mobile-first, so the whole flow — sign in,
+        transfer, review history — feels at home on a phone.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Made by Tapiwa Makandigona</span>
+    <a href="/">Portfolio</a>
+    <a href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener">Source</a>
+    <span>© <span id="yr">2026</span></span>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
