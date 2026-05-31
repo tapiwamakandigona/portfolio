@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZimBet — provably fair casino games platform | Tapiwa Makandigona</title>
+  <meta name="description" content="ZimBet is a real-time casino platform with six provably fair games — Aviator, Plinko, Mines, Dice, Coinflip and Wheel — built with React, TypeScript, the Canvas API and Supabase Realtime." />
+  <meta name="author" content="Tapiwa Makandigona" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://tapiwa.me/zimbet/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tapiwa Makandigona" />
+  <meta property="og:title" content="ZimBet — provably fair casino games platform" />
+  <meta property="og:description" content="Six provably fair games with real-time multiplayer. React, TypeScript, Canvas API and Supabase Realtime." />
+  <meta property="og:url" content="https://tapiwa.me/zimbet/" />
+  <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>T</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#fafaf9" id="theme-meta" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ZimBet",
+    "url": "https://tapiwa.me/zimbet/",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Web",
+    "description": "A real-time casino platform with six provably fair games: Aviator, Plinko, Mines, Dice, Coinflip and Wheel.",
+    "author": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <style>
+    .pj-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .pj-btn {
+      font-family: var(--mono); font-size: 13px; letter-spacing: .02em;
+      padding: 11px 20px; border-radius: 8px; border: 1px solid transparent;
+      transition: background .15s, border-color .15s, color .15s, opacity .15s;
+    }
+    .pj-btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pj-btn-primary:hover { opacity: .9; color: #fff; border-color: var(--accent); }
+    .pj-btn-ghost { color: var(--ink-2); border-color: var(--border); }
+    .pj-btn-ghost:hover { color: var(--ink); border-color: var(--ink-3); }
+    .pj-feature-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .pj-feature {
+      display: grid; grid-template-columns: 28px 1fr; gap: 0 16px;
+      padding: 16px 8px; border-top: 1px solid var(--border);
+      margin: 0 -8px; border-radius: 6px; transition: background .15s;
+    }
+    .pj-feature:last-child { border-bottom: 1px solid var(--border); }
+    .pj-feature:hover { background: var(--surface); }
+    .pj-feature-icon { font-size: 16px; text-align: center; padding-top: 1px; }
+    .pj-feature h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+    .pj-feature p { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+    .pj-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-2);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px 18px;
+    }
+    .pj-note strong { color: var(--ink); font-weight: 500; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="https://github.com/tapiwamakandigona/zimbet" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <p class="hero-location">Real-time casino platform · 2024</p>
+      <h1 class="hero-title">ZimBet.</h1>
+      <p class="hero-bio">
+        A real-time casino platform with six provably fair games. Every round can be
+        independently verified, results render on the Canvas API, and multiplayer
+        state is synced live across players.
+      </p>
+      <div class="pj-cta">
+        <a class="pj-btn pj-btn-primary" href="https://tapiwamakandigona.github.io/zimbet/" target="_blank" rel="noopener">Live demo</a>
+        <a class="pj-btn pj-btn-ghost" href="https://github.com/tapiwamakandigona/zimbet" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">Six games</h2>
+      <ul class="pj-feature-list">
+        <li class="pj-feature">
+          <span class="pj-feature-icon">✈️</span>
+          <div>
+            <h3>Aviator</h3>
+            <p>A rising multiplier you have to cash out before it crashes — pure nerve and timing.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">🔺</span>
+          <div>
+            <h3>Plinko</h3>
+            <p>Drop a ball through a peg board and watch it bounce into a multiplier slot, animated on Canvas.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">💣</span>
+          <div>
+            <h3>Mines</h3>
+            <p>Reveal safe tiles for a growing payout while avoiding the hidden mines.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">🎲</span>
+          <div>
+            <h3>Dice, Coinflip &amp; Wheel</h3>
+            <p>The classics — pick your odds on dice, call a coin flip, or spin the wheel for a multiplier.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">🔐</span>
+          <div>
+            <h3>Provably fair</h3>
+            <p>Each round's outcome is generated from a verifiable seed, so any result can be checked after the fact.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">🌐</span>
+          <div>
+            <h3>Real-time multiplayer</h3>
+            <p>Game and player state stay in sync across clients through Supabase Realtime channels.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">Built with</h2>
+      <div class="stack-row">
+        <span>React</span><span>TypeScript</span><span>Supabase Realtime</span><span>Canvas API</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">How it's built</h2>
+      <p class="pj-note">
+        ZimBet is a <strong>React + TypeScript</strong> app where each game's animation runs on the
+        <strong>Canvas API</strong> and shared state is kept consistent across players using
+        <strong>Supabase Realtime</strong>. Outcomes are derived from a verifiable seed so every
+        round is <strong>provably fair</strong> and can be audited after it's played.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Made by Tapiwa Makandigona</span>
+    <a href="/">Portfolio</a>
+    <a href="https://github.com/tapiwamakandigona/zimbet" target="_blank" rel="noopener">Source</a>
+    <span>© <span id="yr">2026</span></span>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
