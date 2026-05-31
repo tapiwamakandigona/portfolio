@@ -14,9 +14,13 @@ Deployed automatically via [Appwrite Sites](https://appwrite.io/products/sites) 
 ## Structure
 
 ```
-index.html   — Hero, About, Projects, Skills, Contact sections
+index.html   — Hero, About, Projects, Skills, Contact sections + SEO meta & JSON-LD
 styles.css   — Design tokens, layout, animations
 script.js    — Theme toggle, mobile nav, observers, filters
+404.html     — Branded not-found page (noindex)
+robots.txt   — Crawler directives + sitemap reference
+sitemap.xml  — URL list for search engines
+og-image.png — Open Graph / social share image (1200×630)
 ```
 
 ## Local Development
