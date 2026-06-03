@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a banking app with React and Supabase Row Level Security | Tapiwa Makandigona</title>
+  <meta name="description" content="A build story behind ZimPay: instant transfers, transaction history and account safety with React, TypeScript and Supabase — and why Row Level Security is the part that actually keeps balances honest." />
+  <meta name="author" content="Tapiwa Makandigona" />
+  <meta name="keywords" content="build a banking app with React and Supabase, Supabase Row Level Security, fintech app tutorial, money transfer app React, Supabase auth banking" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://tapiwa.me/blog/banking-app-with-supabase/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Tapiwa Makandigona" />
+  <meta property="og:title" content="Building a banking app with React and Supabase Row Level Security" />
+  <meta property="og:description" content="Instant transfers, transaction history and account safety — and why Row Level Security keeps balances honest." />
+  <meta property="og:url" content="https://tapiwa.me/blog/banking-app-with-supabase/" />
+  <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="article:published_time" content="2026-05-31" />
+  <meta property="article:author" content="Tapiwa Makandigona" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>T</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#fafaf9" id="theme-meta" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building a banking app with React and Supabase Row Level Security",
+    "description": "A build story behind ZimPay: instant transfers, transaction history and account safety with React, TypeScript and Supabase.",
+    "image": "https://tapiwa.me/og-image.png",
+    "datePublished": "2026-05-31",
+    "dateModified": "2026-05-31",
+    "inLanguage": "en",
+    "wordCount": 1250,
+    "keywords": "build a banking app with React and Supabase, Supabase Row Level Security, fintech, money transfer app",
+    "author": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" },
+    "publisher": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://tapiwa.me/blog/banking-app-with-supabase/" },
+    "about": { "@type": "SoftwareApplication", "name": "ZimPay", "url": "https://tapiwa.me/zimpay/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is Supabase good for building a banking or fintech app?", "acceptedAnswer": { "@type": "Answer", "text": "For a simulation or prototype, yes. Supabase gives you Postgres, authentication and realtime out of the box, and Row Level Security lets the database itself enforce that users only ever see and touch their own money — which is the single most important rule in a banking app." } },
+      { "@type": "Question", "name": "What is Row Level Security and why does it matter for money?", "acceptedAnswer": { "@type": "Answer", "text": "Row Level Security (RLS) is a Postgres feature where access rules live on the table itself, evaluated per row against the logged-in user. It matters because it means even a bug in the front end can't expose or move another user's balance — the database refuses." } },
+      { "@type": "Question", "name": "How do you stop a transfer from going wrong halfway?", "acceptedAnswer": { "@type": "Answer", "text": "Do the whole transfer in one database transaction or function: debit the sender, credit the recipient and record the history together, so either all of it happens or none of it does. You never leave money debited from one account but not credited to the other." } }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tapiwa.me/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tapiwa.me/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Banking app with Supabase", "item": "https://tapiwa.me/blog/banking-app-with-supabase/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <article>
+      <section class="hero">
+        <p class="post-meta">Build notes · Fintech · 31 May 2026</p>
+        <h1 class="hero-title">Building a banking app with React and Supabase Row Level Security.</h1>
+      </section>
+
+      <section class="section post-body">
+        <p class="post-lead">
+          <a href="/zimpay/">ZimPay</a> is a banking app — create an account, hold a balance, send
+          money to another user instantly, and see every transaction in your history. It's a
+          simulation, but I built it like the real thing, because the moment you're moving money
+          between accounts you have to take correctness and access control seriously. The interesting
+          story isn't the UI; it's <strong>Row Level Security</strong>.
+        </p>
+
+        <h2>The stack, and why Supabase</h2>
+        <p>
+          ZimPay is <strong>React 18 + TypeScript</strong> on the front end with
+          <strong>React Router v6</strong>, built with <strong>Vite</strong>, styled with plain CSS
+          custom properties (glassmorphism, with dark and light themes). The backend is
+          <strong>Supabase</strong> — Postgres, authentication and realtime. For an app about money,
+          the appeal of Supabase is that the security model lives in the database, not scattered
+          across front-end checks you have to remember to write.
+        </p>
+
+        <h2>The one rule that matters: you can only touch your own money</h2>
+        <p>
+          In a banking app, the catastrophic bug is one user reading or moving another user's funds.
+          The naive approach is to filter by user ID in your front-end queries — and that works right
+          up until one query forgets to, or someone calls the API directly. The protection is in the
+          wrong place.
+        </p>
+        <p>
+          <strong>Row Level Security</strong> puts it in the right place. RLS is a Postgres feature
+          where the access rule lives on the table and is evaluated for every row against the
+          currently authenticated user. A policy like "a user may only select rows where
+          <code>user_id = auth.uid()</code>" means the database itself refuses to return anyone
+          else's data — no matter what the client asks for.
+        </p>
+        <blockquote>
+          With RLS on, a bug in my React code can't leak another person's balance. The database is
+          the last line of defence, and it doesn't trust the front end.
+        </blockquote>
+
+        <h2>Transfers have to be all-or-nothing</h2>
+        <p>
+          A transfer is two changes that must happen together: debit the sender, credit the
+          recipient, and write the history. If the app crashed between those steps you could debit
+          one account and never credit the other — money vanishing into a bug. The fix is to do the
+          whole thing as a single atomic operation (a database transaction / function) so either all
+          of it commits or none of it does. There is no in-between state where the books don't
+          balance.
+        </p>
+
+        <h2>The everyday banking features</h2>
+        <p>
+          On top of that foundation, ZimPay does what you'd expect of a banking app:
+        </p>
+        <ul>
+          <li><strong>Instant transfers</strong> — send money to another user and both balances
+            update right away.</li>
+          <li><strong>Find recipients</strong> — search by username or phone number rather than
+            making people copy account numbers.</li>
+          <li><strong>Transaction history</strong> — every sent and received payment, itemised.</li>
+          <li><strong>Real account safety</strong> — email verification on sign-up, password reset by
+            email link, and "keep me signed in" sessions.</li>
+          <li><strong>Profile management</strong> — update your name and phone, see your balance and
+            account details at a glance.</li>
+        </ul>
+
+        <h2>Why glassmorphism and themes were worth it</h2>
+        <p>
+          A money app has to <em>feel</em> trustworthy, and visual polish is part of that signal. The
+          glassmorphism UI, smooth micro-interactions and proper dark/light themes aren't decoration
+          for its own sake — they make the app feel like something you'd actually trust with a
+          balance. Built on CSS custom properties, theming is just swapping a set of variables, so it
+          cost very little to do well.
+        </p>
+
+        <h2>What I took away</h2>
+        <ul>
+          <li><strong>Push security down to the database.</strong> RLS turns "remember to filter by
+            user" from a discipline into a guarantee.</li>
+          <li><strong>Make money moves atomic.</strong> One transaction for the whole transfer, every
+            time.</li>
+          <li><strong>Trust is a feature.</strong> Verification, history and polish are what make a
+            balance feel safe — and they're cheap compared to the cost of getting them wrong.</li>
+        </ul>
+
+        <div class="post-related">
+          <div class="pr-label">Related</div>
+          <a href="/zimpay/">→ ZimPay project overview</a>
+          <a href="https://tapiwamakandigona.github.io/zimpay/" target="_blank" rel="noopener">→ Try the live demo</a>
+          <a href="/blog/building-a-ride-hailing-app/">→ Building a ride-hailing app</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-label">FAQ</h2>
+        <div class="post-faq">
+          <details>
+            <summary>Is Supabase good for building a banking or fintech app?</summary>
+            <p>For a simulation or prototype, yes. You get Postgres, auth and realtime out of the box, and Row Level Security lets the database enforce that users only ever touch their own money — the most important rule in a banking app.</p>
+          </details>
+          <details>
+            <summary>What is Row Level Security and why does it matter for money?</summary>
+            <p>RLS is a Postgres feature where access rules live on the table and are evaluated per row against the logged-in user. It means even a front-end bug can't expose or move another user's balance — the database refuses.</p>
+          </details>
+          <details>
+            <summary>How do you stop a transfer going wrong halfway?</summary>
+            <p>Run the whole transfer in one database transaction or function — debit, credit and history together — so either all of it happens or none of it does. You never leave money debited from one account but not credited to the other.</p>
+          </details>
+        </div>
+      </section>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Written by Tapiwa Makandigona</span>
+    <a href="/blog/">Blog</a>
+    <a href="/">Portfolio</a>
+    <span>© <span id="yr">2026</span></span>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a 3D FPS that runs in the browser with Three.js | Tapiwa Makandigona</title>
+  <meta name="description" content="How I built a 60 FPS first-person shooter in the browser with Three.js and TypeScript — no Unity, no Unreal. Hitscan raycasting, wave-based zombies, object pooling and touch controls." />
+  <meta name="author" content="Tapiwa Makandigona" />
+  <meta name="keywords" content="build a 3D game in the browser, Three.js FPS, WebGL first person shooter, browser game TypeScript, hitscan raycasting Three.js" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://tapiwa.me/blog/3d-fps-game-in-the-browser/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Tapiwa Makandigona" />
+  <meta property="og:title" content="Building a 3D FPS that runs in the browser with Three.js" />
+  <meta property="og:description" content="A custom WebGL game engine in TypeScript: hitscan raycasting, wave spawning, object pooling and 60 FPS." />
+  <meta property="og:url" content="https://tapiwa.me/blog/3d-fps-game-in-the-browser/" />
+  <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="article:published_time" content="2026-05-31" />
+  <meta property="article:author" content="Tapiwa Makandigona" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>T</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#fafaf9" id="theme-meta" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building a 3D FPS that runs in the browser with Three.js",
+    "description": "How I built a 60 FPS first-person shooter in the browser with Three.js and TypeScript — no Unity, no Unreal.",
+    "image": "https://tapiwa.me/og-image.png",
+    "datePublished": "2026-05-31",
+    "dateModified": "2026-05-31",
+    "inLanguage": "en",
+    "wordCount": 1250,
+    "keywords": "build a 3D game in the browser, Three.js FPS, WebGL first person shooter, TypeScript game",
+    "author": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" },
+    "publisher": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://tapiwa.me/blog/3d-fps-game-in-the-browser/" },
+    "about": { "@type": "VideoGame", "name": "Browser 3D FPS", "url": "https://tapiwa.me/fps-game/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can you build a 3D FPS in the browser without a game engine?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. This FPS uses Three.js purely as a WebGL renderer and a hand-written TypeScript game loop, input manager and collision system. There is no Unity or Unreal — the game logic is plain JavaScript maths running on requestAnimationFrame." } },
+      { "@type": "Question", "name": "How do bullets hit targets in a Three.js shooter?", "acceptedAnswer": { "@type": "Answer", "text": "With hitscan raycasting. A ray is cast from the centre of the camera and the engine checks which enemy bounding boxes it intersects, registering the nearest as a hit. There is no projectile to simulate — the shot resolves instantly." } },
+      { "@type": "Question", "name": "How do you keep a browser game at 60 FPS?", "acceptedAnswer": { "@type": "Answer", "text": "Low-poly geometry, frustum culling so off-screen objects aren't drawn, and object pooling so bullets and enemies are reused instead of constantly allocated and garbage collected." } }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tapiwa.me/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tapiwa.me/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "3D FPS in the browser", "item": "https://tapiwa.me/blog/3d-fps-game-in-the-browser/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://github.com/tapiwamakandigona/fps-game" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <article>
+      <section class="hero">
+        <p class="post-meta">Build notes · Game dev · 31 May 2026</p>
+        <h1 class="hero-title">Building a 3D FPS that runs in the browser with Three.js.</h1>
+      </section>
+
+      <section class="section post-body">
+        <p class="post-lead">
+          People assume a 3D first-person shooter needs Unity or Unreal and a fat download. The
+          <a href="/fps-game/">browser FPS</a> I built is a wave-based zombie survival game that runs
+          at 60 FPS on a tab you can open in a second — built with <strong>Three.js</strong> and
+          <strong>TypeScript</strong>, no game engine, no install. Here's how the engine fits
+          together.
+        </p>
+
+        <h2>Three.js is a renderer, not an engine</h2>
+        <p>
+          The first thing worth being clear about: Three.js draws 3D geometry with WebGL, but it
+          doesn't make a <em>game</em>. There's no built-in concept of a player, an enemy, a weapon,
+          health, or "you got shot". All of that is code I wrote on top. So the project is really a
+          small custom game engine that happens to use Three.js for the pixels.
+        </p>
+        <p>
+          The structure is a classic game loop fanning out to managers:
+        </p>
+        <pre><code>Main render loop
+  └─ Game Manager
+       ├─ Input Manager        (keyboard+mouse / touch)
+       ├─ Collision Detection  (raycaster)
+       └─ Entity Manager
+            ├─ Player Controller
+            └─ Enemy AI array</code></pre>
+
+        <h2>The render loop and pointer lock</h2>
+        <p>
+          The heart of it is a <code>requestAnimationFrame</code> loop. Each frame: read input,
+          advance the player, update every enemy, run collision checks, then render. Mouse-look uses
+          the browser's <strong>PointerLock API</strong> — when you click into the game the cursor is
+          captured and raw mouse movement turns the camera, which is what makes it feel like a native
+          FPS rather than a thing in a web page.
+        </p>
+
+        <h2>Shooting: hitscan raycasting</h2>
+        <p>
+          Weapons are <strong>hitscan</strong>, not simulated projectiles. When you fire, the engine
+          casts a ray straight out from the centre of the camera and asks which enemy bounding boxes
+          it intersects; the nearest intersection is the hit. This is exactly how fast-firing weapons
+          work in most shooters — there's no bullet to animate across the room, the shot resolves the
+          instant you click. Each weapon just changes the numbers around that ray:
+        </p>
+        <ul>
+          <li><strong>Pistol</strong> — reliable starter, single accurate ray</li>
+          <li><strong>Rifle</strong> — high fire rate, medium damage</li>
+          <li><strong>Shotgun</strong> — several rays with a random angular spread for close-range spread</li>
+          <li><strong>SMG</strong> — spray-and-pray, high mobility</li>
+        </ul>
+
+        <h2>Enemies: wave spawning and vector pathfinding</h2>
+        <p>
+          Zombies spawn in <strong>waves</strong>, with each wave scaling their stats up so the game
+          gets harder. Their "AI" is deliberately simple and cheap: every frame each enemy computes
+          the vector from itself to the player's position and translates a step along it — shortest
+          path, straight at you. With dozens of enemies on screen, simple-and-cheap beats clever-and-
+          expensive every time.
+        </p>
+        <p>
+          There's also a mystery box for weapon drops, driven by random number generation feeding a
+          little state machine — roll, reveal, grant weapon, cool down.
+        </p>
+
+        <h2>Hitting 60 FPS in a browser tab</h2>
+        <p>
+          A browser game lives or dies on frame rate, and the wins here are unglamorous:
+        </p>
+        <ul>
+          <li><strong>Low-poly geometry.</strong> Fewer triangles to push every frame.</li>
+          <li><strong>Frustum culling.</strong> Objects outside the camera's view aren't drawn at all.</li>
+          <li><strong>Object pooling.</strong> Bullets and enemies are reused from a pool instead of
+            being allocated and thrown away constantly — which is what keeps the garbage collector
+            from stuttering the frame rate at the worst possible moment.</li>
+        </ul>
+        <p>
+          Spatial audio is approximated with <strong>Howler.js</strong>, and the whole thing is bundled
+          with <strong>Vite</strong> and deployed to GitHub Pages by a GitHub Actions workflow on every
+          push.
+        </p>
+
+        <h2>One input manager, desktop and mobile</h2>
+        <p>
+          The same build runs on a phone. A unified <strong>Input Manager</strong> maps keyboard +
+          mouse on desktop and on-screen touch joysticks on mobile to the same internal actions, so
+          the player controller doesn't know or care which device it's on. Writing input as an
+          abstraction layer from the start is one of those decisions that pays for itself the moment
+          you add a second platform.
+        </p>
+
+        <h2>Why bother building it raw?</h2>
+        <p>
+          You could ship this faster in a real engine. But building the loop, the raycaster and the
+          entity system by hand is the best way I know to actually understand why engines are shaped
+          the way they are — and the payoff is a 3D game with <em>zero</em> install friction. Someone
+          clicks a link and they're playing.
+        </p>
+
+        <div class="post-related">
+          <div class="pr-label">Related</div>
+          <a href="/fps-game/">→ Browser FPS project overview</a>
+          <a href="https://tapiwamakandigona.github.io/fps-game/" target="_blank" rel="noopener">→ Play it in your browser</a>
+          <a href="/blog/zero-dependency-react-component-library/">→ Building things with zero dependencies</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-label">FAQ</h2>
+        <div class="post-faq">
+          <details>
+            <summary>Can you build a 3D FPS in the browser without a game engine?</summary>
+            <p>Yes. This game uses Three.js purely as a WebGL renderer plus a hand-written TypeScript game loop, input manager and collision system. No Unity or Unreal — just plain JavaScript maths on requestAnimationFrame.</p>
+          </details>
+          <details>
+            <summary>How do bullets hit targets in a Three.js shooter?</summary>
+            <p>Hitscan raycasting: a ray is cast from the centre of the camera and the engine checks which enemy bounding boxes it intersects, registering the nearest as the hit. The shot resolves instantly with no projectile to simulate.</p>
+          </details>
+          <details>
+            <summary>How do you keep a browser game at 60 FPS?</summary>
+            <p>Low-poly geometry, frustum culling so off-screen objects aren't rendered, and object pooling so bullets and enemies are reused instead of constantly allocated and garbage collected.</p>
+          </details>
+        </div>
+      </section>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Written by Tapiwa Makandigona</span>
+    <a href="/blog/">Blog</a>
+    <a href="/">Portfolio</a>
+    <span>© <span id="yr">2026</span></span>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
