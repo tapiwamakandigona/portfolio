@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — build notes & engineering stories | Tapiwa Makandigona</title>
+  <meta name="description" content="Engineering build notes from Tapiwa Makandigona — how I built a ride-hailing app, a browser 3D FPS, provably-fair casino games, an offline file-transfer app, a banking app and a zero-dependency React UI kit." />
+  <meta name="author" content="Tapiwa Makandigona" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://tapiwa.me/blog/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tapiwa Makandigona" />
+  <meta property="og:title" content="Blog — build notes & engineering stories" />
+  <meta property="og:description" content="How I built a ride-hailing app, a browser 3D FPS, provably-fair games, an offline file-transfer app and more." />
+  <meta property="og:url" content="https://tapiwa.me/blog/" />
+  <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%234f46e5'/><stop offset='.55' stop-color='%237c3aed'/><stop offset='1' stop-color='%230891b2'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><path d='M9 11h14v3.4h-5.2V25h-3.6V14.4H9z' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#faf9f7" id="theme-meta" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "url": "https://tapiwa.me/blog/",
+    "name": "Tapiwa Makandigona — Build Notes",
+    "description": "Engineering build notes and project stories.",
+    "author": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" },
+    "blogPost": [
+      { "@type": "BlogPosting", "headline": "How I built a ride-hailing app without a Google Maps API key", "url": "https://tapiwa.me/blog/building-a-ride-hailing-app/" },
+      { "@type": "BlogPosting", "headline": "Building a 3D FPS that runs in the browser with Three.js", "url": "https://tapiwa.me/blog/3d-fps-game-in-the-browser/" },
+      { "@type": "BlogPosting", "headline": "How provably-fair casino games actually work", "url": "https://tapiwa.me/blog/provably-fair-casino-games/" },
+      { "@type": "BlogPosting", "headline": "Sending files between phone and PC with no internet", "url": "https://tapiwa.me/blog/send-files-without-internet/" },
+      { "@type": "BlogPosting", "headline": "Building a banking app with React and Supabase Row Level Security", "url": "https://tapiwa.me/blog/banking-app-with-supabase/" },
+      { "@type": "BlogPosting", "headline": "Building a zero-dependency React component library in TypeScript", "url": "https://tapiwa.me/blog/zero-dependency-react-component-library/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tapiwa.me/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tapiwa.me/blog/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <p class="hero-location">Build notes · Engineering stories</p>
+      <h1 class="hero-title">Blog.</h1>
+      <p class="hero-bio">
+        The story behind the projects — why I built each one, the decisions that
+        mattered, the problems I hit, and how I solved them. Written from the actual
+        code, not marketing.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">All posts</h2>
+      <div class="blog-list">
+
+        <a class="blog-entry" href="/blog/building-a-ride-hailing-app/">
+          <div class="be-meta">Ride-hailing · 2024</div>
+          <div class="be-title">How I built a ride-hailing app without a Google Maps API key</div>
+          <p class="be-excerpt">Real-time driver tracking, in-ride chat and fare estimates — built on OpenStreetMap, Leaflet and Appwrite Realtime, with zero map billing.</p>
+        </a>
+
+        <a class="blog-entry" href="/blog/3d-fps-game-in-the-browser/">
+          <div class="be-meta">Game dev · WebGL</div>
+          <div class="be-title">Building a 3D FPS that runs in the browser with Three.js</div>
+          <p class="be-excerpt">No Unity, no Unreal — a custom WebGL game engine in TypeScript: hitscan raycasting, wave spawning, object pooling and 60 FPS on a laptop.</p>
+        </a>
+
+        <a class="blog-entry" href="/blog/provably-fair-casino-games/">
+          <div class="be-meta">Real-time · Fairness</div>
+          <div class="be-title">How provably-fair casino games actually work</div>
+          <p class="be-excerpt">Aviator, Plinko, Mines and Dice — the server-seed / client-seed / nonce scheme that lets a player verify every round wasn't rigged.</p>
+        </a>
+
+        <a class="blog-entry" href="/blog/send-files-without-internet/">
+          <div class="be-meta">Cross-platform · Flutter</div>
+          <div class="be-title">Sending files between phone and PC with no internet</div>
+          <p class="be-excerpt">An offline AirDrop-style alternative for Android, Windows, macOS and Linux — local-network only, no accounts, no size limits, LocalSend-compatible.</p>
+        </a>
+
+        <a class="blog-entry" href="/blog/banking-app-with-supabase/">
+          <div class="be-meta">Fintech · Supabase</div>
+          <div class="be-title">Building a banking app with React and Supabase Row Level Security</div>
+          <p class="be-excerpt">Instant transfers, transaction history and account safety — and why Row Level Security is the part that actually keeps balances honest.</p>
+        </a>
+
+        <a class="blog-entry" href="/blog/zero-dependency-react-component-library/">
+          <div class="be-meta">Open source · TypeScript</div>
+          <div class="be-title">Building a zero-dependency React component library in TypeScript</div>
+          <p class="be-excerpt">Button, Input, Modal, Toast, Card and Badge — fully typed, dark-mode aware, Jest-tested, and not a single runtime dependency.</p>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="yr">2026</span> Tapiwa Makandigona</span>
+    <a href="/">Portfolio</a>
+    <a href="mailto:silentics.org@gmail.com">silentics.org@gmail.com</a>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
