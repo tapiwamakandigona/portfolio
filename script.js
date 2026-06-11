@@ -7,27 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const yr = document.getElementById('yr');
 if (yr) yr.textContent = new Date().getFullYear();
 
-// ── Copy email on click ───────────────────────────────────
-const EMAIL = 'silentics.org@gmail.com';
-function makeEmailCopy(el) {
-  el.addEventListener('click', e => {
-    if (!navigator.clipboard) return;
-    e.preventDefault();
-    navigator.clipboard.writeText(EMAIL).then(() => {
-      const orig = el.textContent;
-      el.textContent = 'Copied ✓';
-      setTimeout(() => { el.textContent = orig; }, 1800);
-    }).catch(() => { window.location.href = 'mailto:' + EMAIL; });
-  });
-}
-
-const emailLink = document.getElementById('email-link');
-if (emailLink) makeEmailCopy(emailLink);
-
-document.querySelectorAll('a[href="mailto:' + EMAIL + '"]').forEach(el => {
-  if (el !== emailLink) makeEmailCopy(el);
-});
-
 // ── Back to top ───────────────────────────────────────────
 const btn = document.getElementById('back-top');
 if (btn) {
