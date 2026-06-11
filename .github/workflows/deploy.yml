@@ -1,0 +1,55 @@
+name: Deploy to Appwrite Sites
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: appwrite-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy tapiwa.me
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Static site: ship the repo as-is (minus git/CI internals).
+      - name: Package site
+        run: |
+          tar --exclude='.git' --exclude='.github' -czf /tmp/code.tar.gz .
+          ls -la /tmp/code.tar.gz
+
+      - name: Create + activate deployment
+        env:
+          APPWRITE_API_KEY: ${{ secrets.APPWRITE_API_KEY }}
+        run: |
+          set -euo pipefail
+          resp=$(curl -sS -X POST \
+            "https://fra.cloud.appwrite.io/v1/sites/portfolio/deployments" \
+            -H "X-Appwrite-Project: 69e62515000e9e781653" \
+            -H "X-Appwrite-Key: $APPWRITE_API_KEY" \
+            -F "code=@/tmp/code.tar.gz" \
+            -F "activate=true")
+          echo "$resp"
+          dep_id=$(echo "$resp" | python3 -c "import json,sys; print(json.load(sys.stdin)['\$id'])")
+          echo "deployment: $dep_id"
+
+          # Wait until the deployment goes live (static adapter builds fast).
+          for i in $(seq 1 30); do
+            sleep 10
+            status=$(curl -sS \
+              "https://fra.cloud.appwrite.io/v1/sites/portfolio/deployments/$dep_id" \
+              -H "X-Appwrite-Project: 69e62515000e9e781653" \
+              -H "X-Appwrite-Key: $APPWRITE_API_KEY" \
+              | python3 -c "import json,sys; print(json.load(sys.stdin)['status'])")
+            echo "status: $status"
+            case "$status" in
+              ready) echo "deployed ✔"; exit 0 ;;
+              failed|canceled) echo "deployment $status" >&2; exit 1 ;;
+            esac
+          done
+          echo "timed out waiting for deployment" >&2
+          exit 1
