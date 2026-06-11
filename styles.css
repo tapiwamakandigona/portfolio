@@ -210,7 +210,9 @@ main { max-width: var(--max); margin: 0 auto; }
 
 /* Blog */
 .blog-list { list-style: none; }
-.blog-entry { padding: 22px 0; border-bottom: 1px solid var(--border); }
+.blog-entry { display: block; padding: 22px 0; border-bottom: 1px solid var(--border); }
+.blog-entry:hover { text-decoration: none; }
+.blog-entry:hover .be-title { color: var(--accent); }
 .blog-entry .be-meta { font-family: var(--mono); font-size: 12px; color: var(--ink-3); display: block; margin-bottom: 6px; }
 .blog-entry .be-title { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
 .blog-entry .be-excerpt { font-size: 14px; line-height: 1.65; color: var(--ink-2); }
