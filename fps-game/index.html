@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser FPS — 3D zombie survival shooter | Tapiwa Makandigona</title>
+  <meta name="description" content="A 3D zombie survival shooter that runs entirely in the browser at 60fps — wave progression, particle systems and mystery boxes, built with TypeScript, Three.js and WebGL. No plugins, no downloads." />
+  <meta name="author" content="Tapiwa Makandigona" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://tapiwa.me/fps-game/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tapiwa Makandigona" />
+  <meta property="og:title" content="Browser FPS — 3D zombie survival shooter" />
+  <meta property="og:description" content="A 3D zombie survival shooter running entirely in the browser at 60fps. TypeScript, Three.js, WebGL — no plugins." />
+  <meta property="og:url" content="https://tapiwa.me/fps-game/" />
+  <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%234f46e5'/><stop offset='.55' stop-color='%237c3aed'/><stop offset='1' stop-color='%230891b2'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><path d='M9 11h14v3.4h-5.2V25h-3.6V14.4H9z' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#faf9f7" id="theme-meta" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Browser FPS",
+    "url": "https://tapiwa.me/fps-game/",
+    "applicationCategory": "Game",
+    "gamePlatform": "Web browser",
+    "operatingSystem": "Any (WebGL browser)",
+    "description": "A 3D zombie survival shooter running entirely in the browser at 60fps, with wave progression, particle systems and mystery boxes.",
+    "author": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <style>
+    .pj-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .pj-btn {
+      font-family: var(--mono); font-size: 13px; letter-spacing: .02em;
+      padding: 11px 20px; border-radius: 8px; border: 1px solid transparent;
+      transition: background .15s, border-color .15s, color .15s, opacity .15s;
+    }
+    .pj-btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pj-btn-primary:hover { opacity: .9; color: #fff; border-color: var(--accent); }
+    .pj-btn-ghost { color: var(--ink-2); border-color: var(--border); }
+    .pj-btn-ghost:hover { color: var(--ink); border-color: var(--ink-3); }
+    .pj-feature-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .pj-feature {
+      display: grid; grid-template-columns: 28px 1fr; gap: 0 16px;
+      padding: 16px 8px; border-top: 1px solid var(--border);
+      margin: 0 -8px; border-radius: 6px; transition: background .15s;
+    }
+    .pj-feature:last-child { border-bottom: 1px solid var(--border); }
+    .pj-feature:hover { background: var(--surface); }
+    .pj-feature-icon { font-size: 16px; text-align: center; padding-top: 1px; }
+    .pj-feature h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+    .pj-feature p { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+    .pj-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-2);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px 18px;
+    }
+    .pj-note strong { color: var(--ink); font-weight: 500; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://github.com/tapiwamakandigona/fps-game" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <p class="hero-location">3D browser game · Three.js · 2024</p>
+      <h1 class="hero-title">Browser FPS.</h1>
+      <p class="hero-bio">
+        A 3D zombie survival shooter that runs entirely in your browser — no plugins,
+        no downloads, no install. Survive escalating waves, grab power-ups from mystery
+        boxes, and hold out as long as you can at a smooth 60fps.
+      </p>
+      <div class="pj-cta">
+        <a class="pj-btn pj-btn-primary" href="https://tapiwamakandigona.github.io/fps-game/" target="_blank" rel="noopener">Play now</a>
+        <a class="pj-btn pj-btn-ghost" href="https://github.com/tapiwamakandigona/fps-game" target="_blank" rel="noopener">Source code</a>
+        <a class="pj-btn pj-btn-ghost" href="/blog/3d-fps-game-in-the-browser/">Read the build story →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">What's in it</h2>
+      <ul class="pj-feature-list">
+        <li class="pj-feature">
+          <span class="pj-feature-icon">🧟</span>
+          <div>
+            <h3>Wave progression</h3>
+            <p>Enemies get faster and more numerous each wave, so the difficulty ramps the longer you survive.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">✨</span>
+          <div>
+            <h3>Particle systems</h3>
+            <p>Muzzle flashes, impacts and effects are driven by a custom particle system for punchy, responsive feedback.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">🎁</span>
+          <div>
+            <h3>Mystery boxes</h3>
+            <p>Risk your points on a mystery box for a random weapon — the classic survival-shooter gamble.</p>
+          </div>
+        </li>
+        <li class="pj-feature">
+          <span class="pj-feature-icon">⚡</span>
+          <div>
+            <h3>60fps, zero plugins</h3>
+            <p>Everything renders through WebGL in a plain browser tab — no Unity, no downloads, no install step.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">Built with</h2>
+      <div class="stack-row">
+        <span>TypeScript</span><span>Three.js</span><span>WebGL</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-label">How it's built</h2>
+      <p class="pj-note">
+        Browser FPS is written in <strong>TypeScript</strong> and rendered with
+        <strong>Three.js</strong> on top of <strong>WebGL</strong>. The game loop handles
+        movement, shooting, enemy AI and wave spawning, while a lightweight particle
+        system and pointer-lock controls give it a native, full-screen first-person feel —
+        all running in a single browser tab.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Made by Tapiwa Makandigona</span>
+    <a href="/">Portfolio</a>
+    <a href="https://github.com/tapiwamakandigona/fps-game" target="_blank" rel="noopener">Source</a>
+    <span>© <span id="yr">2026</span></span>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

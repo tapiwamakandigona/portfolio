@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LanLink — send files between your devices</title>
+  <meta name="description" content="LanLink is a free, one-codebase app for sending files between Android, iOS, Windows, and macOS over your local Wi-Fi or hotspot — no internet, no accounts, no size limits." />
+  <meta property="og:title" content="LanLink — send files between your devices" />
+  <meta property="og:description" content="Send files between Android, iOS, Windows and macOS over local Wi-Fi. No internet, no accounts, no size limits." />
+  <meta property="og:url" content="https://tapiwa.me/lanlink/" />
+  <link rel="canonical" href="https://tapiwa.me/lanlink/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%234f46e5'/><stop offset='.55' stop-color='%237c3aed'/><stop offset='1' stop-color='%230891b2'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><path d='M9 11h14v3.4h-5.2V25h-3.6V14.4H9z' fill='white'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#faf9f7" id="theme-meta" />
+  <style>
+    .ll-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .ll-btn {
+      font-family: var(--mono); font-size: 13px; letter-spacing: .02em;
+      padding: 11px 20px; border-radius: 8px; border: 1px solid transparent;
+      transition: background .15s, border-color .15s, color .15s, opacity .15s;
+    }
+    .ll-btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .ll-btn-primary:hover { opacity: .9; color: #fff; border-color: var(--accent); }
+    .ll-btn-ghost { color: var(--ink-2); border-color: var(--border); }
+    .ll-btn-ghost:hover { color: var(--ink); border-color: var(--ink-3); }
+    .ll-feature-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .ll-feature {
+      display: grid; grid-template-columns: 28px 1fr; gap: 0 16px;
+      padding: 16px 8px; border-top: 1px solid var(--border);
+      margin: 0 -8px; border-radius: 6px; transition: background .15s;
+    }
+    .ll-feature:last-child { border-bottom: 1px solid var(--border); }
+    .ll-feature:hover { background: var(--surface); }
+    .ll-feature-icon { font-size: 16px; text-align: center; padding-top: 1px; }
+    .ll-feature h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+    .ll-feature p { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+    .ll-steps { list-style: none; counter-reset: step; display: flex; flex-direction: column; gap: 20px; }
+    .ll-step { display: grid; grid-template-columns: 32px 1fr; gap: 0 16px; align-items: start; }
+    .ll-step::before {
+      counter-increment: step; content: counter(step);
+      font-family: var(--mono); font-size: 12px; color: var(--ink-3);
+      border: 1px solid var(--border); border-radius: 50%;
+      width: 28px; height: 28px; display: grid; place-items: center;
+    }
+    .ll-step h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+    .ll-step p { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+    .ll-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-2);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px 18px;
+    }
+    .ll-note strong { color: var(--ink); font-weight: 500; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/blog/send-files-without-internet/">Blog</a>
+      <a href="/lanlink/downloads/">Download</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="hero-location">Cross-platform · LAN file transfer</p>
+      <h1 class="hero-title">LanLink.</h1>
+      <p class="hero-bio">
+        Send files straight between your phones, tablets and computers over your
+        own Wi-Fi or hotspot. No internet connection, no accounts, no upload
+        limits — your files never leave the room.
+      </p>
+      <div class="ll-cta">
+        <a class="ll-btn ll-btn-primary" href="/lanlink/downloads/">Download LanLink</a>
+        <a class="ll-btn ll-btn-ghost" href="#how">How it works</a>
+        <a class="ll-btn ll-btn-ghost" href="/blog/send-files-without-internet/">Read the build story</a>
+      </div>
+    </section>
+
+    <!-- WHAT IT DOES -->
+    <section class="section">
+      <h2 class="section-label">What it does</h2>
+      <ul class="ll-feature-list">
+        <li class="ll-feature">
+          <span class="ll-feature-icon">📡</span>
+          <div>
+            <h3>Finds nearby devices automatically</h3>
+            <p>Open the app on two devices on the same Wi-Fi or hotspot and they discover each other — no IP addresses or pairing codes to type.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
+          <span class="ll-feature-icon">🚀</span>
+          <div>
+            <h3>Direct, full-speed transfers</h3>
+            <p>Files move device-to-device over your local network, so you get the full speed of your Wi-Fi with no cloud round-trip and no file-size cap.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
+          <span class="ll-feature-icon">🔒</span>
+          <div>
+            <h3>Private by design</h3>
+            <p>Nothing is uploaded to a server and no account is required. Your files stay on your own network, between your own devices.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
+          <span class="ll-feature-icon">🧭</span>
+          <div>
+            <h3>Built-in help &amp; pairing guide</h3>
+            <p>A friendly first-run tour and an in-app "Get connected" guide walk you through sending and receiving between any two kinds of device.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
+          <span class="ll-feature-icon">🔁</span>
+          <div>
+            <h3>One-tap retry &amp; clear status</h3>
+            <p>If a transfer doesn't go through, resend the same files with one tap. Plain-English messages tell you exactly what happened.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
+          <span class="ll-feature-icon">⬇️</span>
+          <div>
+            <h3>Stays up to date</h3>
+            <p>LanLink quietly checks for new versions and lets you know when an update is available — updates are always optional.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <h2 class="section-label">How it works</h2>
+      <ol class="ll-steps">
+        <li class="ll-step">
+          <div>
+            <h3>Connect both devices to the same network</h3>
+            <p>Join the same Wi-Fi, or turn on a hotspot on one device and connect the other to it.</p>
+          </div>
+        </li>
+        <li class="ll-step">
+          <div>
+            <h3>Open LanLink on both</h3>
+            <p>Each device shows up in the other's list automatically within a few seconds.</p>
+          </div>
+        </li>
+        <li class="ll-step">
+          <div>
+            <h3>Pick files and send</h3>
+            <p>Choose what to send, tap the device you want, and accept on the other end. That's it.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- PLATFORMS -->
+    <section class="section">
+      <h2 class="section-label">Supported platforms</h2>
+      <div class="stack-row">
+        <span>Android</span><span>iOS</span><span>Windows</span><span>macOS</span>
+      </div>
+      <a class="all-repos-link" href="/lanlink/downloads/">See all downloads →</a>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="section">
+      <h2 class="section-label">Your files, your network</h2>
+      <p class="ll-note">
+        LanLink uses the open <strong>LocalSend</strong> wire protocol to move files
+        directly between devices on your local network. There is no LanLink server in
+        the middle, no sign-up, and nothing is stored in the cloud. If your devices
+        can see each other on Wi-Fi, they can send to each other.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span id="ll-credit">Made by Tapiwa Makandigona</span>
+    <a href="/">Portfolio</a>
+    <a href="/lanlink/downloads/">Download</a>
+    <span>© <span id="yr">2026</span></span>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
