@@ -12,8 +12,8 @@ const html = document.documentElement;
 const toggleBtn = document.getElementById('theme-toggle');
 const themeMeta = document.getElementById('theme-meta');
 
-const LIGHT_COLOR = '#fafaf9';
-const DARK_COLOR  = '#0c0c0b';
+const LIGHT_COLOR = '#faf9f7';
+const DARK_COLOR  = '#0b0d14';
 
 function getTheme() {
   return localStorage.getItem('theme') ||
