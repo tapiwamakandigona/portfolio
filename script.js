@@ -7,34 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const yr = document.getElementById('yr');
 if (yr) yr.textContent = new Date().getFullYear();
 
-// ── Theme toggle ──────────────────────────────────────────
-const html = document.documentElement;
-const toggleBtn = document.getElementById('theme-toggle');
-const themeMeta = document.getElementById('theme-meta');
-
-const LIGHT_COLOR = '#faf9f7';
-const DARK_COLOR  = '#0b0d14';
-
-function getTheme() {
-  return localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-}
-
-function applyTheme(theme) {
-  html.setAttribute('data-theme', theme);
-  if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? DARK_COLOR : LIGHT_COLOR);
-  localStorage.setItem('theme', theme);
-}
-
-// Apply saved or system preference immediately
-applyTheme(getTheme());
-
-if (toggleBtn) {
-  toggleBtn.addEventListener('click', () => {
-    applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-  });
-}
-
 // ── Copy email on click ───────────────────────────────────
 const EMAIL = 'silentics.org@gmail.com';
 function makeEmailCopy(el) {
@@ -79,9 +51,5 @@ document.addEventListener('keydown', e => {
         setTimeout(() => { emailLink.textContent = orig; }, 1800);
       }
     });
-  }
-  if (e.key === 'd' || e.key === 'D') {
-    const cur = html.getAttribute('data-theme');
-    applyTheme(cur === 'dark' ? 'light' : 'dark');
   }
 });
