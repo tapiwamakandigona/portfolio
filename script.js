@@ -23,12 +23,16 @@ document.addEventListener('keydown', e => {
     window.open('https://github.com/tapiwamakandigona', '_blank', 'noopener');
   }
   if (e.key === 'e' || e.key === 'E') {
-    navigator.clipboard && navigator.clipboard.writeText(EMAIL).then(() => {
-      if (emailLink) {
-        const orig = emailLink.textContent;
-        emailLink.textContent = 'Copied ✓';
-        setTimeout(() => { emailLink.textContent = orig; }, 1800);
-      }
-    });
+    const EMAIL = 'silentics.org@gmail.com';
+    const emailLink = document.querySelector('a[href^="mailto:"]');
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(EMAIL).then(() => {
+        if (emailLink) {
+          const orig = emailLink.textContent;
+          emailLink.textContent = 'Copied ✓';
+          setTimeout(() => { emailLink.textContent = orig; }, 1800);
+        }
+      }).catch(() => {});
+    }
   }
 });
