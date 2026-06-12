@@ -82,6 +82,20 @@ main { max-width: var(--max); margin: 0 auto; }
   margin-bottom: 24px;
 }
 .hero-bio { font-size: 17px; line-height: 1.7; color: var(--ink-2); max-width: 520px; }
+.hero-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 7px 14px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.hero-award:hover { border-color: var(--accent); text-decoration: none; }
 .hero-cta { display: flex; gap: 12px; margin-top: 32px; }
 .btn-primary {
   font-size: 14.5px;
