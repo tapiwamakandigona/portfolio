@@ -247,3 +247,8 @@ main { max-width: var(--max); margin: 0 auto; }
 .post-body pre code { border: 0; background: none; padding: 0; font-size: 13px; line-height: 1.65; }
 .post-body blockquote { border-left: 3px solid var(--accent); margin: 0 0 18px; padding: 4px 0 4px 16px; color: var(--ink-2); }
 .post-body hr { border: 0; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* Mobile: keep the footer LinkedIn link clear of the fixed back-to-top button */
+@media (max-width: 600px) {
+  .site-footer { padding-bottom: 88px; }
+}
