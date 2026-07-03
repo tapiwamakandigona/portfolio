@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LanLink — send files between your devices</title>
-  <meta name="description" content="LanLink is a free, one-codebase app for sending files between Android, iOS, Windows, and macOS over your local Wi-Fi or hotspot — no internet, no accounts, no size limits." />
+  <meta name="description" content="LanLink v4 is a free, one-codebase app for sending files between Android, iOS, Windows, and macOS over your local Wi-Fi — no internet, no accounts, no size limits. Two verbs: Send and Receive." />
   <meta property="og:title" content="LanLink — send files between your devices" />
-  <meta property="og:description" content="Send files between Android, iOS, Windows and macOS over local Wi-Fi. No internet, no accounts, no size limits." />
+  <meta property="og:description" content="Send files between Android, iOS, Windows and macOS over local Wi-Fi. One app, two verbs: Send and Receive. No internet, no accounts, no size limits." />
   <meta property="og:url" content="https://tapiwa.me/lanlink/" />
   <link rel="canonical" href="https://tapiwa.me/lanlink/" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230c7a63'/><path d='M9 11h14v3.4h-5.2V25h-3.6V14.4H9z' fill='%23faf6ec'/></svg>" />
@@ -26,6 +26,11 @@
     .ll-btn-primary:hover { opacity: .9; color: #fff; border-color: var(--accent); }
     .ll-btn-ghost { color: var(--ink-2); border-color: var(--border); }
     .ll-btn-ghost:hover { color: var(--ink); border-color: var(--ink-3); }
+    .ll-version-chip {
+      font-family: var(--mono); font-size: 12px; color: var(--ink-3);
+      border: 1px solid var(--border); border-radius: 6px; padding: 3px 9px;
+      display: inline-block; margin-bottom: 14px;
+    }
     .ll-feature-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
     .ll-feature {
       display: grid; grid-template-columns: 28px 1fr; gap: 0 16px;
@@ -53,6 +58,7 @@
       border-radius: 8px; padding: 16px 18px;
     }
     .ll-note strong { color: var(--ink); font-weight: 500; }
+    .ll-note + .ll-note { margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -72,10 +78,12 @@
     <section class="hero">
       <p class="hero-location">Cross-platform · LAN file transfer</p>
       <h1 class="hero-title">LanLink.</h1>
+      <span class="ll-version-chip">v4.0.0 — the rethink release</span>
       <p class="hero-bio">
         Send files straight between your phones, tablets and computers over your
-        own Wi-Fi or hotspot. No internet connection, no accounts, no upload
-        limits — your files never leave the room.
+        own Wi-Fi. No internet connection, no accounts, no upload limits — your
+        files never leave the room. Version 4 rebuilds the whole app around two
+        verbs: <strong>Send</strong> and <strong>Receive</strong>.
       </p>
       <div class="ll-cta">
         <a class="ll-btn ll-btn-primary" href="/lanlink/downloads/">Download LanLink</a>
@@ -84,50 +92,57 @@
       </div>
     </section>
 
-    <!-- WHAT IT DOES -->
+    <!-- WHAT'S NEW IN V4 -->
     <section class="section">
       <h2 class="section-label">What it does</h2>
       <ul class="ll-feature-list">
         <li class="ll-feature">
+          <span class="ll-feature-icon">🎯</span>
+          <div>
+            <h3>One app, two verbs</h3>
+            <p>The home screen is just <strong>Send</strong> and <strong>Receive</strong>, with your active and finished transfers grouped below — dismiss, cancel, retry, or clear them in a tap. The old mode picker and setup wizard are gone: pick a name on first run and go.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
+          <span class="ll-feature-icon">🔳</span>
+          <div>
+            <h3>Instant-QR receive</h3>
+            <p>Tap Receive and a QR code appears immediately. The other device scans it and connects — each code is a one-time token that's re-minted automatically once used, so an old photo of your screen can't reconnect later. A Direct Link fallback covers devices without a camera.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
           <span class="ll-feature-icon">📡</span>
           <div>
             <h3>Finds nearby devices automatically</h3>
-            <p>Open the app on two devices on the same Wi-Fi or hotspot and they discover each other — no IP addresses or pairing codes to type.</p>
+            <p>Open the app on two devices on the same Wi-Fi and they discover each other on the device radar — no IP addresses to type. Sending targets the device's cryptographic fingerprint, not its display name, so a look-alike name can never receive your files by mistake.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
+          <span class="ll-feature-icon">🛡️</span>
+          <div>
+            <h3>Verified by default</h3>
+            <p>Devices are pinned by fingerprint, and the "always accept from this device" trust option is only offered when the sender can be verified locally — never based on a claimed identity. Upload tokens are single-use, so replayed requests are simply rejected.</p>
+          </div>
+        </li>
+        <li class="ll-feature">
+          <span class="ll-feature-icon">✋</span>
+          <div>
+            <h3>Cancel from either side</h3>
+            <p>Sender or receiver can cancel a transfer mid-flight and both ends stop cleanly. Failed transfers get a Retry button only when a retry can actually work, and completed receives have a "Where is it?" shortcut to the saved folder.</p>
           </div>
         </li>
         <li class="ll-feature">
           <span class="ll-feature-icon">🚀</span>
           <div>
             <h3>Direct, full-speed transfers</h3>
-            <p>Files move device-to-device over your local network, so you get the full speed of your Wi-Fi with no cloud round-trip and no file-size cap.</p>
+            <p>Files move device-to-device over your local network, so you get the full speed of your Wi-Fi with no cloud round-trip and no file-size cap. The v4 protocol is hardened against malformed requests and denial-of-service tricks.</p>
           </div>
         </li>
         <li class="ll-feature">
-          <span class="ll-feature-icon">🔒</span>
+          <span class="ll-feature-icon">🎨</span>
           <div>
-            <h3>Private by design</h3>
-            <p>Nothing is uploaded to a server and no account is required. Your files stay on your own network, between your own devices.</p>
-          </div>
-        </li>
-        <li class="ll-feature">
-          <span class="ll-feature-icon">🧭</span>
-          <div>
-            <h3>Built-in help &amp; pairing guide</h3>
-            <p>A friendly first-run tour and an in-app "Get connected" guide walk you through sending and receiving between any two kinds of device.</p>
-          </div>
-        </li>
-        <li class="ll-feature">
-          <span class="ll-feature-icon">🔁</span>
-          <div>
-            <h3>One-tap retry &amp; clear status</h3>
-            <p>If a transfer doesn't go through, resend the same files with one tap. Plain-English messages tell you exactly what happened.</p>
-          </div>
-        </li>
-        <li class="ll-feature">
-          <span class="ll-feature-icon">⬇️</span>
-          <div>
-            <h3>Stays up to date</h3>
-            <p>LanLink quietly checks for new versions and lets you know when an update is available — updates are always optional.</p>
+            <h3>New "Ember on Paper" design</h3>
+            <p>A ground-up v4 design system: warm paper surfaces with a copper accent, in matching light and dark themes — not inverted defaults.</p>
           </div>
         </li>
       </ul>
@@ -139,20 +154,20 @@
       <ol class="ll-steps">
         <li class="ll-step">
           <div>
-            <h3>Connect both devices to the same network</h3>
-            <p>Join the same Wi-Fi, or turn on a hotspot on one device and connect the other to it.</p>
+            <h3>Connect both devices to the same Wi-Fi network</h3>
+            <p>Any home, office or school Wi-Fi works — the two devices just need to be on the same network.</p>
           </div>
         </li>
         <li class="ll-step">
           <div>
-            <h3>Open LanLink on both</h3>
-            <p>Each device shows up in the other's list automatically within a few seconds.</p>
+            <h3>Tap Receive on one device</h3>
+            <p>A QR code appears instantly. On the other device, tap Send and scan it — or pick the device from the radar, or paste a Direct Link.</p>
           </div>
         </li>
         <li class="ll-step">
           <div>
             <h3>Pick files and send</h3>
-            <p>Choose what to send, tap the device you want, and accept on the other end. That's it.</p>
+            <p>Choose what to send and accept on the other end. Either side can cancel at any time, and "Where is it?" takes you straight to the received files.</p>
           </div>
         </li>
       </ol>
@@ -162,7 +177,7 @@
     <section class="section">
       <h2 class="section-label">Supported platforms</h2>
       <div class="stack-row">
-        <span>Android</span><span>iOS</span><span>Windows</span><span>macOS</span>
+        <span>Android</span><span>iOS</span><span>Windows</span><span>macOS</span><span>Linux</span>
       </div>
       <a class="all-repos-link" href="/lanlink/downloads/">See all downloads →</a>
     </section>
@@ -175,6 +190,11 @@
         directly between devices on your local network. There is no LanLink server in
         the middle, no sign-up, and nothing is stored in the cloud. If your devices
         can see each other on Wi-Fi, they can send to each other.
+      </p>
+      <p class="ll-note">
+        <strong>Heads-up for v4.0:</strong> transfers need a shared Wi-Fi network.
+        Hotspot hosting for fully offline transfers isn't in this release yet, and
+        device nicknames are read-only for now.
       </p>
     </section>
 
