@@ -35,7 +35,7 @@
     "description": "How LanLink moves files between Android, Windows, macOS and Linux over local Wi-Fi — no internet, no accounts, no size limits.",
     "image": "https://tapiwa.me/og-image.png",
     "datePublished": "2026-05-31",
-    "dateModified": "2026-05-31",
+    "dateModified": "2026-07-03",
     "inLanguage": "en",
     "wordCount": 1300,
     "keywords": "send files between phone and PC without internet, AirDrop alternative for Android and Windows, offline file transfer, LocalSend alternative",
@@ -131,10 +131,14 @@
           whole point — the value of the app is precisely in the gaps AirDrop leaves.
         </p>
         <p>
-          It also speaks the <strong>LocalSend protocol</strong>, the open standard for local file
+          It also speaks the <strong>LocalSend v2 protocol</strong>, the open standard for local file
           sharing. That was a deliberate choice: rather than invent a closed protocol that only talks
           to itself, building on an open one means LanLink can interoperate with the wider ecosystem
-          instead of locking you in. Open protocols age better than clever proprietary ones.
+          instead of locking you in. LanLink's own additions — like single-use QR connect tokens and
+          verified-by-default device pairing, where a peer only shows as trusted once its fingerprint
+          has been pinned on your device — are layered on top as additive extensions, so plain
+          LocalSend clients keep working unchanged. Open protocols age better than clever proprietary
+          ones.
         </p>
 
         <h2>Why "no accounts" is a feature, not a shortcut</h2>
@@ -147,11 +151,14 @@
 
         <h2>Getting it on every platform</h2>
         <p>
-          The latest piece of this was Linux. Flutter supports Linux desktop, so the latest version
-          now builds a Linux release as well — packaged as a portable <strong>AppImage</strong> and a
+          A big piece of this was Linux. Flutter supports Linux desktop, so LanLink builds a Linux
+          release as well — packaged as a portable <strong>AppImage</strong> and a
           <strong>.tar.gz</strong> so it runs on essentially any distribution. That means the
-          download page now covers Android, Windows, macOS and Linux from the same codebase. You can
-          grab it on the <a href="/lanlink/downloads/">LanLink download page</a>.
+          download page covers Android, Windows, macOS and Linux from the same codebase, and the
+          current release (v4) hardens the protocol underneath — one-time connect tokens, pinned
+          device fingerprints and bounds on untrusted payloads — without changing how any of it
+          feels to use. You can grab it on the
+          <a href="/lanlink/downloads/">LanLink download page</a>.
         </p>
 
         <h2>The lesson</h2>
