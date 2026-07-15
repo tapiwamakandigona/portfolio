@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zimbabwe Language Data Commons (ZLDC) — AI-ready Shona &amp; Ndebele corpus</title>
+  <meta name="description" content="The Zimbabwe Language Data Commons (ZLDC) is a governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus — the missing data foundation for Zimbabwean-language AI. A POTRAZ 2026 AI for Impact Challenge project (Track 1: Data), led by Tapiwa Makandigona." />
+  <meta name="author" content="Tapiwa Makandigona" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="keywords" content="Zimbabwe Language Data Commons, ZLDC, Shona corpus, Ndebele corpus, African NLP, low-resource languages, speech dataset, POTRAZ AI for Impact, Tapiwa Makandigona, Zimbabwe AI" />
+  <link rel="canonical" href="https://zldc.tapiwa.me/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Zimbabwe Language Data Commons" />
+  <meta property="og:title" content="Zimbabwe Language Data Commons (ZLDC)" />
+  <meta property="og:description" content="A governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus — the missing data foundation for Zimbabwean-language AI." />
+  <meta property="og:url" content="https://zldc.tapiwa.me/" />
+  <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zimbabwe Language Data Commons (ZLDC)" />
+  <meta name="twitter:description" content="A governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus — the missing data foundation for Zimbabwean-language AI." />
+  <meta name="twitter:image" content="https://tapiwa.me/og-image.png" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230c7a63'/><path d='M9 11h14v3.4h-5.2V25h-3.6V14.4H9z' fill='%23faf6ec'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#faf6ec" id="theme-meta" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchProject",
+    "name": "Zimbabwe Language Data Commons",
+    "alternateName": "ZLDC",
+    "url": "https://zldc.tapiwa.me/",
+    "description": "A governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus for Zimbabwean-language AI. Submitted to the POTRAZ 2026 AI for Impact Challenge (Track 1: Data).",
+    "inLanguage": "en",
+    "founder": {
+      "@type": "Person",
+      "name": "Tapiwa Makandigona",
+      "url": "https://tapiwa.me/"
+    },
+    "areaServed": { "@type": "Country", "name": "Zimbabwe" }
+  }
+  </script>
+
+  <style>
+    .z-tag { font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); display: inline-block; margin-bottom: 18px; }
+    .z-langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+    .z-chip { font-family: var(--mono); font-size: 12px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 11px; }
+    .z-table { width: 100%; border-collapse: collapse; margin: 10px 0 6px; }
+    .z-table th, .z-table td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14.5px; line-height: 1.5; color: var(--ink-2); vertical-align: top; }
+    .z-table th { font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; }
+    .z-table td:last-child { text-align: right; white-space: nowrap; font-family: var(--mono); color: var(--ink); font-size: 13.5px; padding-left: 16px; }
+    .z-feature { list-style: none; display: flex; flex-direction: column; }
+    .z-feature li { display: grid; grid-template-columns: 30px 1fr; gap: 0 14px; padding: 18px 8px; margin: 0 -8px; border-top: 1px solid var(--border); }
+    .z-feature li:last-child { border-bottom: 1px solid var(--border); }
+    .z-feature .z-ic { font-size: 16px; padding-top: 1px; }
+    .z-feature h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .z-feature p { font-size: 14px; line-height: 1.65; color: var(--ink-2); }
+    .z-note { font-size: 14px; line-height: 1.7; color: var(--ink-2); background: var(--surface, rgba(12,122,99,.05)); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 18px; }
+    .z-note strong { color: var(--ink); font-weight: 600; }
+    .z-tiers { list-style: none; }
+    .z-tiers li { padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .z-tiers h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+    .z-tiers p { font-size: 14px; line-height: 1.65; color: var(--ink-2); }
+    .z-back { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="header-name" href="/" style="color:inherit">← Tapiwa Makandigona</a>
+    <nav>
+      <a href="/#work">Work</a>
+      <a href="mailto:tapiwamakandigoner@gmail.com" id="email-link">Email</a>
+      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <span class="z-tag">POTRAZ 2026 AI for Impact · Track 1: Data</span>
+      <h1 class="hero-title">Zimbabwe Language<br>Data Commons.</h1>
+      <p class="hero-bio">
+        A governed, consent-based, AI-ready <strong>Shona and Ndebele</strong> speech-and-text
+        corpus — the missing data foundation for Zimbabwean-language AI.
+      </p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="#build">What we're building ↓</a>
+        <a class="btn-ghost" href="mailto:tapiwamakandigoner@gmail.com">Partner with us</a>
+      </div>
+      <div class="z-langs">
+        <span class="z-chip">Phase 1 · Shona (sn)</span>
+        <span class="z-chip">Phase 1 · Ndebele (nd)</span>
+        <span class="z-chip">Phase 2 · Venda · Tshangani · Chewa/Nyanja</span>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section" id="problem">
+      <h2 class="section-label">The problem</h2>
+      <div class="about-text">
+        <p>
+          Zimbabwe has <strong>no governed, AI-ready corpus for its own languages.</strong>
+          The AI systems deployed for Zimbabweans — e-government assistants, telemedicine triage,
+          screen readers, chatbots — are trained overwhelmingly on English and foreign data, and
+          speakers of local languages get measurably worse outcomes from digital services.
+        </p>
+        <p>
+          No AI team can build, evaluate or audit local-language systems while the underlying data
+          does not exist. That absence is the problem this project solves.
+        </p>
+      </div>
+    </section>
+
+    <!-- WHAT WE BUILD -->
+    <section class="section" id="build">
+      <h2 class="section-label">What we'll build — pilot commitments</h2>
+      <table class="z-table">
+        <thead><tr><th>Deliverable</th><th>Pilot target</th></tr></thead>
+        <tbody>
+          <tr><td>Consented, transcribed Shona/Ndebele speech (≥400 distinct speakers)</td><td>100+ hrs</td></tr>
+          <tr><td>Cleaned, provenance-tracked Shona/Ndebele text corpus</td><td>1,000,000+ words</td></tr>
+          <tr><td>Health-triage vertical — scenario dialogue speech + phrase inventory</td><td>≥15 hrs</td></tr>
+          <tr><td>Accessibility vertical — PWD &amp; assistive-technology speech</td><td>≥10 hrs</td></tr>
+          <tr><td>Held-out, double-transcribed evaluation benchmark, per language</td><td>~5 hrs</td></tr>
+        </tbody>
+      </table>
+      <p class="about-text" style="margin-top:18px">
+        Everything ships <strong>AI-ready</strong>: a published schema and data dictionary, a
+        per-file checksummed manifest, versioned releases, quality reports, a
+        bias/representativeness register — and an evaluation layer that lets any deployed AI
+        service's Shona/Ndebele accuracy be benchmarked and audited.
+      </p>
+    </section>
+
+    <!-- HOW COLLECTED -->
+    <section class="section" id="collect">
+      <h2 class="section-label">How the data is collected</h2>
+      <p class="about-text" style="margin-bottom:8px">
+        Primary, consented, original data through four institutional channels — no web scraping,
+        no single-institution dependence:
+      </p>
+      <ul class="z-feature">
+        <li><span class="z-ic">🏢</span><div><h3>Community Information Centres</h3><p>Supervised recording days at POTRAZ/USF centres, reaching rural and peri-urban speakers in every province.</p></div></li>
+        <li><span class="z-ic">🎓</span><div><h3>State university language departments</h3><p>The academic anchor — transcription standards, orthography authority, annotation QA, and trained fieldworkers.</p></div></li>
+        <li><span class="z-ic">📻</span><div><h3>Community radio stations</h3><p>Purpose-made consented studio sessions with presenters and community members, plus licensed archive segments where rights are clearly held.</p></div></li>
+        <li><span class="z-ic">♿</span><div><h3>Disability organisations</h3><p>Co-design and host the accessibility vertical — persons with disabilities represented as speakers and co-designers, not subjects.</p></div></li>
+      </ul>
+      <p class="about-text" style="margin-top:18px">
+        Sampling uses documented quotas across province, district, urban/rural, gender, age and
+        dialect region — collection sites in <strong>≥6 of 10 provinces</strong> in the pilot,
+        with <strong>≥40% of speech hours</strong> from rural or peri-urban sites, and gaps
+        measured and disclosed.
+      </p>
+    </section>
+
+    <!-- GOVERNANCE -->
+    <section class="section" id="governance">
+      <h2 class="section-label">Consent, privacy &amp; governance</h2>
+      <div class="about-text" style="margin-bottom:16px">
+        <p>The lawful basis for all primary collection is <strong>informed consent under Zimbabwe's Data Protection Act [Chapter 12:07]</strong> — plain-language consent in the participant's own language, with withdrawal honoured in every release.</p>
+        <p>Speakers are pseudonymised, identifiers redacted, and location generalised to district level; raw audio and consent registers sit under encryption and role-restricted access.</p>
+      </div>
+      <p class="z-note">
+        <strong>Hard boundary:</strong> the corpus is barred from surveillance, enforcement,
+        profiling, credit denial and speaker-identification uses. Voice data is collected for
+        language technology only. A named data steward and a governance group drawn from the
+        collection partners approve every release, licence and takedown.
+      </p>
+    </section>
+
+    <!-- ACCESS -->
+    <section class="section" id="access">
+      <h2 class="section-label">Access &amp; sustainability</h2>
+      <ul class="z-tiers">
+        <li><h3>Open research tier</h3><p>Anonymised core corpus under <strong>CC BY 4.0</strong> for researchers, students and public-interest use.</p></li>
+        <li><h3>Controlled-access tier</h3><p>Sensitive subsets (e.g. health-triage) under logged access agreements.</p></li>
+        <li><h3>Commercial tier</h3><p>Paid licences for enterprise users fund ongoing stewardship and twice-yearly refresh releases.</p></li>
+      </ul>
+    </section>
+
+    <!-- STATUS / CTA -->
+    <section class="section" id="status">
+      <h2 class="section-label">Status &amp; partners</h2>
+      <div class="about-text">
+        <p>
+          Proposal <strong>submitted 3 July 2026</strong> to the POTRAZ 2026 AI for Impact
+          Challenge (Track 1: Data); institutional partners are being confirmed during the
+          application window. <strong>IndabaX Zimbabwe</strong> has provided its signed letter of
+          support.
+        </p>
+        <p>
+          We're looking for university language departments, community radio stations, disability
+          organisations and the CIC network to join as partners — a short letter of support on
+          your organisation's letterhead is all we ask to start.
+        </p>
+      </div>
+      <div class="hero-cta" style="margin-top:22px">
+        <a class="btn-primary" href="mailto:tapiwamakandigoner@gmail.com">Get in touch</a>
+        <a class="btn-ghost" href="/">← Back to portfolio</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="yr"></span> Tapiwa Makandigona</span>
+    <span>Zimbabwe Language Data Commons 🇿🇼</span>
+    <a href="mailto:tapiwamakandigoner@gmail.com">tapiwamakandigoner@gmail.com</a>
+    <a href="https://www.linkedin.com/in/tapiwa-makandigona/" rel="me noopener" target="_blank">LinkedIn</a>
+  </footer>
+
+  <button class="back-top" id="back-top" aria-label="Back to top">↑</button>
+  <script src="/script.js"></script>
+</body>
+</html>
