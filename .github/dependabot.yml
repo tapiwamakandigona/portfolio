@@ -1,4 +1,8 @@
-# Grouped weekly updates: all GitHub Actions bumps arrive in one PR.
+# Dependency policy
+#   * one grouped PR per class, weekly (Monday)
+#   * minor + patch only: major bumps are never opened unattended, because
+#     TypeScript 6/7, vite 8 and friends break these builds on arrival.
+#     Do majors deliberately: `npx npm-check-updates -u` on a branch.
 version: 2
 updates:
   - package-ecosystem: github-actions
