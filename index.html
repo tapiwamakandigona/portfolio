@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <script>
     // zldc.tapiwa.me is a memorable alias — forward its root to the canonical ZLDC page on the main site.
     (function () {
@@ -12,10 +13,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tapiwa Makandigona — Full-stack Developer | Kwekwe, Zimbabwe</title>
-  <meta name="description" content="Tapiwa Makandigona is a self-taught full-stack developer from Kwekwe, Zimbabwe, building production web apps, 3D browser games, and cross-platform tools with React, TypeScript, Supabase, Three.js, and Flutter." />
+  <meta name="description" content="Tapiwa Makandigona is a self-taught full-stack developer from Kwekwe, Zimbabwe, building production web apps, Android platform tools and custom kernels, games, and open-source packages with TypeScript, React, Next.js, Kotlin, and Flutter." />
   <meta name="author" content="Tapiwa Makandigona" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="keywords" content="Tapiwa Makandigona, full-stack developer Zimbabwe, software developer Kwekwe, React developer, TypeScript, Supabase, Three.js, Flutter, web developer Zimbabwe" />
+  <meta name="keywords" content="Tapiwa Makandigona, full-stack developer Zimbabwe, software developer Kwekwe, React developer, TypeScript, Next.js, Appwrite, Supabase, Android kernel developer, Kotlin, Flutter, web developer Zimbabwe" />
   <link rel="canonical" href="https://tapiwa.me/" />
 
   <!-- Open Graph -->
@@ -65,11 +66,16 @@
         "knowsAbout": [
           "Full-stack web development",
           "React",
+          "Next.js",
           "TypeScript",
+          "Appwrite",
           "Supabase",
           "Three.js",
           "WebGL",
           "Flutter",
+          "Kotlin",
+          "Android kernel development",
+          "African NLP",
           "Node.js",
           "PostgreSQL"
         ],
@@ -107,6 +113,7 @@
       <a href="/blog/">Blog</a>
       <a href="mailto:silentics.org@gmail.com" id="email-link">Email</a>
       <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="theme-icon" aria-hidden="true"></span></button>
     </nav>
   </header>
 
@@ -117,11 +124,11 @@
       <p class="hero-location">Kwekwe, Zimbabwe</p>
       <h1 class="hero-title">
         Full-stack<br>
-        developer.
+        developer<span class="hero-dot">.</span>
       </h1>
       <p class="hero-bio">
-        I build web apps, 3D browser games, and cross-platform tools.
-        Self-taught. Ships to production. Open source when possible.
+        I build production web apps, Android platform tools — down to the kernel —
+        games, and open-source packages. Self-taught. Ships to production.
       </p>
       <div class="hero-cta">
         <a class="btn-primary" href="#work">View my work ↓</a>
@@ -178,6 +185,65 @@
         <li class="work-item">
           <div class="work-meta">
             <span class="work-num">03</span>
+            <span class="work-year">2026</span>
+          </div>
+          <div class="work-body">
+            <div class="work-top">
+              <h3 class="work-title">S26U Kernel &amp; Platform Suite</h3>
+              <div class="work-links">
+                <a href="https://github.com/tapiwamakandigona/s26u-kernel" target="_blank" rel="noopener" aria-label="S26U kernel CI source">↗ Kernel CI</a>
+                <a href="https://github.com/tapiwamakandigona/s26u-flow-display" target="_blank" rel="noopener" aria-label="S26U display app source">↗ Display app</a>
+                <a href="https://github.com/tapiwamakandigona/podeq" target="_blank" rel="noopener" aria-label="PodEQ source">↗ PodEQ</a>
+              </div>
+            </div>
+            <p class="work-desc">Low-level Android work for the itel S26 Ultra (Unisoc T7300): a CI pipeline that builds the ACK android15-6.6 GKI kernel on free GitHub runners, a display-mode picker with a quick-settings tile exposing all 8 panel-native 60–144&nbsp;Hz modes, and PodEQ — a zero-dependency 47&nbsp;KB system-wide equalizer.</p>
+            <div class="work-tags">
+              <span>Android</span><span>GKI kernel</span><span>Kotlin</span><span>CI/CD</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="work-item">
+          <div class="work-meta">
+            <span class="work-num">04</span>
+            <span class="work-year">2026</span>
+          </div>
+          <div class="work-body">
+            <div class="work-top">
+              <h3 class="work-title">ChemLab ZW</h3>
+              <div class="work-links">
+                <a href="https://github.com/tapiwamakandigona/chem-lab" target="_blank" rel="noopener" aria-label="ChemLab ZW source code">↗ Code</a>
+              </div>
+            </div>
+            <p class="work-desc">Virtual Cambridge AS/A Level chemistry lab that runs in the browser — built for Zimbabwean students who don't have access to a physical lab.</p>
+            <div class="work-tags">
+              <span>React</span><span>Vite</span><span>EdTech</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="work-item">
+          <div class="work-meta">
+            <span class="work-num">05</span>
+            <span class="work-year">2026</span>
+          </div>
+          <div class="work-body">
+            <div class="work-top">
+              <h3 class="work-title">Emberdelve</h3>
+              <div class="work-links">
+                <a href="https://github.com/tapiwamakandigona/emberdelve" target="_blank" rel="noopener" aria-label="Emberdelve source code">↗ Code</a>
+              </div>
+            </div>
+            <p class="work-desc">Turn-based dice-builder roguelite for Android, built with Flutter under the Tsoro Studios banner.</p>
+            <div class="work-tags">
+              <span>Flutter</span><span>Dart</span><span>Game design</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="work-item">
+          <div class="work-meta">
+            <span class="work-num">06</span>
             <span class="work-year">2024</span>
           </div>
           <div class="work-body">
@@ -197,7 +263,7 @@
 
         <li class="work-item">
           <div class="work-meta">
-            <span class="work-num">04</span>
+            <span class="work-num">07</span>
             <span class="work-year">2024</span>
           </div>
           <div class="work-body">
@@ -218,7 +284,7 @@
 
         <li class="work-item">
           <div class="work-meta">
-            <span class="work-num">05</span>
+            <span class="work-num">08</span>
             <span class="work-year">2024</span>
           </div>
           <div class="work-body">
@@ -237,72 +303,60 @@
           </div>
         </li>
 
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">06</span>
-            <span class="work-year">2024</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">ZimBet</h3>
-              <div class="work-links">
-                <a href="https://github.com/tapiwamakandigona/zimbet" target="_blank" rel="noopener">↗ Code</a>
-                <a href="/zimbet/" aria-label="About ZimBet">↗ About</a>
-                <a href="https://tapiwamakandigona.github.io/zimbet/" target="_blank" rel="noopener" aria-label="ZimBet live demo">↗ Live</a>
-              </div>
-            </div>
-            <p class="work-desc">Casino platform with 6 provably fair games: Aviator, Plinko, Mines, Dice, Coinflip, Wheel. Real-time multiplayer via Supabase Realtime.</p>
-            <div class="work-tags">
-              <span>React</span><span>TypeScript</span><span>Supabase Realtime</span><span>Canvas API</span>
-            </div>
-          </div>
-        </li>
 
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">07</span>
-            <span class="work-year">2023</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">ZimPay</h3>
-              <div class="work-links">
-                <a href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener">↗ Code</a>
-                <a href="/zimpay/" aria-label="About ZimPay">↗ About</a>
-                <a href="https://tapiwamakandigona.github.io/zimpay/" target="_blank" rel="noopener" aria-label="ZimPay live demo">↗ Live</a>
-              </div>
-            </div>
-            <p class="work-desc">Banking simulation with real-time transfers, transaction history, and Supabase auth. Mobile-first responsive design.</p>
-            <div class="work-tags">
-              <span>React</span><span>Supabase</span><span>TypeScript</span>
-            </div>
-          </div>
-        </li>
 
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">08</span>
-            <span class="work-year">2023</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">React UI Kit</h3>
-              <div class="work-links">
-                <a href="https://github.com/tapiwamakandigona/react-ui-kit" target="_blank" rel="noopener">↗ Code</a>
-              </div>
-            </div>
-            <p class="work-desc">Zero-dependency component library with TypeScript-first API, dark theme defaults, and Rollup build output.</p>
-            <div class="work-tags">
-              <span>TypeScript</span><span>Rollup</span><span>npm package</span>
-            </div>
-          </div>
-        </li>
 
       </ol>
 
       <a class="all-repos-link" href="https://github.com/tapiwamakandigona?tab=repositories" target="_blank" rel="noopener">
         All repos on GitHub ↗
       </a>
+    </section>
+
+    <!-- OPEN SOURCE -->
+    <section class="section" id="open-source">
+      <h2 class="section-label">Open source</h2>
+      <ul class="oss-grid">
+        <li class="oss-item">
+          <a href="https://github.com/tapiwamakandigona/env-guard" target="_blank" rel="noopener" class="oss-name">env-guard</a>
+          <p class="oss-desc">Validate environment variables at startup — never deploy with missing config.</p>
+        </li>
+        <li class="oss-item">
+          <a href="https://www.npmjs.com/package/ts-color-utils" target="_blank" rel="noopener" class="oss-name">ts-color-utils</a>
+          <p class="oss-desc">Zero-dependency color conversions — hex, RGB, HSL — with full type safety.</p>
+        </li>
+        <li class="oss-item">
+          <a href="https://github.com/tapiwamakandigona/react-ui-kit" target="_blank" rel="noopener" class="oss-name">react-ui-kit</a>
+          <p class="oss-desc">Zero-dependency React component library, TypeScript-first, dark theme defaults.</p>
+        </li>
+        <li class="oss-item">
+          <a href="https://github.com/tapiwamakandigona/express-api-starter" target="_blank" rel="noopener" class="oss-name">express-api-starter</a>
+          <p class="oss-desc">Production-ready REST API starter — Express, Prisma, JWT auth, validation.</p>
+        </li>
+        <li class="oss-item">
+          <a href="https://github.com/tapiwamakandigona/json-lint-cli" target="_blank" rel="noopener" class="oss-name">json-lint-cli</a>
+          <p class="oss-desc">Fast CLI to validate and format JSON files with colorful output.</p>
+        </li>
+        <li class="oss-item">
+          <a href="https://github.com/tapiwamakandigona/pwgen-cli" target="_blank" rel="noopener" class="oss-name">pwgen-cli</a>
+          <p class="oss-desc">Cryptographically secure password generator CLI with customizable rules.</p>
+        </li>
+        <li class="oss-item">
+          <a href="https://github.com/tapiwamakandigona/http-ping-cli" target="_blank" rel="noopener" class="oss-name">http-ping-cli</a>
+          <p class="oss-desc">Monitor HTTP endpoint health and response times from the command line.</p>
+        </li>
+        <li class="oss-item">
+          <a href="https://github.com/tapiwamakandigona/md-preview-server" target="_blank" rel="noopener" class="oss-name">md-preview-server</a>
+          <p class="oss-desc">Live-reload Markdown preview server with styled HTML output.</p>
+        </li>
+      </ul>
+      <p class="more-projects">
+        More: <a href="/zimbet/">ZimBet</a> — provably fair casino games,
+        <a href="/zimpay/">ZimPay</a> — banking simulation,
+        <a href="https://github.com/tapiwamakandigona/todo-app" target="_blank" rel="noopener">todo-app</a> — cross-platform todo list,
+        <a href="https://github.com/tapiwamakandigona/quickbucks" target="_blank" rel="noopener">QuickBucks</a> — mukando savings-group manager,
+        <a href="https://github.com/tapiwamakandigona/FontaineOS" target="_blank" rel="noopener">FontaineOS</a> — bare-metal x86 OS kernel in C++ and Assembly.
+      </p>
     </section>
 
     <!-- RECOGNITION -->
@@ -353,24 +407,27 @@
       <div class="about-text">
         <p>
           I'm a self-taught developer from Kwekwe, Zimbabwe. I started building out of curiosity —
-          first small scripts, then full products. Now I focus on the full picture:
-          backend architecture, database design, responsive UI, and native packaging
-          so apps run on web, Android, Windows, and Linux from a single codebase.
+          first small scripts, then full products. Today that ranges from production web apps like
+          <a href="https://zesa.tapiwa.me/">VoltZW, a ZESA prepaid electricity calculator</a>,
+          to Android platform work — custom GKI kernel builds and system apps for my own phone —
+          to games and data projects like the Zimbabwe Language Data Commons.
         </p>
         <p>
-          My stack is <strong>React + TypeScript + Supabase</strong> for most things,
-          <strong>Three.js</strong> when I need 3D, and
-          <strong>Capacitor + Electron</strong> for cross-platform reach.
-          I like building in the open.
+          My stack is <strong>TypeScript + React/Next.js</strong> with
+          <strong>Appwrite or Supabase</strong> on the backend,
+          <strong>Kotlin</strong> and <strong>Flutter</strong> for Android,
+          and <strong>Three.js</strong> when I need 3D.
+          I like building in the open — most of my work is on GitHub.
         </p>
         <p>
-          Outside of code: game design, system design, and trying to make things
-          that people actually use.
+          Outside of code: AI olympiads (bronze medalist at the African Olympiad in AI),
+          game design, and trying to make things that people in Zimbabwe actually use.
         </p>
       </div>
       <div class="stack-row">
-        <span>TypeScript</span><span>React</span><span>Supabase</span><span>Three.js</span>
-        <span>Node.js</span><span>PostgreSQL</span><span>Capacitor</span><span>Electron</span>
+        <span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span>
+        <span>Appwrite</span><span>Supabase</span><span>PostgreSQL</span>
+        <span>Kotlin</span><span>Flutter</span><span>Three.js</span><span>Python</span>
       </div>
     </section>
 

@@ -14,8 +14,25 @@
   --sans: 'Inter', system-ui, sans-serif;
   --max: 680px;
   --gap: clamp(56px, 8vw, 110px);
-  --theme-icon: "☀";
+  --theme-icon: "☾";
+  color-scheme: light;
 }
+
+[data-theme="dark"] {
+  --bg: #14120d;
+  --ink: #f0ead9;
+  --ink-2: #b5ac9a;
+  --ink-3: #7e766a;
+  --border: #2c2820;
+  --link: #45c2a2;
+  --accent: #45c2a2;
+  --theme-icon: "☀";
+  color-scheme: dark;
+}
+
+[data-theme="dark"] .btn-primary { color: #0f0d09; }
+[data-theme="dark"] .post-body code,
+[data-theme="dark"] .post-body pre { background: rgba(240, 234, 217, 0.06); }
 
 html { scroll-behavior: smooth; }
 body {
@@ -226,8 +243,6 @@ main { max-width: var(--max); margin: 0 auto; }
   body { opacity: 1; }
 }
 
-/* light-only */
-.theme-toggle { display: none; }
 
 /* ── Blog post body ─────────────────────────────────────── */
 .post-meta { font-family: var(--mono); font-size: 12.5px; letter-spacing: .02em; color: var(--accent); margin-bottom: 14px; }
@@ -251,4 +266,33 @@ main { max-width: var(--max); margin: 0 auto; }
 /* Mobile: keep the footer LinkedIn link clear of the fixed back-to-top button */
 @media (max-width: 600px) {
   .site-footer { padding-bottom: 88px; }
+}
+
+/* ── Hero accent ────────────────────────────────────────── */
+.hero-dot { color: var(--accent); }
+
+/* ── Open source grid ───────────────────────────────────── */
+.oss-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+  padding-top: 10px;
+}
+.oss-name {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  font-weight: 550;
+  color: var(--accent);
+}
+.oss-desc { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); margin-top: 3px; }
+.more-projects { margin-top: 28px; font-size: 14px; line-height: 1.75; color: var(--ink-2); }
+@media (max-width: 560px) {
+  .oss-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ── Scroll reveal (JS adds .reveal; no-JS sees everything) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
 }
