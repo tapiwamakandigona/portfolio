@@ -43,9 +43,9 @@ document.addEventListener('keydown', e => {
   const meta = document.querySelector('meta[name="theme-color"]');
   const apply = t => {
     root.setAttribute('data-theme', t);
-    if (meta) meta.setAttribute('content', t === 'dark' ? '#14120d' : '#faf6ec');
+    if (meta) meta.setAttribute('content', t === 'dark' ? '#0d0e0b' : '#f2f1e8');
   };
-  apply(root.getAttribute('data-theme') || 'light');
+  apply(root.getAttribute('data-theme') || 'dark');
   let toggle = document.getElementById('theme-toggle');
   if (!toggle) {
     const nav = document.querySelector('.site-header nav');
