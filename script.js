@@ -1,8 +1,3 @@
-// ── Page fade-in ──────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  requestAnimationFrame(() => document.body.classList.add('ready'));
-});
-
 // ── Auto year ─────────────────────────────────────────────
 const yr = document.getElementById('yr');
 if (yr) yr.textContent = new Date().getFullYear();
@@ -43,9 +38,9 @@ document.addEventListener('keydown', e => {
   const meta = document.querySelector('meta[name="theme-color"]');
   const apply = t => {
     root.setAttribute('data-theme', t);
-    if (meta) meta.setAttribute('content', t === 'dark' ? '#0d0e0b' : '#f2f1e8');
+    if (meta) meta.setAttribute('content', t === 'dark' ? '#161510' : '#fbfaf6');
   };
-  apply(root.getAttribute('data-theme') || 'dark');
+  apply(root.getAttribute('data-theme') || 'light');
   let toggle = document.getElementById('theme-toggle');
   if (!toggle) {
     const nav = document.querySelector('.site-header nav');
@@ -68,15 +63,3 @@ document.addEventListener('keydown', e => {
   }
 })();
 
-// ── Scroll reveal ─────────────────────────────────────────
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const els = document.querySelectorAll('.work-item, .award-item, .oss-grid li, .blog-entry, .about-text p, .stack-row, .more-projects, .all-repos-link');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-  els.forEach(el => { el.classList.add('reveal'); io.observe(el); });
-})();
