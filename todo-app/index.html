@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TapDo — cross-platform todo app for Android, desktop and web</title>
+  <meta name="description" content="TapDo is a fast, offline-first task manager built with React, TypeScript and Vite. One codebase ships a PWA, a signed Android APK via Capacitor, and Windows, macOS and Linux desktop builds via Electron. No account, no backend." />
+  <meta property="og:title" content="TapDo — cross-platform todo app" />
+  <meta property="og:description" content="Offline-first task manager in React + TypeScript. One codebase, shipped as a PWA, a signed Android APK, and Windows/macOS/Linux desktop builds." />
+  <meta property="og:url" content="https://tapiwa.me/todo-app/" />
+  <link rel="canonical" href="https://tapiwa.me/todo-app/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230c7a63'/><path d='M9 11h14v3.4h-5.2V25h-3.6V14.4H9z' fill='%23faf6ec'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="theme-color" content="#faf6ec" id="theme-meta" />
+  <style>
+    .td-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .td-btn {
+      font-family: var(--mono); font-size: 13px; letter-spacing: .02em;
+      padding: 11px 20px; border-radius: 8px; border: 1px solid transparent;
+      transition: background .15s, border-color .15s, color .15s, opacity .15s;
+    }
+    .td-btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .td-btn-primary:hover { opacity: .9; color: #fff; border-color: var(--accent); }
+    .td-btn-ghost { color: var(--ink-2); border-color: var(--border); }
+    .td-btn-ghost:hover { color: var(--ink); border-color: var(--ink-3); }
+    .td-chip {
+      font-family: var(--mono); font-size: 12px; color: var(--ink-3);
+      border: 1px solid var(--border); border-radius: 6px; padding: 3px 9px;
+      display: inline-block; margin-bottom: 14px;
+    }
+    .td-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .td-row {
+      display: grid; grid-template-columns: 28px 1fr; gap: 0 16px;
+      padding: 16px 8px; border-top: 1px solid var(--border);
+      margin: 0 -8px; border-radius: 6px; transition: background .15s;
+    }
+    .td-row:last-child { border-bottom: 1px solid var(--border); }
+    .td-row:hover { background: var(--surface); }
+    .td-icon { font-size: 16px; text-align: center; padding-top: 1px; }
+    .td-row h3 { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+    .td-row p { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+    .td-note {
+      font-size: 14px; line-height: 1.7; color: var(--ink-2);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px 18px;
+    }
+    .td-note strong { color: var(--ink); font-weight: 500; }
+    .td-note + .td-note { margin-top: 12px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TapDo",
+    "alternateName": "todo-app",
+    "url": "https://tapiwa.me/todo-app/",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Android, Windows, macOS, Linux, Web",
+    "description": "TapDo is an offline-first task manager built with React, TypeScript and Vite, shipped as a PWA, a signed Android APK via Capacitor, and desktop builds via Electron.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "downloadUrl": "https://github.com/tapiwamakandigona/todo-app/releases",
+    "author": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="header-name" style="border:none;">Tapiwa Makandigona</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="https://tapiwamakandigona.github.io/todo-app/" rel="noopener" target="_blank">Live app</a>
+      <a href="https://github.com/tapiwamakandigona/todo-app" rel="noopener" target="_blank">Source</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="hero-location">Cross-platform · Offline-first task manager</p>
+      <h1 class="hero-title">TapDo.</h1>
+      <span class="td-chip">React + TypeScript + Vite · one codebase, four targets</span>
+      <p class="hero-bio">
+        A fast todo app that keeps everything on your own device. Tasks live in
+        <strong>localStorage</strong> — no account, no backend, nothing to sync — and the
+        same React codebase ships as a web app, an Android APK, and desktop builds for
+        Windows, macOS and Linux.
+      </p>
+      <div class="td-cta">
+        <a class="td-btn td-btn-primary" href="https://tapiwamakandigona.github.io/todo-app/" rel="noopener" target="_blank">Open the web app</a>
+        <a class="td-btn td-btn-ghost" href="https://github.com/tapiwamakandigona/todo-app/releases" rel="noopener" target="_blank">Download the Android APK</a>
+        <a class="td-btn td-btn-ghost" href="https://github.com/tapiwamakandigona/todo-app" rel="noopener" target="_blank">View the source</a>
+      </div>
+    </section>
+
+    <!-- WHAT IT DOES -->
+    <section class="section">
+      <h2 class="section-label">What it does</h2>
+      <ul class="td-list">
+        <li class="td-row">
+          <span class="td-icon">✅</span>
+          <div>
+            <h3>Tasks, in one screen</h3>
+            <p>Create, complete and delete tasks without a single dialog in the way. The list is the app.</p>
+          </div>
+        </li>
+        <li class="td-row">
+          <span class="td-icon">🗂️</span>
+          <div>
+            <h3>Categories and priorities</h3>
+            <p>Sort work from life with five categories — Personal, Work, Shopping, Health, Other — and Low / Medium / High priorities with colour-coded indicators.</p>
+          </div>
+        </li>
+        <li class="td-row">
+          <span class="td-icon">🔍</span>
+          <div>
+            <h3>Search, filter, sort</h3>
+            <p>Filter by status or category and sort by date, priority or name, so a long list stays usable.</p>
+          </div>
+        </li>
+        <li class="td-row">
+          <span class="td-icon">📴</span>
+          <div>
+            <h3>Works with no internet</h3>
+            <p>Everything is persisted to <code>localStorage</code> behind a service worker, so the app opens and saves offline. Your tasks never leave the device.</p>
+          </div>
+        </li>
+        <li class="td-row">
+          <span class="td-icon">📲</span>
+          <div>
+            <h3>Installable</h3>
+            <p>A real PWA with a manifest and service worker: install it from the browser on supported platforms, or use the packaged Android and desktop builds.</p>
+          </div>
+        </li>
+        <li class="td-row">
+          <span class="td-icon">⚙️</span>
+          <div>
+            <h3>Shipped by CI</h3>
+            <p>GitHub Actions deploys the web build to Pages, builds the Android APK with Capacitor and signs it with <code>apksigner</code>, and packages the desktop apps with electron-builder.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PLATFORMS -->
+    <section class="section">
+      <h2 class="section-label">Where it runs</h2>
+      <div class="stack-row">
+        <span>Web (PWA)</span><span>Android (APK)</span><span>Windows</span><span>macOS</span><span>Linux</span>
+      </div>
+      <a class="all-repos-link" href="https://github.com/tapiwamakandigona/todo-app/releases" rel="noopener" target="_blank">See all downloads →</a>
+    </section>
+
+    <!-- STACK -->
+    <section class="section">
+      <h2 class="section-label">How it is built</h2>
+      <div class="stack-row">
+        <span>React 18</span><span>TypeScript</span><span>Vite 5</span><span>Capacitor 5</span><span>Electron</span><span>GitHub Actions</span>
+      </div>
+      <p class="td-note" style="margin-top:20px;">
+        <strong>No backend by design.</strong> There is no server, no database and no account
+        system — which is why it keeps working on a dead connection. The trade-off is
+        deliberate: tasks are per-device, not synced across them.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Made by Tapiwa Makandigona</span>
+    <a href="/">Portfolio</a>
+    <a href="https://github.com/tapiwamakandigona/todo-app" rel="noopener" target="_blank">Source</a>
+    <a href="mailto:silentics.org@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/" rel="me noopener" target="_blank">LinkedIn</a>
+    <span>© <span id="yr">2026</span></span>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
