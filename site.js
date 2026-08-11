@@ -52,6 +52,28 @@
   });
 })();
 
+/* Motion toggle. The graphs respect the OS "reduce motion" setting by dropping to a
+   calm drift, but a visitor may want the opposite of whatever their system says, so
+   the choice is theirs and it persists. Reloading is the honest way to re-apply it:
+   the engine reads the preference once at boot. */
+(function () {
+  var btn = document.querySelector("[data-motion-toggle]");
+  if (!btn || typeof window.NET_MOTION !== "function") return;
+  function label() {
+    var mode = window.NET_MOTION();
+    btn.textContent = mode === "full" ? "Reduce motion" : "Enable motion";
+    btn.setAttribute("aria-label", mode === "full"
+      ? "Reduce the background animation" : "Enable the background animation");
+  }
+  btn.hidden = false;
+  label();
+  btn.addEventListener("click", function () {
+    var next = window.NET_MOTION() === "full" ? "off" : "on";
+    try { localStorage.setItem("motion", next); } catch (e) { /* private mode */ }
+    location.reload();
+  });
+})();
+
 
 /* Site-wide behaviours that outlive any one page ---------------------- */
 (function () {
