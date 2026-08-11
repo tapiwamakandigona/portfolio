@@ -15,6 +15,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/site.css" />
   <meta name="theme-color" content="#faf9f5" />
+  <style>
+    .dl-detected { outline: 2px solid #cc785c; outline-offset: 2px; }
+    .dl-your { display: inline-block; margin-left: 10px; padding: 2px 10px; border-radius: 999px;
+      background: #cc785c; color: #faf9f5; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.02em; vertical-align: middle; }
+  </style>
 </head>
 <body class="page">
 
@@ -67,7 +73,7 @@
       <div class="dl-grid">
 
         <!-- ANDROID -->
-        <div class="dl-card">
+        <div class="dl-card" data-platform="android">
           <div class="dl-head">
             <span class="dl-icon"><svg aria-hidden="true"><use href="#i-android"/></svg></span>
             <div>
@@ -95,7 +101,7 @@
         </div>
 
         <!-- WINDOWS -->
-        <div class="dl-card">
+        <div class="dl-card" data-platform="windows">
           <div class="dl-head">
             <span class="dl-icon"><svg aria-hidden="true"><use href="#i-windows"/></svg></span>
             <div>
@@ -115,7 +121,7 @@
         </div>
 
         <!-- LINUX -->
-        <div class="dl-card">
+        <div class="dl-card" data-platform="linux">
           <div class="dl-head">
             <span class="dl-icon"><svg aria-hidden="true"><use href="#i-linux"/></svg></span>
             <div>
@@ -142,7 +148,7 @@
         </div>
 
         <!-- MACOS -->
-        <div class="dl-card">
+        <div class="dl-card" data-platform="macos">
           <div class="dl-head">
             <span class="dl-icon"><svg aria-hidden="true"><use href="#i-apple"/></svg></span>
             <div>
@@ -163,7 +169,7 @@
         </div>
 
         <!-- IOS -->
-        <div class="dl-card">
+        <div class="dl-card" data-platform="ios">
           <div class="dl-head">
             <span class="dl-icon"><svg aria-hidden="true"><use href="#i-apple"/></svg></span>
             <div>
@@ -231,6 +237,25 @@
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(d => { if (d && d.tag_name) document.getElementById('ll-version').textContent = d.tag_name; })
       .catch(() => {});
+  </script>
+  <script>
+  (function () {
+    var ua = navigator.userAgent;
+    var p = /Android/i.test(ua) ? "android"
+      : /iPhone|iPad|iPod/i.test(ua) ? "ios"
+      : /Windows/i.test(ua) ? "windows"
+      : /Macintosh/i.test(ua) ? "macos"
+      : /Linux/i.test(ua) ? "linux" : null;
+    if (!p) return;
+    var card = document.querySelector('[data-platform="' + p + '"]');
+    if (!card) return;
+    card.classList.add("dl-detected");
+    var tag = document.createElement("span");
+    tag.className = "dl-your";
+    tag.textContent = "Your device";
+    var head = card.querySelector(".dl-head");
+    if (head) head.appendChild(tag);
+  })();
   </script>
 </body>
 </html>

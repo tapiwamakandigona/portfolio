@@ -8,6 +8,8 @@
   <meta property="og:title" content="LanLink — send files between your devices" />
   <meta property="og:description" content="Send files between Android, iOS, Windows and macOS over your own Wi-Fi — no internet, no accounts, no size limits. Two verbs: Send and Receive." />
   <meta property="og:url" content="https://tapiwa.me/lanlink/" />
+  <meta property="og:image" content="https://tapiwa.me/lanlink/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://tapiwa.me/lanlink/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%23cc785c'/%3E%3Cpath%20d='M9%2011h14v3.4h-5.2V25h-3.6V14.4H9z'%20fill='%23faf9f5'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +24,8 @@
     "name": "LanLink",
     "url": "https://tapiwa.me/lanlink/",
     "applicationCategory": "UtilitiesApplication",
+    "softwareVersion": "4.3.1",
+    "screenshot": ["https://tapiwa.me/lanlink/shots/home-live.webp", "https://tapiwa.me/lanlink/shots/receive-qr.webp"],
     "operatingSystem": "Android, iOS, Windows, macOS",
     "description": "LanLink is a free app for sending files between Android, iOS, Windows and macOS over your local Wi-Fi — no internet, no accounts, no size limits.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -29,6 +33,20 @@
     "author": { "@type": "Person", "name": "Tapiwa Makandigona", "url": "https://tapiwa.me/" }
   }
   </script>
+  <style>
+    .shots-scroll { display: flex; gap: 18px; overflow-x: auto; padding: 6px 2px 18px;
+      -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+    .shots-scroll figure { flex: 0 0 auto; width: 218px; margin: 0; scroll-snap-align: start; }
+    .shots-scroll img { width: 100%; height: auto; display: block; border-radius: 18px;
+      border: 1px solid rgba(20, 16, 12, 0.12); box-shadow: 0 10px 28px rgba(20, 16, 12, 0.10); }
+    .shots-scroll figcaption { font-size: 0.78rem; color: rgba(20, 16, 12, 0.62);
+      margin-top: 8px; line-height: 1.35; }
+    .shot-desktop { margin: 26px 0 0; }
+    .shot-desktop img { width: 100%; max-width: 720px; height: auto; display: block;
+      border-radius: 14px; border: 1px solid rgba(20, 16, 12, 0.12);
+      box-shadow: 0 10px 28px rgba(20, 16, 12, 0.10); }
+    .shot-desktop figcaption { font-size: 0.78rem; color: rgba(20, 16, 12, 0.62); margin-top: 8px; }
+  </style>
 </head>
 <body class="page">
 
@@ -126,6 +144,26 @@
           </div>
         </li>
       </ul>
+    </section>
+
+    <!-- SCREENSHOTS -->
+    <section class="section" id="screenshots">
+      <h2 class="section-label">See it</h2>
+      <div class="shots-scroll">
+        <figure><img src="/lanlink/shots/home-live.webp" alt="Home screen with a transfer in flight — Send and Receive, live progress at 41 MB/s" loading="lazy" width="640" height="1385" /><figcaption>Home screen with a transfer in flight</figcaption></figure>
+        <figure><img src="/lanlink/shots/radar.webp" alt="Device radar finding nearby devices automatically" loading="lazy" width="640" height="1385" /><figcaption>Device radar finding nearby devices automatically</figcaption></figure>
+        <figure><img src="/lanlink/shots/receive-qr.webp" alt="Receive screen showing an instant one-time QR code" loading="lazy" width="640" height="1385" /><figcaption>Receive screen showing an instant one-time QR code</figcaption></figure>
+        <figure><img src="/lanlink/shots/picker.webp" alt="File picker with photo and video tabs" loading="lazy" width="640" height="1385" /><figcaption>File picker with photo and video tabs</figcaption></figure>
+        <figure><img src="/lanlink/shots/history.webp" alt="Transfer history with received files" loading="lazy" width="640" height="1385" /><figcaption>Transfer history with received files</figcaption></figure>
+        <figure><img src="/lanlink/shots/settings.webp" alt="Settings with device name and short device code" loading="lazy" width="640" height="1385" /><figcaption>Settings with device name and short device code</figcaption></figure>
+        <figure><img src="/lanlink/shots/home-dark.webp" alt="Home screen in the Ember dark theme" loading="lazy" width="640" height="1385" /><figcaption>Home screen in the Ember dark theme</figcaption></figure>
+        <figure><img src="/lanlink/shots/first-run.webp" alt="First run — pick a name and go" loading="lazy" width="640" height="1385" /><figcaption>First run</figcaption></figure>
+      </div>
+      <figure class="shot-desktop">
+        <img src="/lanlink/shots/desktop.webp" alt="LanLink running in a desktop window — Send and Receive with a transfer in flight"
+             loading="lazy" width="640" height="891" />
+        <figcaption>The same app on desktop — Windows, macOS and Linux.</figcaption>
+      </figure>
     </section>
 
     <!-- HOW IT WORKS -->
