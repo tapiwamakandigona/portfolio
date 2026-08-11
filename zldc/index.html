@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zimbabwe Language Data Commons (ZLDC) — AI-ready Shona &amp; Ndebele corpus</title>
-  <meta name="description" content="The Zimbabwe Language Data Commons (ZLDC) is a governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus — the missing data foundation for Zimbabwean-language AI. A POTRAZ 2026 AI for Impact Challenge project (Track 1: Data), led by Tapiwa Makandigona." />
+  <title>ZLDC — AI-ready Shona &amp; Ndebele language corpus</title>
+  <meta name="description" content="A governed, consent-based Shona and Ndebele speech and text corpus — the missing data foundation for Zimbabwean-language AI. A POTRAZ 2026 AI for Impact project." />
   <meta name="author" content="Tapiwa Makandigona" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="keywords" content="Zimbabwe Language Data Commons, ZLDC, Shona corpus, Ndebele corpus, African NLP, low-resource languages, speech dataset, POTRAZ AI for Impact, Tapiwa Makandigona, Zimbabwe AI" />
@@ -14,8 +13,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Zimbabwe Language Data Commons" />
-  <meta property="og:title" content="Zimbabwe Language Data Commons (ZLDC)" />
-  <meta property="og:description" content="A governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus — the missing data foundation for Zimbabwean-language AI." />
+  <meta property="og:title" content="ZLDC — AI-ready Shona &amp; Ndebele language corpus" />
+  <meta property="og:description" content="A governed, consent-based Shona and Ndebele speech and text corpus — the missing data foundation for Zimbabwean-language AI. A POTRAZ 2026 AI for Impact project." />
   <meta property="og:url" content="https://zldc.tapiwa.me/" />
   <meta property="og:image" content="https://tapiwa.me/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -24,16 +23,18 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Zimbabwe Language Data Commons (ZLDC)" />
-  <meta name="twitter:description" content="A governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus — the missing data foundation for Zimbabwean-language AI." />
+  <meta name="twitter:title" content="ZLDC — AI-ready Shona &amp; Ndebele language corpus" />
+  <meta name="twitter:description" content="A governed, consent-based Shona and Ndebele speech and text corpus — the missing data foundation for Zimbabwean-language AI. A POTRAZ 2026 AI for Impact project." />
   <meta name="twitter:image" content="https://tapiwa.me/og-image.png" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230c7a63'/><path d='M9 11h14v3.4h-5.2V25h-3.6V14.4H9z' fill='%23faf6ec'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%23cc785c'/%3E%3Cpath%20d='M9%2011h14v3.4h-5.2V25h-3.6V14.4H9z'%20fill='%23faf9f5'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
-  <meta name="theme-color" content="#faf6ec" id="theme-meta" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css" />
+  <meta name="theme-color" content="#faf9f5" />
 
   <script type="application/ld+json">
   {
@@ -43,7 +44,7 @@
     "alternateName": "ZLDC",
     "url": "https://zldc.tapiwa.me/",
     "description": "A governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus for Zimbabwean-language AI. Submitted to the POTRAZ 2026 AI for Impact Challenge (Track 1: Data).",
-    "inLanguage": "en",
+    "knowsLanguage": ["sn", "nd", "en"],
     "founder": {
       "@type": "Person",
       "name": "Tapiwa Makandigona",
@@ -52,59 +53,54 @@
     "areaServed": { "@type": "Country", "name": "Zimbabwe" }
   }
   </script>
-
-  <style>
-    .z-tag { font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); display: inline-block; margin-bottom: 18px; }
-    .z-langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
-    .z-chip { font-family: var(--mono); font-size: 12px; color: var(--ink-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 11px; }
-    .z-table { width: 100%; border-collapse: collapse; margin: 10px 0 6px; }
-    .z-table th, .z-table td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14.5px; line-height: 1.5; color: var(--ink-2); vertical-align: top; }
-    .z-table th { font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; }
-    .z-table td:last-child { text-align: right; white-space: nowrap; font-family: var(--mono); color: var(--ink); font-size: 13.5px; padding-left: 16px; }
-    .z-feature { list-style: none; display: flex; flex-direction: column; }
-    .z-feature li { display: grid; grid-template-columns: 30px 1fr; gap: 0 14px; padding: 18px 8px; margin: 0 -8px; border-top: 1px solid var(--border); }
-    .z-feature li:last-child { border-bottom: 1px solid var(--border); }
-    .z-feature .z-ic { font-size: 16px; padding-top: 1px; }
-    .z-feature h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
-    .z-feature p { font-size: 14px; line-height: 1.65; color: var(--ink-2); }
-    .z-note { font-size: 14px; line-height: 1.7; color: var(--ink-2); background: var(--surface, rgba(12,122,99,.05)); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 18px; }
-    .z-note strong { color: var(--ink); font-weight: 600; }
-    .z-tiers { list-style: none; }
-    .z-tiers li { padding: 16px 0; border-bottom: 1px solid var(--border); }
-    .z-tiers h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
-    .z-tiers p { font-size: 14px; line-height: 1.65; color: var(--ink-2); }
-    .z-back { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
-  </style>
 </head>
-<body>
+<body class="page">
 
-  <header class="site-header">
-    <a class="header-name" href="/" style="color:inherit">← Tapiwa Makandigona</a>
-    <nav>
-      <a href="/#work">Work</a>
-      <a href="mailto:tapiwamakandigoner@gmail.com" id="email-link">Email</a>
-      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
+  <svg class="sprite" aria-hidden="true" focusable="false"><defs><symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol><symbol id="i-linkedin" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></symbol><symbol id="i-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol><symbol id="i-gmail" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol><symbol id="i-googleplay" viewBox="0 0 24 24"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></symbol></defs></svg>
+
+  <header class="nav">
+    <a class="brand" href="/" aria-label="Tapiwa Makandigona — home">
+      <svg class="spike" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span>Tapiwa&nbsp;Makandigona</span>
+    </a>
+    <nav aria-label="Main">
+      <a class="nav-work" href="/#work">Work</a>
+      <a class="nav-oss" href="/#open-source">Open&nbsp;source</a>
+      <a class="nav-about" href="/#about">About</a>
+      <a href="https://news.tapiwa.me/" class="nav-ext">Notes</a>
     </nav>
+    <div class="nav-social">
+      <a href="https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">
+        <svg aria-hidden="true"><use href="#i-linkedin"/></svg>
+      </a>
+      <a href="https://www.instagram.com/makandigonatapiwa/" target="_blank" rel="me noopener" aria-label="Instagram" title="Instagram">
+        <svg aria-hidden="true"><use href="#i-instagram"/></svg>
+      </a>
+      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">
+        <svg aria-hidden="true"><use href="#i-github"/></svg>
+      </a>
+    </div>
   </header>
 
   <main>
 
     <!-- HERO -->
-    <section class="hero">
-      <span class="z-tag">POTRAZ 2026 AI for Impact · Track 1: Data</span>
-      <h1 class="hero-title">Zimbabwe Language<br>Data Commons.</h1>
-      <p class="hero-bio">
+    <section class="page-hero">
+      <div class="stage" aria-hidden="true"><canvas data-field="page" data-arch="3,7,5,3" data-accent="#5db8a6" data-seed="4"></canvas></div>
+      <span class="chip">POTRAZ 2026 AI for Impact · Track 1: Data</span>
+      <h1 class="page-h1">Zimbabwe Language<br>Data Commons.</h1>
+      <p class="lede">
         A governed, consent-based, AI-ready <strong>Shona and Ndebele</strong> speech-and-text
         corpus — the missing data foundation for Zimbabwean-language AI.
       </p>
-      <div class="hero-cta">
-        <a class="btn-primary" href="#build">What we're building ↓</a>
-        <a class="btn-ghost" href="mailto:tapiwamakandigoner@gmail.com">Partner with us</a>
+      <div class="hero-actions">
+        <a class="btn btn-coral" href="#build">What we're building</a>
+        <a class="btn btn-ghost" href="mailto:tapiwamakandigoner@gmail.com">Partner with us</a>
       </div>
-      <div class="z-langs">
-        <span class="z-chip">Phase 1 · Shona (sn)</span>
-        <span class="z-chip">Phase 1 · Ndebele (nd)</span>
-        <span class="z-chip">Phase 2 · Venda · Tshangani · Chewa/Nyanja</span>
+      <div class="chip-row">
+        <span class="chip">Phase 1 · Shona (sn)</span>
+        <span class="chip">Phase 1 · Ndebele (nd)</span>
+        <span class="chip">Phase 2 · Venda · Tshangani · Chewa/Nyanja</span>
       </div>
     </section>
 
@@ -128,7 +124,7 @@
     <!-- WHAT WE BUILD -->
     <section class="section" id="build">
       <h2 class="section-label">What we'll build — pilot commitments</h2>
-      <table class="z-table">
+      <div class="table-scroll"><table class="z-table">
         <thead><tr><th>Deliverable</th><th>Pilot target</th></tr></thead>
         <tbody>
           <tr><td>Consented, transcribed Shona/Ndebele speech (≥400 distinct speakers)</td><td>100+ hrs</td></tr>
@@ -137,7 +133,7 @@
           <tr><td>Accessibility vertical — PWD &amp; assistive-technology speech</td><td>≥10 hrs</td></tr>
           <tr><td>Held-out, double-transcribed evaluation benchmark, per language</td><td>~5 hrs</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p class="about-text" style="margin-top:18px">
         Everything ships <strong>AI-ready</strong>: a published schema and data dictionary, a
         per-file checksummed manifest, versioned releases, quality reports, a
@@ -154,10 +150,10 @@
         no single-institution dependence:
       </p>
       <ul class="z-feature">
-        <li><span class="z-ic">🏢</span><div><h3>Community Information Centres</h3><p>Supervised recording days at POTRAZ/USF centres, reaching rural and peri-urban speakers in every province.</p></div></li>
-        <li><span class="z-ic">🎓</span><div><h3>State university language departments</h3><p>The academic anchor — transcription standards, orthography authority, annotation QA, and trained fieldworkers.</p></div></li>
-        <li><span class="z-ic">📻</span><div><h3>Community radio stations</h3><p>Purpose-made consented studio sessions with presenters and community members, plus licensed archive segments where rights are clearly held.</p></div></li>
-        <li><span class="z-ic">♿</span><div><h3>Disability organisations</h3><p>Co-design and host the accessibility vertical — persons with disabilities represented as speakers and co-designers, not subjects.</p></div></li>
+        <li><div><h3>Community Information Centres</h3><p>Supervised recording days at POTRAZ/USF centres, reaching rural and peri-urban speakers in every province.</p></div></li>
+        <li><div><h3>State university language departments</h3><p>The academic anchor — transcription standards, orthography authority, annotation QA, and trained fieldworkers.</p></div></li>
+        <li><div><h3>Community radio stations</h3><p>Purpose-made consented studio sessions with presenters and community members, plus licensed archive segments where rights are clearly held.</p></div></li>
+        <li><div><h3>Disability organisations</h3><p>Co-design and host the accessibility vertical — persons with disabilities represented as speakers and co-designers, not subjects.</p></div></li>
       </ul>
       <p class="about-text" style="margin-top:18px">
         Sampling uses documented quotas across province, district, urban/rural, gender, age and
@@ -174,7 +170,7 @@
         <p>The lawful basis for all primary collection is <strong>informed consent under Zimbabwe's Data Protection Act [Chapter 12:07]</strong> — plain-language consent in the participant's own language, with withdrawal honoured in every release.</p>
         <p>Speakers are pseudonymised, identifiers redacted, and location generalised to district level; raw audio and consent registers sit under encryption and role-restricted access.</p>
       </div>
-      <p class="z-note">
+      <p class="prose-note">
         <strong>Hard boundary:</strong> the corpus is barred from surveillance, enforcement,
         profiling, credit denial and speaker-identification uses. Voice data is collected for
         language technology only. A named data steward and a governance group drawn from the
@@ -208,22 +204,48 @@
           your organisation's letterhead is all we ask to start.
         </p>
       </div>
-      <div class="hero-cta" style="margin-top:22px">
-        <a class="btn-primary" href="mailto:tapiwamakandigoner@gmail.com">Get in touch</a>
-        <a class="btn-ghost" href="/">← Back to portfolio</a>
+      <div class="hero-actions" style="margin-top:22px">
+        <a class="btn btn-coral" href="mailto:tapiwamakandigoner@gmail.com">Get in touch</a>
+        <a class="btn btn-ghost" href="/">← Back to portfolio</a>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <span>© <span id="yr"></span> Tapiwa Makandigona</span>
-    <span>Zimbabwe Language Data Commons 🇿🇼</span>
-    <a href="mailto:tapiwamakandigoner@gmail.com">tapiwamakandigoner@gmail.com</a>
-    <a href="https://www.linkedin.com/in/tapiwa-makandigona/" rel="me noopener" target="_blank">LinkedIn</a>
+  <section class="page-close" id="contact">
+    <div class="stage" aria-hidden="true"><canvas data-field="dark" data-arch="2,5,4,2" data-seed="7"></canvas></div>
+    <div class="pc-inner">
+      <h2>Built by Tapiwa Makandigona.</h2>
+      <p>Kwekwe, Zimbabwe · replies within a day</p>
+      <div class="cta-actions">
+        <a class="btn btn-cream" href="mailto:silentics.org@gmail.com">Get in touch</a>
+        <a class="btn btn-outline-cream" href="/#work">See more work</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="foot-brand">
+      <svg class="spike" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span>Tapiwa Makandigona</span>
+    </div>
+    <nav class="foot-links" aria-label="Social">
+      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="me noopener">
+        <svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+      <a href="https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/" target="_blank" rel="me noopener">
+        <svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+      <a href="https://www.instagram.com/makandigonatapiwa/" target="_blank" rel="me noopener">
+        <svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</a>
+      <a href="https://play.google.com/store/apps/developer?id=Tsoro+Studios" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-googleplay"/></svg>Tsoro Studios</a>
+      <a href="mailto:silentics.org@gmail.com">
+        <svg aria-hidden="true"><use href="#i-gmail"/></svg>Email</a>
+    </nav>
+    <p class="foot-fine">© 2026 Tapiwa Makandigona · Kwekwe, Zimbabwe 🇿🇼</p>
   </footer>
 
   <button class="back-top" id="back-top" aria-label="Back to top">↑</button>
-  <script src="/script.js"></script>
+  <script src="/net.js" defer></script>
+  <script src="/site.js" defer></script>
 </body>
 </html>
