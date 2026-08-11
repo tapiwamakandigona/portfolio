@@ -231,6 +231,9 @@
     var c = Math.cos(a), s = Math.sin(a);
     return new Float32Array([1,0,0,0, 0,c,s,0, 0,-s,c,0, 0,0,0,1]);
   }
+  function scaleX(sx) {
+    return new Float32Array([sx,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]);
+  }
 
   function Field(canvas, opts) {
     var gl = canvas.getContext("webgl", {
@@ -355,15 +358,33 @@
 
     this.draw = function (time) {
       resize();
+      // A page-hero band is wide and short. Two presets tuned for compact panels fight it:
+      // the strong yaw turns the later layers away into depth, and the tight fog then erases
+      // them — so the graph reads as half a network shoved left of centre. Face a band more
+      // front-on and let its fog reach further back.
+      var band = !opts.ortho && aspect > 2.2;
       var yaw = (opts.base || 0) + Math.sin(time * (opts.spin || .05)) * (opts.swing || .34)
                 + (opts.ortho ? .18 : .38) * self.ptr[0];
+      if (band) yaw *= .42;
       var pitch = (opts.pitch || 0) - .18 * self.ptr[1] + (opts.ortho ? .16 : .10) * self.scroll;
       var model = mul(rotY(yaw), rotX(pitch));
       var proj = opts.ortho
         ? ortho((opts.orthoH || 3.4) * aspect, (opts.orthoH || 3.4), -20, 20)
         : perspective(42 * Math.PI / 180, aspect, .1, 60);
       var dist = (mobile && opts.distMobile) || opts.dist || (mobile ? 6.4 : 5.2);
+      // The layer spread runs along X, so the same graph inside a narrow panel (the desktop
+      // hero stage, a card) overflows unless the camera pulls back with the aspect ratio.
+      if (!opts.ortho && aspect < 1.25) {
+        dist *= Math.min(1.35, Math.pow(1.25 / Math.max(.55, aspect), .6));
+      }
       var mvp = mul(proj, mul(trans(0, 0, opts.ortho ? 0 : -dist + self.scroll * .35), model));
+      // A page-hero band is wide and short (aspect ~5:1): the vertical FOV sets the scale, so
+      // the graph fits the height and leaves half the band empty. Widening it in 3D only sends
+      // the outer nodes into the depth fog, so stretch the finished image along clip-space X
+      // instead — depth, fog and point sizes stay exactly as designed.
+      if (band) {
+        mvp = mul(scaleX(Math.min(4.2, aspect * .68)), mvp);   // fill scales with the band, since the frustum widens with it too
+      }
 
       var cycle = opts.cycle || 5.5;
       var sweep = ((time % cycle) / cycle) * (net.depth + 1.5) - .55;
@@ -382,8 +403,8 @@
         gl.uniform1f(u.u_size, size);
         gl.uniform1f(u.u_last, net.depth);
         gl.uniform1f(u.u_dark, opts.dark ? 1 : 0);
-        gl.uniform1f(u.u_fog0, opts.ortho ? .9 : dist - 1.9);   // near = opaque
-        gl.uniform1f(u.u_fog1, opts.ortho ? 0. : dist + 2.6);  // far  = faded
+        gl.uniform1f(u.u_fog0, opts.ortho ? .9 : dist - (band ? 3.1 : 1.9));   // near = opaque
+        gl.uniform1f(u.u_fog1, opts.ortho ? 0. : dist + (band ? 5.6 : 2.6));  // far  = faded
       }
 
       common(progs.edge, U.edge, 0);
@@ -501,11 +522,35 @@
     return out;
   }
 
+  // Module-level state so boot() is re-callable: SPA clients (React/Vue) mount their
+  // canvases after DOMContentLoaded and call window.NET_BOOT(). Repeat calls must adopt
+  // only new canvases and must never stack a second pointer listener or rAF loop.
+  var ALL = [];      // every live field on the page
+  var wired = false; // pointer + animation loop attached exactly once
+  var io = null;
+  var tx = 0, ty = 0;
+
+  // Motion policy. An OS "reduce motion" setting used to freeze the graph on one frame,
+  // which reads as a broken site rather than a considered one. Instead we drop to a calm
+  // mode: slow drift, no pointer parallax, no scroll dolly, half the frame rate. A visitor
+  // can override either way and we remember it.
+  function motionPref() {
+    try {
+      var v = localStorage.getItem("motion");
+      if (v === "on") return "full";
+      if (v === "off") return "none";
+    } catch (e) { /* private mode: fall through to the OS setting */ }
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "calm" : "full";
+  }
+  window.NET_MOTION = motionPref;
+
   function boot() {
     filmPolicy();
-    var nodes = [].slice.call(document.querySelectorAll("canvas[data-field]"));
+    var nodes = [].slice.call(document.querySelectorAll("canvas[data-field]:not(.gl-on)"));
     if (!nodes.length) return;
-    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var pref = motionPref();
+    var still = pref === "none";
+    var calm = pref === "calm";
     var fields = [];
 
     nodes.forEach(function (c) {
@@ -514,7 +559,7 @@
       try {
         var f = new Field(c, tune(CONF[kind] || CONF.light, c));
         f.node = c; f.live = true;
-        fields.push(f);
+        fields.push(f); ALL.push(f);
         c.classList.add("gl-on");
         if (window.GL_DEBUG) console.log("field " + kind, f.stats);
       } catch (e) {
@@ -522,18 +567,22 @@
       }
     });
     if (!fields.length) return;
-    window.NET_FIELDS = fields.length;
+    window.NET_FIELDS = ALL.length;
 
     if (still) { fields.forEach(function (f) { f.draw(1.6); }); return; }
 
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        fields.forEach(function (f) { if (f.node === e.target) f.live = e.isIntersecting; });
-      });
-    }, { rootMargin: "120px" });
+    if (!io) {
+      io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          ALL.forEach(function (f) { if (f.node === e.target) f.live = e.isIntersecting; });
+        });
+      }, { rootMargin: "120px" });
+    }
     fields.forEach(function (f) { io.observe(f.node); });
 
-    var tx = 0, ty = 0;
+    if (wired) return;
+    wired = true;
+
     window.addEventListener("pointermove", function (e) {
       tx = (e.clientX / window.innerWidth) * 2 - 1;
       ty = (e.clientY / window.innerHeight) * 2 - 1;
@@ -545,22 +594,27 @@
     function frame(now) {
       requestAnimationFrame(frame);
       if (document.hidden) return;
-      if (now - last < 1000 / 40) return;
+      if (now - last < 1000 / (calm ? 20 : 40)) return;
       last = now;
-      var t = (now - start) / 1000;
-      fields.forEach(function (f) {
+      var t = ((now - start) / 1000) * (calm ? .28 : 1);
+      ALL.forEach(function (f) {
         if (!f.live) return;
-        f.ptr[0] += (tx - f.ptr[0]) * .045;
-        f.ptr[1] += (ty - f.ptr[1]) * .045;
-        var r = f.node.getBoundingClientRect();
-        f.scroll = Math.max(-1, Math.min(1,
-          (window.innerHeight * .5 - (r.top + r.height * .5)) / window.innerHeight));
+        if (calm) {
+          f.ptr[0] = f.ptr[1] = 0; f.scroll = 0;
+        } else {
+          f.ptr[0] += (tx - f.ptr[0]) * .045;
+          f.ptr[1] += (ty - f.ptr[1]) * .045;
+          var r = f.node.getBoundingClientRect();
+          f.scroll = Math.max(-1, Math.min(1,
+            (window.innerHeight * .5 - (r.top + r.height * .5)) / window.innerHeight));
+        }
         f.draw(t + (OFFSET[f.node.dataset.field] || 0));
       });
     }
     requestAnimationFrame(frame);
   }
 
+  window.NET_BOOT = boot;  // SPA entry point: call after your canvases are in the DOM
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
   } else { boot(); }
