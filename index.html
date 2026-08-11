@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-  <script>
-    // zldc.tapiwa.me is a memorable alias — forward its root to the canonical ZLDC page on the main site.
-    (function () {
-      if (location.hostname === 'zldc.tapiwa.me' && (location.pathname === '/' || location.pathname === '')) {
-        location.replace('https://tapiwa.me/zldc/');
-      }
-    })();
-  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tapiwa Makandigona — Full-stack Developer | Kwekwe, Zimbabwe</title>
-  <meta name="description" content="Tapiwa Makandigona is a self-taught full-stack developer from Kwekwe, Zimbabwe, building production web apps, Android platform tools and custom kernels, games, and open-source packages with TypeScript, React, Next.js, Kotlin, and Flutter." />
+  <meta name="description" content="Full-stack developer in Kwekwe, Zimbabwe. Web apps, Android tools down to the kernel, browser games and open source — built where bandwidth is scarce." />
   <meta name="author" content="Tapiwa Makandigona" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="keywords" content="Tapiwa Makandigona, full-stack developer Zimbabwe, software developer Kwekwe, React developer, TypeScript, Next.js, Appwrite, Supabase, Android kernel developer, Kotlin, Flutter, web developer Zimbabwe" />
+  <meta name="keywords" content="Tapiwa Makandigona, full-stack developer Zimbabwe, software developer Kwekwe, React developer, TypeScript, Next.js, Appwrite, Supabase, Android kernel developer, Kotlin, Flutter, WebGL, IOAI, Tsoro Studios" />
   <link rel="canonical" href="https://tapiwa.me/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Tapiwa Makandigona" />
   <meta property="og:title" content="Tapiwa Makandigona — Full-stack Developer" />
-  <meta property="og:description" content="Self-taught full-stack developer from Kwekwe, Zimbabwe. I build production web apps, 3D browser games, and cross-platform tools." />
+  <meta property="og:description" content="Software that works where bandwidth is scarce. Web apps, Android down to the kernel, games, open source." />
   <meta property="og:url" content="https://tapiwa.me/" />
   <meta property="og:image" content="https://tapiwa.me/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Tapiwa Makandigona — Full-stack Developer, Kwekwe, Zimbabwe" />
@@ -34,417 +26,449 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tapiwa Makandigona — Full-stack Developer" />
-  <meta name="twitter:description" content="Self-taught full-stack developer from Kwekwe, Zimbabwe. I build production web apps, 3D browser games, and cross-platform tools." />
+  <meta name="twitter:description" content="Software that works where bandwidth is scarce. Web apps, Android down to the kernel, games, open source." />
   <meta name="twitter:image" content="https://tapiwa.me/og-image.png" />
+  <meta name="twitter:image:alt" content="Tapiwa Makandigona — Full-stack Developer, Kwekwe, Zimbabwe" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230c7a63'/><path d='M9 11h14v3.4h-5.2V25h-3.6V14.4H9z' fill='%23faf6ec'/></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="theme-color" content="#faf6ec" id="theme-meta" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='%23cc785c'/%3E%3Cpath%20d='M9%2011h14v3.4h-5.2V25h-3.6V14.4H9z'%20fill='%23faf9f5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css" />
+  <meta name="theme-color" content="#faf9f5" />
 
-  <!-- Structured data: Person + WebSite (helps Google build an entity / Knowledge Panel) -->
+  <!-- Structured data: Person, Tsoro Studios, WebSite, ProfilePage, project list -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://tapiwa.me/#person",
-        "name": "Tapiwa Makandigona",
-        "url": "https://tapiwa.me/",
-        "image": "https://tapiwa.me/og-image.png",
-        "jobTitle": "Full-stack Developer",
-        "email": "mailto:silentics.org@gmail.com",
-        "description": "Self-taught full-stack developer from Kwekwe, Zimbabwe, building production web apps, 3D browser games, and cross-platform tools.",
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tapiwa.me/#person",
+      "name": "Tapiwa Makandigona",
+      "url": "https://tapiwa.me/",
+      "image": "https://tapiwa.me/og-image.png",
+      "jobTitle": "Full-stack Developer",
+      "email": "mailto:silentics.org@gmail.com",
+      "description": "Self-taught full-stack developer from Kwekwe, Zimbabwe, building production web apps, Android platform tools down to the kernel, games and open-source packages.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kwekwe",
+        "addressCountry": "ZW"
+      },
+      "knowsAbout": [
+        "Full-stack web development",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Appwrite",
+        "Supabase",
+        "Three.js",
+        "WebGL",
+        "Flutter",
+        "Kotlin",
+        "Android kernel development",
+        "African NLP",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "award": [
+        "GAITE Level Three Award — International Olympiad in Artificial Intelligence (IOAI), Astana, Kazakhstan, 2026",
+        "Bronze Medal — African Olympiad in Artificial Intelligence (AOAI)",
+        "4th Place, continental round — African Olympiad in Artificial Intelligence (AOAI)",
+        "Finalist — National Olympiad in Artificial Intelligence (NOAI), Zimbabwe"
+      ],
+      "worksFor": {
+        "@id": "https://tapiwa.me/#tsoro"
+      },
+      "sameAs": [
+        "https://github.com/tapiwamakandigona",
+        "https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/",
+        "https://www.instagram.com/makandigonatapiwa/",
+        "https://tapiwamakandigona.github.io/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://tapiwa.me/#tsoro",
+      "name": "Tsoro Studios",
+      "url": "https://play.google.com/store/apps/developer?id=Tsoro+Studios",
+      "founder": {
+        "@id": "https://tapiwa.me/#person"
+      },
+      "location": {
+        "@type": "Place",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Kwekwe",
           "addressCountry": "ZW"
-        },
-        "knowsAbout": [
-          "Full-stack web development",
-          "React",
-          "Next.js",
-          "TypeScript",
-          "Appwrite",
-          "Supabase",
-          "Three.js",
-          "WebGL",
-          "Flutter",
-          "Kotlin",
-          "Android kernel development",
-          "African NLP",
-          "Node.js",
-          "PostgreSQL"
-        ],
-        "award": [
-          "Bronze Medal — African Olympiad in Artificial Intelligence (AOAI)",
-          "4th Place — African Olympiad in Artificial Intelligence (AOAI)",
-          "Finalist — National Olympiad in Artificial Intelligence (NOAI), Zimbabwe"
-        ],
-        "sameAs": [
-          "https://github.com/tapiwamakandigona",
-          "https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/",
-          "https://www.instagram.com/makandigonatapiwa/",
-          "https://tapiwamakandigona.github.io/"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://tapiwa.me/#website",
-        "url": "https://tapiwa.me/",
-        "name": "Tapiwa Makandigona",
-        "description": "Portfolio of Tapiwa Makandigona, a full-stack developer from Kwekwe, Zimbabwe.",
-        "inLanguage": "en",
-        "author": { "@id": "https://tapiwa.me/#person" },
-        "publisher": { "@id": "https://tapiwa.me/#person" }
+        }
       }
-    ]
-  }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tapiwa.me/#website",
+      "url": "https://tapiwa.me/",
+      "name": "Tapiwa Makandigona",
+      "description": "Portfolio of Tapiwa Makandigona, a full-stack developer from Kwekwe, Zimbabwe.",
+      "inLanguage": "en",
+      "author": {
+        "@id": "https://tapiwa.me/#person"
+      },
+      "publisher": {
+        "@id": "https://tapiwa.me/#person"
+      }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://tapiwa.me/#profile",
+      "url": "https://tapiwa.me/",
+      "name": "Tapiwa Makandigona — Full-stack developer",
+      "isPartOf": {
+        "@id": "https://tapiwa.me/#website"
+      },
+      "mainEntity": {
+        "@id": "https://tapiwa.me/#person"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://tapiwa.me/#projects",
+      "name": "Selected projects",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Zimbabwe Language Data Commons",
+          "url": "https://tapiwa.me/zldc/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "VoltZW",
+          "url": "https://zesa.tapiwa.me/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Emberdelve",
+          "url": "https://tapiwa.me/emberdelve/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "LanLink",
+          "url": "https://tapiwa.me/lanlink/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Browser FPS",
+          "url": "https://tapiwa.me/fps-game/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "TapRide",
+          "url": "https://tapiwa.me/tapride/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "ZimBet",
+          "url": "https://tapiwa.me/zimbet/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "ZimPay",
+          "url": "https://tapiwa.me/zimpay/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "TapDo",
+          "url": "https://tapiwa.me/todo-app/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body>
 
-  <header class="site-header">
-    <span class="header-name">Tapiwa Makandigona</span>
-    <nav>
-      <a href="https://news.tapiwa.me/">Blog</a>
-      <a href="mailto:silentics.org@gmail.com" id="email-link">Email</a>
-      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="noopener">GitHub</a>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><span class="theme-icon" aria-hidden="true"></span></button>
+  <svg class="sprite" aria-hidden="true" focusable="false"><defs><symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol><symbol id="i-linkedin" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></symbol><symbol id="i-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol><symbol id="i-gmail" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol><symbol id="i-googleplay" viewBox="0 0 24 24"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></symbol></defs></svg>
+
+  <a class="skip-link" href="#work">Skip to content</a>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Tapiwa Makandigona — home">
+      <svg class="spike" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span>Tapiwa&nbsp;Makandigona</span>
+    </a>
+    <nav aria-label="Main">
+      <a class="nav-work" href="#work">Work</a>
+      <a class="nav-oss" href="#open-source">Open&nbsp;source</a>
+      <a class="nav-about" href="#about">About</a>
+      <a href="https://news.tapiwa.me/" class="nav-ext">Notes</a>
     </nav>
+    <div class="nav-social">
+      <a href="https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">
+        <svg aria-hidden="true"><use href="#i-linkedin"/></svg>
+      </a>
+      <a href="https://www.instagram.com/makandigonatapiwa/" target="_blank" rel="me noopener" aria-label="Instagram" title="Instagram">
+        <svg aria-hidden="true"><use href="#i-instagram"/></svg>
+      </a>
+      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">
+        <svg aria-hidden="true"><use href="#i-github"/></svg>
+      </a>
+    </div>
   </header>
 
-  <main>
+  <main id="top">
 
     <!-- HERO -->
     <section class="hero">
-      <p class="hero-location">Kwekwe, Zimbabwe</p>
-      <h1 class="hero-title">
-        Full-stack<br>
-        developer<span class="hero-dot">.</span>
-      </h1>
-      <p class="hero-bio">
-        I build production web apps, Android platform tools — down to the kernel —
-        games, and open-source packages. Self-taught. Ships to production.
-      </p>
-      <div class="hero-cta">
-        <a class="btn-primary" href="#work">View my work ↓</a>
-        <a class="btn-ghost" href="mailto:silentics.org@gmail.com">Get in touch</a>
+      <div class="stage" aria-hidden="true">
+        <canvas data-field="light"></canvas>
+      </div>
+      <div class="hero-copy">
+        <p class="kicker">Full-stack developer · Kwekwe, Zimbabwe</p>
+        <h1>Software that works where bandwidth is scarce.</h1>
+        <p class="lede">Web apps, Android down to the kernel, games, open source.</p>
+        <div class="hero-actions">
+          <a class="btn btn-coral" href="#work">See the work</a>
+          <a class="btn btn-ghost" href="mailto:silentics.org@gmail.com">Get in touch</a>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="Highlights">
+      <div><strong>Level&nbsp;3</strong><span>IOAI GAITE · Astana 2026</span></div>
+      <div><strong>Bronze</strong><span>African Olympiad in AI</span></div>
+      <div><strong>60 fps</strong><span>3D in a browser tab</span></div>
+      <div><strong>30+</strong><span>public repos</span></div>
+    </section>
+
+    <!-- FLAGSHIP -->
+    <section class="section showcase" id="work">
+      <div class="stage stage-trio" aria-hidden="true"><canvas data-field="trio"></canvas></div>
+      <p class="eyebrow">Flagship builds</p>
+      <h2>Three things I'd show first.</h2>
+      <div class="flagship-grid">
+        <a class="flag-card tilt" href="https://zesa.tapiwa.me/" target="_blank" rel="noopener">
+          <span class="slab-edge" aria-hidden="true"></span><span class="sheen" aria-hidden="true"></span>
+          <figure><img src="/assets/home/voltzw.webp" alt="VoltZW — ZESA prepaid electricity calculator" width="1200" height="750" loading="lazy" decoding="async"></figure>
+          <div class="flag-body">
+            <h3>VoltZW</h3>
+            <p>Prepaid power, to the exact kWh.</p>
+            <span class="flag-cta">Use it live</span>
+          </div>
+        </a>
+        <a class="flag-card tilt" href="https://fps.tapiwa.me/" target="_blank" rel="noopener">
+          <span class="slab-edge" aria-hidden="true"></span><span class="sheen" aria-hidden="true"></span>
+          <figure><img src="/assets/home/fps.webp" alt="FPS Arena — browser 3D shooter" width="1200" height="750" loading="lazy" decoding="async"></figure>
+          <div class="flag-body">
+            <h3>FPS Arena</h3>
+            <p>A 3D shooter in a browser tab.</p>
+            <span class="flag-cta">Play</span>
+          </div>
+        </a>
+        <a class="flag-card tilt" href="https://tapiwa.me/zldc/">
+          <span class="slab-edge" aria-hidden="true"></span><span class="sheen" aria-hidden="true"></span>
+          <figure><img src="/assets/home/zldc.webp" alt="Zimbabwe Language Data Commons" width="1200" height="750" loading="lazy" decoding="async"></figure>
+          <div class="flag-body">
+            <h3>ZLDC</h3>
+            <p>Shona &amp; Ndebele, made AI-ready.</p>
+            <span class="flag-cta">Read more</span>
+          </div>
+        </a>
       </div>
     </section>
 
-    <!-- WORK -->
-    <section class="section" id="work">
-      <h2 class="section-label">Selected work</h2>
-
+    <!-- SELECTED WORK -->
+    <section class="section">
+      <p class="eyebrow">Selected work</p>
+      <h2>Built, shipped, maintained.</h2>
       <ol class="work-list">
-
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">01</span>
-            <span class="work-year">2026</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">Zimbabwe Language Data Commons</h3>
-              <div class="work-links">
-                <a href="/zldc/" aria-label="About the Zimbabwe Language Data Commons">↗ About</a>
-                <a href="https://zldc.tapiwa.me/" target="_blank" rel="noopener" aria-label="ZLDC site">↗ Site</a>
-              </div>
-            </div>
-            <p class="work-desc">A governed, consent-based, AI-ready Shona and Ndebele speech-and-text corpus — the missing data foundation for Zimbabwean-language AI. Submitted to the POTRAZ 2026 AI for Impact Challenge (Track 1: Data), with health-triage and accessibility verticals built in from day one.</p>
-            <div class="work-tags">
-              <span>African NLP</span><span>Speech &amp; text corpus</span><span>Data governance</span><span>Shona</span><span>Ndebele</span>
-            </div>
-          </div>
+        <li>
+          <div class="wl-head"><h3>Zimbabwe Language Data Commons</h3><span class="wl-year">2026</span></div>
+          <p>A consent-based Shona and Ndebele corpus. Zimbabwe's missing AI foundation.</p>
+          <p class="wl-tags">African NLP · Data governance</p>
+          <p class="wl-links"><a href="https://tapiwa.me/zldc/">Project page</a></p>
         </li>
-
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">02</span>
-            <span class="work-year">2026</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">VoltZW</h3>
-              <div class="work-links">
-                <a href="https://github.com/tapiwamakandigona/voltzw" target="_blank" rel="noopener" aria-label="Source code">↗ Code</a>
-                <a href="https://zesa.tapiwa.me/" target="_blank" rel="noopener" aria-label="Use VoltZW live">↗ Live</a>
-              </div>
-            </div>
-            <p class="work-desc">The fastest way to manage prepaid electricity (ZESA) in Zimbabwe. Works out exactly how many kWh a token buys across ZETDC's stepped tariff bands, retrieves tokens, and keeps tariffs up to date — vending coming soon.</p>
-            <div class="work-tags">
-              <span>Next.js</span><span>TypeScript</span><span>Appwrite</span>
-            </div>
-          </div>
+        <li>
+          <div class="wl-head"><h3>VoltZW</h3><span class="wl-year">2026</span></div>
+          <p>ZESA tokens across live stepped tariffs, worked out to the unit.</p>
+          <p class="wl-tags">Next.js · TypeScript · Appwrite</p>
+          <p class="wl-links"><a href="https://zesa.tapiwa.me/" target="_blank" rel="noopener">Live</a><a href="https://github.com/tapiwamakandigona/voltzw" target="_blank" rel="noopener">Code</a></p>
         </li>
-
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">03</span>
-            <span class="work-year">2026</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">S26U Kernel &amp; Platform Suite</h3>
-              <div class="work-links">
-                <a href="https://github.com/tapiwamakandigona/s26u-kernel" target="_blank" rel="noopener" aria-label="S26U kernel CI source">↗ Kernel CI</a>
-                <a href="https://github.com/tapiwamakandigona/s26u-flow-display" target="_blank" rel="noopener" aria-label="S26U display app source">↗ Display app</a>
-                <a href="https://github.com/tapiwamakandigona/podeq" target="_blank" rel="noopener" aria-label="PodEQ source">↗ PodEQ</a>
-              </div>
-            </div>
-            <p class="work-desc">Low-level Android work for the itel S26 Ultra (Unisoc T7300): a CI pipeline that builds the ACK android15-6.6 GKI kernel on free GitHub runners, a display-mode picker with a quick-settings tile exposing all 8 panel-native 60–144&nbsp;Hz modes, and PodEQ — a zero-dependency 47&nbsp;KB system-wide equalizer.</p>
-            <div class="work-tags">
-              <span>Android</span><span>GKI kernel</span><span>Kotlin</span><span>CI/CD</span>
-            </div>
-          </div>
+        <li>
+          <div class="wl-head"><h3>S26U Kernel &amp; Platform Suite</h3><span class="wl-year">2026</span></div>
+          <p>A GKI kernel built on free runners, all 8 panel modes unlocked, a 47&nbsp;KB system equalizer.</p>
+          <p class="wl-tags">Android · GKI kernel · Kotlin</p>
+          <p class="wl-links"><a href="https://github.com/tapiwamakandigona/s26u-kernel" target="_blank" rel="noopener">Kernel CI</a><a href="https://github.com/tapiwamakandigona/podeq" target="_blank" rel="noopener">PodEQ</a><a href="https://github.com/tapiwamakandigona/s26u-flow-display" target="_blank" rel="noopener">Display modes</a></p>
         </li>
-
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">04</span>
-            <span class="work-year">2026</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">ChemLab ZW</h3>
-              <div class="work-links">
-                <a href="https://github.com/tapiwamakandigona/chem-lab" target="_blank" rel="noopener" aria-label="ChemLab ZW source code">↗ Code</a>
-              </div>
-            </div>
-            <p class="work-desc">Virtual Cambridge AS/A Level chemistry lab that runs in the browser — built for Zimbabwean students who don't have access to a physical lab.</p>
-            <div class="work-tags">
-              <span>React</span><span>Vite</span><span>EdTech</span>
-            </div>
-          </div>
+        <li>
+          <div class="wl-head"><h3>ChemLab ZW</h3><span class="wl-year">2026</span></div>
+          <p>A Cambridge A-Level chemistry lab for students who have no lab.</p>
+          <p class="wl-tags">React · Vite · EdTech</p>
+          <p class="wl-links"><a href="https://github.com/tapiwamakandigona/chem-lab" target="_blank" rel="noopener">Code</a></p>
         </li>
-
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">05</span>
-            <span class="work-year">2026</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">Emberdelve</h3>
-              <div class="work-links">
-                <a href="https://play.google.com/store/apps/details?id=com.tsorostudios.emberdelve" target="_blank" rel="noopener" aria-label="Emberdelve on Google Play">↗ Google Play</a>
-                <a href="/emberdelve/" aria-label="Emberdelve download page">↗ Download</a>
-                <a href="https://github.com/tapiwamakandigona/emberdelve" target="_blank" rel="noopener" aria-label="Emberdelve source code">↗ Code</a>
-              </div>
-            </div>
-            <p class="work-desc">Turn-based dice roguelite for Android, in public early access on Google Play — free, no ads, no tracking. Built with Flutter under the Tsoro Studios banner.</p>
-            <div class="work-tags">
-              <span>Flutter</span><span>Dart</span><span>Game design</span>
-            </div>
-          </div>
+        <li>
+          <div class="wl-head"><h3>Emberdelve</h3><span class="wl-year">2025</span></div>
+          <p>Dice roguelite on Google Play, under my <a href="https://play.google.com/store/apps/developer?id=Tsoro+Studios" target="_blank" rel="noopener">Tsoro&nbsp;Studios</a> banner. Free, no ads, no tracking.</p>
+          <p class="wl-tags">Flutter · Game design</p>
+          <p class="wl-links"><a href="https://tapiwa.me/emberdelve/">Project page</a><a href="https://play.google.com/store/apps/details?id=com.tsorostudios.emberdelve" target="_blank" rel="noopener">Google Play</a><a href="https://github.com/tapiwamakandigona/emberdelve" target="_blank" rel="noopener">Code</a></p>
         </li>
-
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">06</span>
-            <span class="work-year">2024</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">LanLink</h3>
-              <div class="work-links">
-                <a href="/lanlink/" aria-label="About LanLink">↗ About</a>
-                <a href="/lanlink/downloads/" aria-label="Download LanLink">↗ Download</a>
-              </div>
-            </div>
-            <p class="work-desc">One-codebase file-transfer app for Android, iOS, Windows, and macOS. Finds nearby devices automatically over Wi-Fi or a hotspot and sends files directly between them — no internet, no accounts, no size limits.</p>
-            <div class="work-tags">
-              <span>Flutter</span><span>Dart</span><span>Cross-platform</span><span>LocalSend protocol</span>
-            </div>
-          </div>
+        <li>
+          <div class="wl-head"><h3>LanLink</h3><span class="wl-year">2025</span></div>
+          <p>Phone-to-laptop file transfer over Wi-Fi. No internet, no accounts, no limits.</p>
+          <p class="wl-tags">Flutter · Local-first</p>
+          <p class="wl-links"><a href="https://tapiwa.me/lanlink/">Project page</a><a href="https://tapiwa.me/lanlink/downloads/">Download</a><a href="https://github.com/tapiwamakandigona/lanlink" target="_blank" rel="noopener">Code</a></p>
         </li>
-
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">07</span>
-            <span class="work-year">2024</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">TapRide</h3>
-              <div class="work-links">
-                <a href="https://github.com/tapiwamakandigona/tapride" target="_blank" rel="noopener" aria-label="Source code">↗ Code</a>
-                <a href="/tapride/" aria-label="About TapRide">↗ About</a>
-                <a href="https://tapride.tapiwa.me/" target="_blank" rel="noopener" aria-label="TapRide live demo">↗ Live</a>
-              </div>
-            </div>
-            <p class="work-desc">Full-stack ride-hailing app. Real-time GPS tracking, driver matching, in-app chat, fare estimation. Built on Appwrite with OpenStreetMap and Leaflet maps — no Google Maps API key.</p>
-            <div class="work-tags">
-              <span>React</span><span>TypeScript</span><span>Appwrite</span><span>Kotlin</span><span>Leaflet</span>
-            </div>
-          </div>
+        <li>
+          <div class="wl-head"><h3>TapRide</h3><span class="wl-year">2025</span></div>
+          <p>Ride-hailing with live GPS and in-app chat — on OpenStreetMap, no Google key.</p>
+          <p class="wl-tags">React · Appwrite · Leaflet</p>
+          <p class="wl-links"><a href="https://tapiwa.me/tapride/">Project page</a><a href="https://github.com/tapiwamakandigona/tapride" target="_blank" rel="noopener">Code</a></p>
         </li>
-
-        <li class="work-item">
-          <div class="work-meta">
-            <span class="work-num">08</span>
-            <span class="work-year">2024</span>
-          </div>
-          <div class="work-body">
-            <div class="work-top">
-              <h3 class="work-title">Browser FPS</h3>
-              <div class="work-links">
-                <a href="https://github.com/tapiwamakandigona/fps-hub" target="_blank" rel="noopener">↗ Code</a>
-                <a href="/fps-game/" aria-label="About Browser FPS">↗ About</a>
-                <a href="https://fps.tapiwa.me/" target="_blank" rel="noopener" aria-label="Play Browser FPS">↗ Play</a>
-              </div>
-            </div>
-            <p class="work-desc">3D zombie survival shooter running entirely in the browser. Wave progression, particle systems, mystery boxes — zero plugins, 60fps.</p>
-            <div class="work-tags">
-              <span>TypeScript</span><span>Three.js</span><span>WebGL</span>
-            </div>
-          </div>
+        <li>
+          <div class="wl-head"><h3>Browser FPS</h3><span class="wl-year">2024</span></div>
+          <p>Zombie waves, particles, mystery boxes. Zero plugins, 60fps.</p>
+          <p class="wl-tags">TypeScript · Three.js · WebGL</p>
+          <p class="wl-links"><a href="https://tapiwa.me/fps-game/">Project page</a><a href="https://fps.tapiwa.me/" target="_blank" rel="noopener">Play</a><a href="https://github.com/tapiwamakandigona/fps-hub" target="_blank" rel="noopener">Code</a></p>
         </li>
-
-
-
-
       </ol>
+      <a class="text-link" href="https://github.com/tapiwamakandigona?tab=repositories" target="_blank" rel="noopener">All repos on GitHub</a>
+    </section>
 
-      <a class="all-repos-link" href="https://github.com/tapiwamakandigona?tab=repositories" target="_blank" rel="noopener">
-        All repos on GitHub ↗
-      </a>
+    <!-- DARK BAND -->
+    <section class="dark-band">
+      <div class="stage stage-dark" aria-hidden="true">
+        <video class="band-film" autoplay muted loop playsinline preload="none"
+               poster="/media/lattice_poster.webp" disablepictureinpicture>
+          <source src="/media/lattice.mp4" type="video/mp4">
+        </video>
+        <canvas data-field="dark"></canvas>
+      </div>
+      <div class="db-inner">
+        <div class="db-copy">
+          <p class="eyebrow eyebrow-dark">Under the hood</p>
+          <h2>Down to the kernel when it has to be.</h2>
+          <p>Friendly products on top. Kernel builds, 47&nbsp;KB binaries and locked 60fps underneath.</p>
+        </div>
+        <div class="terminal">
+          <div class="cw-bar cw-bar-dark"><i></i><i></i><i></i><span>kernel-ci</span></div>
+          <pre><code><span class="tp">$</span> ./build.sh --target s26u android15-6.6
+<span class="tg">✓</span> toolchain  clang-r522817
+<span class="tg">✓</span> defconfig  s26u_gki_defconfig
+<span class="tg">✓</span> Image.gz   14.2 MB  (free runner, 38 min)
+<span class="tp">$</span> adb reboot bootloader &amp;&amp; fastboot boot Image.gz
+<span class="tg">✓</span> booted     6.6.30-android15 #1 SMP</code></pre>
+        </div>
+      </div>
     </section>
 
     <!-- OPEN SOURCE -->
     <section class="section" id="open-source">
-      <h2 class="section-label">Open source</h2>
-      <ul class="oss-grid">
-        <li class="oss-item">
-          <a href="https://github.com/tapiwamakandigona/env-guard" target="_blank" rel="noopener" class="oss-name">env-guard</a>
-          <p class="oss-desc">Validate environment variables at startup — never deploy with missing config.</p>
-        </li>
-        <li class="oss-item">
-          <a href="https://www.npmjs.com/package/ts-color-utils" target="_blank" rel="noopener" class="oss-name">ts-color-utils</a>
-          <p class="oss-desc">Zero-dependency color conversions — hex, RGB, HSL — with full type safety.</p>
-        </li>
-        <li class="oss-item">
-          <a href="https://github.com/tapiwamakandigona/react-ui-kit" target="_blank" rel="noopener" class="oss-name">react-ui-kit</a>
-          <p class="oss-desc">Zero-dependency React component library, TypeScript-first, dark theme defaults.</p>
-        </li>
-        <li class="oss-item">
-          <a href="https://github.com/tapiwamakandigona/express-api-starter" target="_blank" rel="noopener" class="oss-name">express-api-starter</a>
-          <p class="oss-desc">Production-ready REST API starter — Express, Prisma, JWT auth, validation.</p>
-        </li>
-        <li class="oss-item">
-          <a href="https://github.com/tapiwamakandigona/json-lint-cli" target="_blank" rel="noopener" class="oss-name">json-lint-cli</a>
-          <p class="oss-desc">Fast CLI to validate and format JSON files with colorful output.</p>
-        </li>
-        <li class="oss-item">
-          <a href="https://github.com/tapiwamakandigona/pwgen-cli" target="_blank" rel="noopener" class="oss-name">pwgen-cli</a>
-          <p class="oss-desc">Cryptographically secure password generator CLI with customizable rules.</p>
-        </li>
-        <li class="oss-item">
-          <a href="https://github.com/tapiwamakandigona/http-ping-cli" target="_blank" rel="noopener" class="oss-name">http-ping-cli</a>
-          <p class="oss-desc">Monitor HTTP endpoint health and response times from the command line.</p>
-        </li>
-        <li class="oss-item">
-          <a href="https://github.com/tapiwamakandigona/md-preview-server" target="_blank" rel="noopener" class="oss-name">md-preview-server</a>
-          <p class="oss-desc">Live-reload Markdown preview server with styled HTML output.</p>
-        </li>
-      </ul>
-      <p class="more-projects">
-        More: <a href="/zimbet/">ZimBet</a> — provably fair casino games,
-        <a href="/zimpay/">ZimPay</a> — banking simulation,
-        <a href="/todo-app/">TapDo</a> — cross-platform todo app,
-        <a href="https://github.com/tapiwamakandigona/quickbucks" target="_blank" rel="noopener">QuickBucks</a> — mukando savings-group manager,
-        <a href="https://github.com/tapiwamakandigona/FontaineOS" target="_blank" rel="noopener">FontaineOS</a> — bare-metal x86 OS kernel in C++ and Assembly.
-      </p>
+      <span id="oss" class="anchor-alias" aria-hidden="true"></span>
+      <p class="eyebrow">Open source</p>
+      <h2>Small tools, kept sharp.</h2>
+      <div class="tile-grid">
+        <a class="tile" href="https://github.com/tapiwamakandigona/env-guard" target="_blank" rel="noopener">
+          <h3>env-guard</h3><p>Never deploy with missing config.</p>
+        </a>
+        <a class="tile" href="https://github.com/tapiwamakandigona/ts-color-utils" target="_blank" rel="noopener">
+          <h3>ts-color-utils</h3><p>Typed colour maths, zero deps.</p>
+        </a>
+        <a class="tile" href="https://github.com/tapiwamakandigona/react-ui-kit" target="_blank" rel="noopener">
+          <h3>react-ui-kit</h3><p>React components, zero deps.</p>
+        </a>
+        <a class="tile" href="https://github.com/tapiwamakandigona/express-api-starter" target="_blank" rel="noopener">
+          <h3>express-api-starter</h3><p>REST API, ready to ship.</p>
+        </a>
+        <a class="tile" href="https://github.com/tapiwamakandigona/json-lint-cli" target="_blank" rel="noopener">
+          <h3>json-lint-cli</h3><p>Lint and format JSON, fast.</p>
+        </a>
+        <a class="tile" href="https://github.com/tapiwamakandigona/pwgen-cli" target="_blank" rel="noopener">
+          <h3>pwgen-cli</h3><p>Secure passwords from the shell.</p>
+        </a>
+        <a class="tile" href="https://github.com/tapiwamakandigona/http-ping-cli" target="_blank" rel="noopener">
+          <h3>http-ping-cli</h3><p>Endpoint health from the shell.</p>
+        </a>
+        <a class="tile" href="https://github.com/tapiwamakandigona/md-preview-server" target="_blank" rel="noopener">
+          <h3>md-preview-server</h3><p>Live Markdown preview.</p>
+        </a>
+      </div>
+      <p class="more-oss">Also
+      <a href="https://tapiwa.me/zimbet/">ZimBet</a>,
+      <a href="https://tapiwa.me/zimpay/">ZimPay</a>,
+      <a href="https://tapiwa.me/todo-app/">TapDo</a>,
+      <a href="https://github.com/tapiwamakandigona/quickbucks" target="_blank" rel="noopener">QuickBucks</a>, and
+      <a href="https://github.com/tapiwamakandigona/FontaineOS" target="_blank" rel="noopener">FontaineOS</a> — a bare-metal x86 kernel in C++.</p>
     </section>
 
     <!-- RECOGNITION -->
     <section class="section" id="recognition">
-      <h2 class="section-label">Recognition</h2>
-
-      <ol class="award-list">
-
-        <li class="award-item">
-          <div class="award-badge bronze">🥉</div>
-          <div class="award-body">
-            <div class="award-top">
-              <h3 class="award-title">Bronze Medal — AOAI</h3>
-              <span class="award-org">African Olympiad in Artificial Intelligence</span>
-            </div>
-            <p class="award-desc">Competed across African nations in AI problem-solving and algorithmic challenges. Awarded bronze.</p>
-          </div>
-        </li>
-
-        <li class="award-item">
-          <div class="award-badge gold">🌍</div>
-          <div class="award-body">
-            <div class="award-top">
-              <h3 class="award-title">4th Place — AOAI</h3>
-              <span class="award-org">African Olympiad in Artificial Intelligence</span>
-            </div>
-            <p class="award-desc">Represented Zimbabwe at the continental level, finishing 4th overall among top students across Africa.</p>
-          </div>
-        </li>
-
-        <li class="award-item">
-          <div class="award-badge">🏅</div>
-          <div class="award-body">
-            <div class="award-top">
-              <h3 class="award-title">Finalist — NOAI</h3>
-              <span class="award-org">National Olympiad in Artificial Intelligence · Zimbabwe</span>
-            </div>
-            <p class="award-desc">Reached the national final round, qualifying to represent Zimbabwe in continental competition.</p>
-          </div>
-        </li>
-
-      </ol>
+      <p class="eyebrow">Recognition</p>
+      <h2>Measured against the world.</h2>
+      <ul class="award-list">
+        <li><h3>GAITE Level Three Award — International Olympiad in AI</h3><span>Astana, Kazakhstan · 2026</span></li>
+        <li><h3>Bronze Medal — African Olympiad in AI</h3><span>Continental · 2026</span></li>
+        <li><h3>4th place, continental round — AOAI</h3><span>Team Zimbabwe</span></li>
+        <li><h3>National finalist — AOAI Zimbabwe</h3><span>2026</span></li>
+      </ul>
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
-      <h2 class="section-label">About</h2>
-      <div class="about-text">
-        <p>
-          I'm a self-taught developer from Kwekwe, Zimbabwe. I started building out of curiosity —
-          first small scripts, then full products. Today that ranges from production web apps like
-          <a href="https://zesa.tapiwa.me/">VoltZW, a ZESA prepaid electricity calculator</a>,
-          to Android platform work — custom GKI kernel builds and system apps for my own phone —
-          to games and data projects like the Zimbabwe Language Data Commons.
-        </p>
-        <p>
-          My stack is <strong>TypeScript + React/Next.js</strong> with
-          <strong>Appwrite or Supabase</strong> on the backend,
-          <strong>Kotlin</strong> and <strong>Flutter</strong> for Android,
-          and <strong>Three.js</strong> when I need 3D.
-          I like building in the open — most of my work is on GitHub.
-        </p>
-        <p>
-          Outside of code: AI olympiads (bronze medalist at the African Olympiad in AI),
-          game design, and trying to make things that people in Zimbabwe actually use.
-        </p>
+    <section class="section about" id="about">
+      <p class="eyebrow">About</p>
+      <h2>Curiosity first, then products.</h2>
+      <div class="about-cols">
+        <p>Self-taught, from Kwekwe. Started with small scripts, ended up building kernels, corpora and games.</p>
+        <p>TypeScript and React on top, Appwrite or Supabase behind, Kotlin and Flutter on Android, WebGL when it needs to move. Built in the open.</p>
       </div>
-      <div class="stack-row">
-        <span>TypeScript</span><span>React</span><span>Next.js</span><span>Node.js</span>
-        <span>Appwrite</span><span>Supabase</span><span>PostgreSQL</span>
-        <span>Kotlin</span><span>Flutter</span><span>Three.js</span><span>Python</span>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band" id="contact">
+      <h2>Let’s build something that holds up.</h2>
+      <p>Replies within a day · Kwekwe (UTC+2)</p>
+      <div class="cta-actions">
+        <a class="btn btn-cream" href="mailto:silentics.org@gmail.com">Let's talk</a>
+        <a class="btn btn-outline-cream" href="https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/" target="_blank" rel="me noopener">
+          <svg class="btn-ico" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <span>© <span id="yr"></span> Tapiwa Makandigona</span>
-    <span>Kwekwe, Zimbabwe 🇿🇼</span>
-    <a href="mailto:silentics.org@gmail.com">silentics.org@gmail.com</a>
-    <a href="https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/" rel="me noopener" target="_blank">LinkedIn</a>
-    <a href="https://www.instagram.com/makandigonatapiwa/" rel="me noopener" target="_blank">Instagram</a>
+  <footer class="footer">
+    <div class="foot-brand">
+      <svg class="spike" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <span>Tapiwa Makandigona</span>
+    </div>
+    <nav class="foot-links" aria-label="Social">
+      <a href="https://github.com/tapiwamakandigona" target="_blank" rel="me noopener">
+        <svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+      <a href="https://www.linkedin.com/in/tapiwa-makandigona-2562473a0/" target="_blank" rel="me noopener">
+        <svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+      <a href="https://www.instagram.com/makandigonatapiwa/" target="_blank" rel="me noopener">
+        <svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</a>
+      <a href="https://play.google.com/store/apps/developer?id=Tsoro+Studios" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-googleplay"/></svg>Tsoro Studios</a>
+      <a href="mailto:silentics.org@gmail.com">
+        <svg aria-hidden="true"><use href="#i-gmail"/></svg>Email</a>
+    </nav>
+    <p class="foot-fine">© <span id="yr">2026</span> Tapiwa Makandigona · Kwekwe, Zimbabwe 🇿🇼</p>
   </footer>
 
-  <button class="back-top" id="back-top" aria-label="Back to top">↑</button>
-
-  <script src="script.js"></script>
+  <script src="/net.js" defer></script>
+  <script src="/site.js" defer></script>
 </body>
 </html>
