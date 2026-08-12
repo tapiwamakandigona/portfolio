@@ -654,7 +654,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--coral); outline
   }
   .hero-copy { grid-row: 1; grid-column: 1; max-width: none; }
   .hero .lede { margin-inline: 0; }
-  .hero-actions { justify-content: flex-start; }
+  /* scoped to the homepage split hero — project pages (.page-hero) stay centered */
+  .hero .hero-actions { justify-content: flex-start; }
   .hero h1 { font-size: clamp(40px, 3.35vw, 54px); }
   .kicker { margin-bottom: 22px; }
 
