@@ -74,6 +74,30 @@
   });
 })();
 
+/* Curated portfolio interactions. Markup supplies fixed slugs and enums;
+   hrefs, link text and user-entered values are never sent to analytics. */
+(function () {
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest("a[data-analytics-event]");
+    if (!link || typeof window.tapiwaTrack !== "function") return;
+
+    var name = link.getAttribute("data-analytics-event");
+    var params = {};
+    if (name === "portfolio_project_click") {
+      params.project = link.getAttribute("data-analytics-project");
+      params.destination = link.getAttribute("data-analytics-destination");
+      if (!params.project || !params.destination) return;
+    } else if (name === "portfolio_contact_click") {
+      params.method = link.getAttribute("data-analytics-method");
+      if (!params.method) return;
+    } else {
+      return;
+    }
+
+    try { window.tapiwaTrack(name, params); } catch (_) { /* product action always wins */ }
+  });
+})();
+
 
 /* Site-wide behaviours that outlive any one page ---------------------- */
 (function () {
