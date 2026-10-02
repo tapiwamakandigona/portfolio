@@ -474,9 +474,9 @@
       "<p>Collected: page paths, hostnames and fixed actions such as opening a project or using a calculator. " +
       "Never collected: form contents, long or short links, aliases, meter numbers, names, phone numbers or email addresses.</p>" +
       "<p>Google may process browser/device details and an approximate region; Analytics does not log or store individual IP addresses. " +
-      "First-party cookies start only after permission. Ads and personalisation are off. " +
+      "First-party cookies start only after permission. Analytics ad features and personalisation are off. " +
       "Event data is kept up to 14 months. Analytics cookies and this choice last no more than six months.</p>" +
-      '<p>Change your choice anytime. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google privacy policy</a></p>' +
+      '<p>Change your choice anytime. <a href="/privacy/">Privacy policy</a> \u00b7 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google privacy policy</a></p>' +
       "</details>";
 
     document.body.appendChild(settingsButton);
