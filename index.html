@@ -233,12 +233,13 @@
 
   <header class="nav">
     <a class="brand" href="#top" aria-label="Tapiwa Makandigona — home">
-      <svg class="spike" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;"><path d="M4 7V4h16v3M12 4v16M8 20h8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>Tapiwa&nbsp;Makandigona</span>
     </a>
     <nav aria-label="Main">
       <a class="nav-work" href="#work">Work</a>
       <a class="nav-oss" href="#open-source">Open&nbsp;source</a>
+      <a class="nav-certs" href="#recognition">Certifications</a>
       <a class="nav-about" href="#about">About</a>
       <a href="https://news.tapiwa.me/" class="nav-ext">Notes</a>
     </nav>
@@ -265,10 +266,10 @@
       <div class="hero-copy">
         <p class="kicker">Full-stack developer · From Zimbabwe, now in Coimbatore</p>
         <h1>Software that works where bandwidth is scarce.</h1>
-        <p class="lede">I build lightweight web and Android products. Start with a focused performance and usability review, or one small workflow worth shipping.</p>
+        <p class="lede">I build lightweight web and Android products. High-performance architectures, offline-first utilities, and systems that work where resources are limited.</p>
         <div class="hero-actions">
-          <a class="btn btn-coral" href="#product-review">Discuss a paid review</a>
-          <a class="btn btn-ghost" href="#work">See the work</a>
+          <a class="btn btn-coral" href="#work">Explore Projects</a>
+          <a class="btn btn-ghost" href="#recognition">Certifications &amp; Honors</a>
         </div>
       </div>
       <div class="scroll-hint" aria-hidden="true"><span></span></div>
@@ -318,32 +319,7 @@
       </div>
     </section>
 
-    <!-- A SCOPED FIRST STEP -->
-    <section class="section" id="product-review" aria-labelledby="review-title">
-      <p class="eyebrow">Work with me · Lightweight Product Review</p>
-      <h2 id="review-title">Find where users get stuck.<br>Know what to fix next.</h2>
-      <p class="review-intro">For founders and small teams with a slow or unfinished web or Android product. I review one agreed flow—first use, signup, loading or a key interaction—and turn the findings into a prioritised repair plan.</p>
-      <ol class="work-list review-steps">
-        <li>
-          <div class="wl-head"><h3>01 · Agree the scope</h3></div>
-          <p>One flow, target devices and network conditions, clear acceptance criteria. We confirm availability, access and payment terms before work starts.</p>
-        </li>
-        <li>
-          <div class="wl-head"><h3>02 · Get evidence, not guesses</h3></div>
-          <p>Reproducible issues with screenshots or recordings, measurements under stated conditions, and a ranked list of failures, friction and cosmetic improvements. Emulation is labelled; a real-device claim needs a real-device test.</p>
-        </li>
-        <li>
-          <div class="wl-head"><h3>03 · Choose the next step</h3></div>
-          <p>A walkthrough of the findings and a scoped repair estimate if implementation makes sense. You can take the plan to your team; implementation is separate.</p>
-        </li>
-      </ol>
-      <div class="review-terms">
-        <p><strong>US$300 for the scoped review.</strong> Scope, currency, applicable taxes, payment method and delivery window are agreed in writing before booking. No payment is taken on this page.</p>
-        <p>This is not a whole-product audit, security certification or promise of conversion uplift. Production changes and unlimited testing are not included.</p>
-        <p>Send the product link, the problem users face, target devices and budget range. Please do not send passwords or customer records.</p>
-        <a class="btn btn-coral" href="mailto:silentics.org@gmail.com?subject=Lightweight%20Product%20Review&amp;body=Product%20link%3A%0AUser%20problem%3A%0ATarget%20devices%3A%0ABudget%20range%3A" data-analytics-event="portfolio_contact_click" data-analytics-method="email">Discuss my product</a>
-      </div>
-    </section>
+
 
     <!-- SELECTED WORK -->
     <section class="section">
@@ -373,6 +349,12 @@
           <p>A GKI kernel built on free runners, all 8 panel modes unlocked, a 47&nbsp;KB system equalizer.</p>
           <p class="wl-tags">Android · GKI kernel · Kotlin</p>
           <p class="wl-links"><a href="https://github.com/tapiwamakandigona/s26u-kernel" target="_blank" rel="noopener" data-analytics-event="portfolio_project_click" data-analytics-project="s26u_kernel" data-analytics-destination="source">Kernel CI</a><a href="https://github.com/tapiwamakandigona/podeq" target="_blank" rel="noopener" data-analytics-event="portfolio_project_click" data-analytics-project="podeq" data-analytics-destination="source">PodEQ</a><a href="https://github.com/tapiwamakandigona/s26u-flow-display" target="_blank" rel="noopener" data-analytics-event="portfolio_project_click" data-analytics-project="s26u_flow_display" data-analytics-destination="source">Display modes</a></p>
+        </li>
+        <li>
+          <div class="wl-head"><h3>ZimPay</h3><span class="wl-year">2026</span></div>
+          <p>Real-time digital banking simulation with secure authentication and instant transfers.</p>
+          <p class="wl-tags">React · TypeScript · Supabase · Tailwind</p>
+          <p class="wl-links"><a href="https://zimpay.tapiwa.me/" target="_blank" rel="noopener">Live app</a><a href="https://tapiwa.me/zimpay/">About</a><a href="https://github.com/tapiwamakandigona/zimpay" target="_blank" rel="noopener">Code</a></p>
         </li>
         <li>
           <div class="wl-head"><h3>ChemLab ZW</h3><span class="wl-year">2026</span></div>
@@ -474,15 +456,16 @@
       <a href="https://github.com/tapiwamakandigona/FontaineOS" target="_blank" rel="noopener">FontaineOS</a> — a bare-metal x86 kernel in C++.</p>
     </section>
 
-    <!-- RECOGNITION -->
+    <!-- RECOGNITION & CERTIFICATIONS -->
     <section class="section" id="recognition">
-      <p class="eyebrow">Recognition</p>
+      <p class="eyebrow">Certifications &amp; Honors</p>
       <h2>Measured against the world.</h2>
       <ul class="award-list">
-        <li><h3>GAITE Level Three Award — International Olympiad in AI</h3><span>Astana, Kazakhstan · 2026</span></li>
-        <li><h3>Bronze Medal — African Olympiad in AI</h3><span>Continental · 2026</span></li>
-        <li><h3>4th place, continental round — AOAI</h3><span>Team Zimbabwe</span></li>
-        <li><h3>National finalist — NOAI Zimbabwe</h3><span>2026</span></li>
+        <li><h3>GAITE Level Three Award — International Olympiad in AI (IOAI)</h3><span>Astana, Kazakhstan · Contestant, Team Zimbabwe</span></li>
+        <li><h3>Bronze Medal &amp; 4th Place Team — African Olympiad in AI (AOAI)</h3><span>Continental Round · Zimbabwe National Team</span></li>
+        <li><h3>National Finalist &amp; ML Trainee — NOAI Zimbabwe</h3><span>Deep Learning IndabaX Zimbabwe · PyTorch &amp; AI Benchmarks</span></li>
+        <li><h3>Cyber Security Hackathon (Ctrl+Z) — 4th Place</h3><span>Sri Eshwar College of Engineering · Credential: ctrl+z</span></li>
+        <li><h3>Zimbabwe Government Presidential Scholarship</h3><span>Awarded for B.E. Electrical &amp; Electronics Engineering in India</span></li>
       </ul>
     </section>
 
@@ -498,10 +481,10 @@
 
     <!-- CTA -->
     <section class="cta-band" id="contact">
-      <h2>Have a slow or unfinished product?</h2>
-      <p>Send the link, the problem users face and your budget range. We can agree a focused scope before work starts · Coimbatore, India (UTC+5:30)</p>
+      <h2>Let's build something extraordinary.</h2>
+      <p>Open for full-stack engineering, game development, and systems collaborations · Coimbatore, India (UTC+5:30)</p>
       <div class="cta-actions">
-        <a class="btn btn-cream" href="mailto:silentics.org@gmail.com?subject=Lightweight%20Product%20Review" data-analytics-event="portfolio_contact_click" data-analytics-method="email">Discuss the next step</a>
+        <a class="btn btn-cream" href="mailto:tapiwamakandigona.2026eee@sece.ac.in?subject=Collaboration%20Inquiry" data-analytics-event="portfolio_contact_click" data-analytics-method="email">Get in touch</a>
         <a class="btn btn-outline-cream" href="https://www.linkedin.com/in/tapiwa-makandigona/" target="_blank" rel="me noopener" data-analytics-event="portfolio_contact_click" data-analytics-method="linkedin">
           <svg class="btn-ico" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
       </div>
@@ -511,7 +494,7 @@
 
   <footer class="footer">
     <div class="foot-brand">
-      <svg class="spike" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;"><path d="M4 7V4h16v3M12 4v16M8 20h8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>Tapiwa Makandigona</span>
     </div>
     <nav class="foot-links" aria-label="Social">
