@@ -1,4 +1,16 @@
 {
   "cleanUrls": true,
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/blog/sending-files-between-phone-and-pc-no-internet",
+      "destination": "https://news.tapiwa.me/send-files-without-internet",
+      "permanent": true
+    },
+    {
+      "source": "/blog/send-files-without-internet",
+      "destination": "https://news.tapiwa.me/send-files-without-internet",
+      "permanent": true
+    }
+  ]
 }
