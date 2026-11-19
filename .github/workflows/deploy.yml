@@ -1,8 +1,7 @@
-name: Deploy to Appwrite Sites
+name: Deploy to Appwrite Sites (Archived)
 
+# Archived: Project migrated to Vercel. Vercel auto-deploys main on push.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
