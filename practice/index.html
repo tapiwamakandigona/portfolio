@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoForge — Interactive Problem Practice & Tracking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            },
+            editor: '#0d1117',
+            panel: '#161b22',
+            bordercol: '#30363d',
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    code, pre, textarea.code-area { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0d1117; }
+    ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #8b949e; }
+
+    .line-numbers {
+      counter-reset: line;
+    }
+    .code-editor-container {
+      position: relative;
+      background: #0d1117;
+    }
+  </style>
+</head>
+<body class="bg-[#090d13] text-[#e6edf3] min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="h-14 border-b border-[#30363d] bg-[#161b22] px-4 flex items-center justify-between z-10 shrink-0">
+    <div class="flex items-center space-x-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <span class="font-bold text-base tracking-tight text-white">AlgoForge</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">Practice Arena</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Metrics & Daily Tracker Actions -->
+    <div class="flex items-center space-x-3">
+      <!-- Session Badges -->
+      <div class="hidden sm:flex items-center space-x-2 text-xs font-mono bg-[#0d1117] px-3 py-1.5 rounded-lg border border-[#30363d]">
+        <span class="text-emerald-400 font-semibold flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="headerSolvedCount">0</span> Solved
+        </span>
+        <span class="text-gray-500">•</span>
+        <span class="text-rose-400 font-semibold flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+          <span id="headerFailedCount">0</span> Failed
+        </span>
+        <span class="text-gray-500">•</span>
+        <span class="text-gray-400 font-semibold">
+          <span id="headerAttemptedCount">0</span> Total Attempts
+        </span>
+      </div>
+
+      <!-- Daily Report Button -->
+      <button id="openReportBtn" class="flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-md shadow-blue-600/20 transition-all active:scale-95">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <span>Daily Report for Mentor</span>
+      </button>
+
+      <!-- History Modal Button -->
+      <button id="openHistoryBtn" class="flex items-center space-x-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-[#21262d] hover:bg-[#30363d] text-gray-200 border border-[#30363d] transition-all">
+        <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>History</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <div class="flex-1 flex overflow-hidden">
+
+    <!-- SIDEBAR: PROBLEM CATALOG -->
+    <aside id="sidebar" class="w-80 border-r border-[#30363d] bg-[#161b22] flex flex-col shrink-0 transition-all duration-200">
+      <!-- Search & Filters -->
+      <div class="p-3 border-b border-[#30363d] space-y-2">
+        <div class="relative">
+          <input type="text" id="searchInput" placeholder="Search problems, patterns, tags..." class="w-full bg-[#0d1117] border border-[#30363d] rounded-lg px-8 py-1.5 text-xs text-gray-200 focus:outline-none focus:border-blue-500 placeholder-gray-500 font-mono">
+          <svg class="w-3.5 h-3.5 text-gray-500 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <div class="flex items-center justify-between text-[11px] text-gray-400 font-medium">
+          <div class="flex items-center space-x-1">
+            <button class="filter-btn active px-2 py-0.5 rounded bg-blue-600/20 text-blue-400 border border-blue-500/30" data-filter="all">All (10)</button>
+            <button class="filter-btn px-2 py-0.5 rounded hover:bg-[#21262d]" data-filter="Hard">Hard (7)</button>
+            <button class="filter-btn px-2 py-0.5 rounded hover:bg-[#21262d]" data-filter="Medium">Med (3)</button>
+          </div>
+          <span id="solvedPercentage" class="font-mono text-emerald-400">0% Solved</span>
+        </div>
+      </div>
+
+      <!-- Problem List -->
+      <div id="problemList" class="flex-1 overflow-y-auto divide-y divide-[#30363d]/50 p-2 space-y-1">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </aside>
+
+    <!-- CENTER & RIGHT: WORKSPACE -->
+    <main class="flex-1 flex flex-col lg:flex-row overflow-hidden bg-[#090d13]">
+
+      <!-- LEFT COLUMN: PROBLEM DESCRIPTION & HINTS -->
+      <section class="lg:w-5/12 border-b lg:border-b-0 lg:border-r border-[#30363d] flex flex-col overflow-hidden bg-[#0d1117]">
+        <!-- Problem Tabs -->
+        <div class="h-10 border-b border-[#30363d] bg-[#161b22] px-4 flex items-center justify-between shrink-0">
+          <div class="flex items-center space-x-4 text-xs font-medium">
+            <button class="tab-btn active text-blue-400 border-b-2 border-blue-500 pb-2.5 pt-2" data-tab="descriptionTab">Description</button>
+            <button class="tab-btn text-gray-400 hover:text-gray-200 pb-2.5 pt-2" data-tab="hintsTab">Hints & Strategy</button>
+            <button class="tab-btn text-gray-400 hover:text-gray-200 pb-2.5 pt-2" data-tab="attemptsTab">Problem Attempts (<span id="currentProblemAttemptsCount">0</span>)</button>
+          </div>
+          <div id="currentProblemStatusBadge" class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700">
+            Unattempted
+          </div>
+        </div>
+
+        <!-- Problem Tab Content Container -->
+        <div class="flex-1 overflow-y-auto p-5 text-sm space-y-5 leading-relaxed">
+          
+          <!-- TAB 1: DESCRIPTION -->
+          <div id="descriptionTab" class="tab-content space-y-4">
+            <div>
+              <div class="flex items-center space-x-2 mb-1.5">
+                <span id="problemDiffBadge" class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">Hard</span>
+                <span id="problemPatternBadge" class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#21262d] text-gray-300 border border-[#30363d]">Two Pointers</span>
+              </div>
+              <h1 id="problemTitle" class="text-xl font-bold text-white tracking-tight">01. Trapping Rain Water</h1>
+            </div>
+
+            <!-- Tags -->
+            <div id="problemTags" class="flex flex-wrap gap-1.5 pt-1"></div>
+
+            <!-- Main Statement -->
+            <div id="problemDescription" class="text-gray-300 space-y-3 font-normal leading-relaxed"></div>
+
+            <!-- Examples -->
+            <div class="space-y-3 pt-2">
+              <h3 class="font-semibold text-white text-xs uppercase tracking-wider text-gray-400">Examples</h3>
+              <div id="problemExamples" class="space-y-3"></div>
+            </div>
+
+            <!-- Constraints -->
+            <div class="space-y-2 pt-2">
+              <h3 class="font-semibold text-white text-xs uppercase tracking-wider text-gray-400">Constraints</h3>
+              <ul id="problemConstraints" class="list-disc list-inside space-y-1 font-mono text-xs text-gray-300 bg-[#161b22] p-3 rounded-lg border border-[#30363d]"></ul>
+            </div>
+          </div>
+
+          <!-- TAB 2: HINTS -->
+          <div id="hintsTab" class="tab-content hidden space-y-3">
+            <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg text-xs text-blue-300 flex items-start gap-2">
+              <svg class="w-4 h-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Hints reveal gradual clues to help you recognize the algorithmic pattern without spoiling the implementation!</span>
+            </div>
+            <div id="problemHints" class="space-y-2"></div>
+          </div>
+
+          <!-- TAB 3: ATTEMPTS -->
+          <div id="attemptsTab" class="tab-content hidden space-y-3">
+            <h3 class="font-semibold text-white text-xs uppercase tracking-wider text-gray-400">Attempts History for this Problem</h3>
+            <div id="problemAttemptsList" class="space-y-2"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: CODE EDITOR & TEST RUNNER -->
+      <section class="lg:w-7/12 flex flex-col overflow-hidden bg-[#0d1117]">
+
+        <!-- Editor Toolbar -->
+        <div class="h-10 border-b border-[#30363d] bg-[#161b22] px-4 flex items-center justify-between shrink-0">
+          <div class="flex items-center space-x-3">
+            <span class="text-xs text-gray-400 font-medium">Language:</span>
+            <select id="languageSelect" class="bg-[#0d1117] border border-[#30363d] rounded px-2 py-1 text-xs font-mono text-gray-200 focus:outline-none focus:border-blue-500">
+              <option value="javascript">JavaScript (ES6+)</option>
+              <option value="python">Python 3</option>
+            </select>
+            <span id="savedIndicator" class="text-[11px] font-mono text-gray-500 italic">Saved</span>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <button id="resetCodeBtn" class="text-xs px-2.5 py-1 rounded bg-[#21262d] hover:bg-[#30363d] text-gray-300 border border-[#30363d] transition-colors" title="Reset to starter code">
+              Reset Code
+            </button>
+            <button id="copyCodeBtn" class="text-xs px-2.5 py-1 rounded bg-[#21262d] hover:bg-[#30363d] text-gray-300 border border-[#30363d] transition-colors" title="Copy code">
+              Copy
+            </button>
+          </div>
+        </div>
+
+        <!-- Code Editor Area -->
+        <div class="flex-1 relative flex overflow-hidden code-editor-container font-mono text-xs">
+          <!-- Line Numbers -->
+          <div id="lineNumbers" class="w-12 bg-[#090d13] text-gray-600 select-none text-right pr-3 pt-3 font-mono leading-5 shrink-0 border-r border-[#30363d]/40">
+            1<br>2<br>3<br>4<br>5
+          </div>
+          <!-- Textarea Editor -->
+          <textarea id="codeEditor" spellcheck="false" class="flex-1 bg-[#0d1117] text-gray-100 p-3 outline-none resize-none code-area leading-5 font-mono whitespace-pre overflow-auto" placeholder="// Write your solution here..."></textarea>
+        </div>
+
+        <!-- BOTTOM PANE: TEST SUITE & RUNNER -->
+        <div class="h-64 border-t border-[#30363d] bg-[#161b22] flex flex-col shrink-0">
+          
+          <!-- Test Suite Header -->
+          <div class="h-10 border-b border-[#30363d] px-4 flex items-center justify-between shrink-0">
+            <div class="flex items-center space-x-3 text-xs font-medium">
+              <span class="text-gray-300 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Test Bench
+              </span>
+              <span id="testSummaryBadge" class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#21262d] text-gray-400">Ready</span>
+            </div>
+
+            <!-- Run & Submit Actions -->
+            <div class="flex items-center space-x-2">
+              <button id="runTestsBtn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#21262d] hover:bg-[#30363d] text-gray-200 border border-[#30363d] font-semibold text-xs active:scale-95 transition-all">
+                <svg class="w-3.5 h-3.5 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+                <span>Run Tests</span>
+              </button>
+
+              <button id="submitSolutionBtn" class="flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-md shadow-emerald-600/20 active:scale-95 transition-all">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Submit Solution</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Test Cases & Results Output -->
+          <div id="testOutputArea" class="flex-1 overflow-y-auto p-4 font-mono text-xs space-y-3 bg-[#0d1117]">
+            <div class="text-gray-500 italic">Click "Run Tests" or "Submit Solution" to evaluate your code against the test suite.</div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- MODAL: DAILY REPORT FOR MENTOR -->
+  <div id="reportModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#161b22] border border-[#30363d] rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <div class="p-4 border-b border-[#30363d] flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-white text-sm">Daily Progress Report for Antigravity</h3>
+            <p class="text-[11px] text-gray-400">Share this report at the end of the day to diagnose errors and assign the next steps.</p>
+          </div>
+        </div>
+        <button id="closeReportBtn" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-[#30363d]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="p-4 flex-1 overflow-y-auto space-y-4 text-xs font-mono">
+        <div class="flex items-center justify-between bg-[#0d1117] p-3 rounded-lg border border-[#30363d]">
+          <div>
+            <span class="text-gray-400">Date:</span> <strong id="reportDate" class="text-white"></strong>
+          </div>
+          <div class="space-x-3">
+            <span class="text-emerald-400"><strong id="reportSolved">0</strong> Solved</span>
+            <span class="text-rose-400"><strong id="reportFailed">0</strong> Failed</span>
+            <span class="text-blue-400"><strong id="reportTotal">0</strong> Attempts</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-400 mb-1 font-sans text-xs font-semibold uppercase tracking-wider">Markdown Report (Copy &amp; Paste in Chat):</label>
+          <textarea id="reportMarkdown" readonly class="w-full h-72 bg-[#0d1117] text-gray-200 border border-[#30363d] rounded-lg p-3 text-xs font-mono leading-relaxed resize-none focus:outline-none"></textarea>
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-[#30363d] bg-[#0d1117] flex items-center justify-between">
+        <span id="copyReportNotification" class="text-xs text-emerald-400 font-mono hidden">Copied to clipboard! Paste it to Antigravity.</span>
+        <div class="flex items-center space-x-2 ml-auto">
+          <button id="downloadReportBtn" class="px-3 py-1.5 rounded-lg bg-[#21262d] hover:bg-[#30363d] text-gray-200 border border-[#30363d] text-xs font-medium">Download .md</button>
+          <button id="copyReportBtn" class="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs shadow-md shadow-blue-600/20 active:scale-95 transition-all">Copy Report to Clipboard</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: GLOBAL ATTEMPT HISTORY -->
+  <div id="historyModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#161b22] border border-[#30363d] rounded-xl max-w-2xl w-full max-h-[80vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="p-4 border-b border-[#30363d] flex items-center justify-between">
+        <h3 class="font-bold text-white text-sm">Full Session Attempt History</h3>
+        <button id="closeHistoryBtn" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-[#30363d]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="fullHistoryContainer" class="p-4 flex-1 overflow-y-auto space-y-2 text-xs font-mono">
+        <!-- Rendered via JS -->
+      </div>
+      <div class="p-3 border-t border-[#30363d] bg-[#0d1117] flex items-center justify-between">
+        <button id="clearHistoryBtn" class="text-xs text-rose-400 hover:text-rose-300 font-medium">Clear History</button>
+        <button id="exportJsonBtn" class="text-xs text-blue-400 hover:text-blue-300 font-medium">Export State (JSON)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="app.js"></script>
+</body>
+</html>

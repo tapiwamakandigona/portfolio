@@ -1,0 +1,1036 @@
+[
+  {
+    "id": 1,
+    "slug": "01-trapping-rain-water",
+    "title": "01. Trapping Rain Water",
+    "leetcode_num": 42,
+    "difficulty": "Hard",
+    "pattern": "Two Pointers / Monotonic Stack",
+    "tags": [
+      "Array",
+      "Two Pointers",
+      "Dynamic Programming",
+      "Stack",
+      "Monotonic Stack"
+    ],
+    "fn_name": "trap",
+    "starter_py": "class Solution:\n    def trap(self, height: list[int]) -> int:\n        # Write your solution here\n        pass\n",
+    "starter_js": "/**\n * @param {number[]} height\n * @return {number}\n */\nfunction trap(height) {\n  // Write your solution here\n  return 0;\n}\n",
+    "description": "Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.",
+    "examples": [
+      {
+        "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
+        "output": "6",
+        "explanation": "The elevation map traps 6 units of rain water."
+      },
+      {
+        "input": "height = [4,2,0,3,2,5]",
+        "output": "9",
+        "explanation": "The elevation map traps 9 units of rain water."
+      }
+    ],
+    "constraints": [
+      "n == height.length",
+      "1 <= n <= 2 * 10^4",
+      "0 <= height[i] <= 10^5"
+    ],
+    "hints": [
+      "Can you compute the trapped water at each bar individually?",
+      "The water trapped at index i is determined by min(max_left, max_right) - height[i].",
+      "Can you maintain two pointers from left and right moving inward to do this in O(1) space?"
+    ],
+    "tests": [
+      {
+        "args": [
+          [
+            0,
+            1,
+            0,
+            2,
+            1,
+            0,
+            1,
+            3,
+            2,
+            1,
+            2,
+            1
+          ]
+        ],
+        "expected": 6
+      },
+      {
+        "args": [
+          [
+            4,
+            2,
+            0,
+            3,
+            2,
+            5
+          ]
+        ],
+        "expected": 9
+      },
+      {
+        "args": [
+          []
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          [
+            1
+          ]
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          [
+            5,
+            4,
+            3,
+            2,
+            1
+          ]
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          [
+            5,
+            0,
+            5
+          ]
+        ],
+        "expected": 5
+      },
+      {
+        "args": [
+          [
+            2,
+            0,
+            2,
+            0,
+            2,
+            0,
+            2
+          ]
+        ],
+        "expected": 6
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "02-minimum-window-substring",
+    "title": "02. Minimum Window Substring",
+    "leetcode_num": 76,
+    "difficulty": "Hard",
+    "pattern": "Sliding Window",
+    "tags": [
+      "Hash Table",
+      "String",
+      "Sliding Window"
+    ],
+    "fn_name": "minWindow",
+    "starter_py": "class Solution:\n    def minWindow(self, s: str, t: str) -> str:\n        # Write your solution here\n        pass\n",
+    "starter_js": "/**\n * @param {string} s\n * @param {string} t\n * @return {string}\n */\nfunction minWindow(s, t) {\n  // Write your solution here\n  return \"\";\n}\n",
+    "description": "Given two strings `s` and `t` of lengths `m` and `n` respectively, return the **minimum window substring** of `s` such that every character in `t` (including duplicates) is included in the window. If there is no such substring, return the empty string `\"\"`.",
+    "examples": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+        "output": "\"BANC\"",
+        "explanation": "The minimum window substring \"BANC\" includes 'A', 'B', and 'C' from string t."
+      },
+      {
+        "input": "s = \"a\", t = \"a\"",
+        "output": "\"a\""
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"",
+        "output": "\"\"",
+        "explanation": "Both 'a's from t must be included in the window. Since the largest window of s only has one 'a', return empty string."
+      }
+    ],
+    "constraints": [
+      "m == s.length, n == t.length",
+      "1 <= m, n <= 10^5",
+      "s and t consist of uppercase and lowercase English letters."
+    ],
+    "hints": [
+      "Use two pointers to create a window of letters in s that contains all the letters in t.",
+      "Expand the right pointer until the window is valid.",
+      "Once valid, contract from the left to find the minimal valid window."
+    ],
+    "tests": [
+      {
+        "args": [
+          "ADOBECODEBANC",
+          "ABC"
+        ],
+        "expected": "BANC"
+      },
+      {
+        "args": [
+          "a",
+          "a"
+        ],
+        "expected": "a"
+      },
+      {
+        "args": [
+          "a",
+          "aa"
+        ],
+        "expected": ""
+      },
+      {
+        "args": [
+          "ab",
+          "b"
+        ],
+        "expected": "b"
+      },
+      {
+        "args": [
+          "aaflslflsldkalskaaa",
+          "aaa"
+        ],
+        "expected": "aaa"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "03-find-the-duplicate-number",
+    "title": "03. Find the Duplicate Number",
+    "leetcode_num": 287,
+    "difficulty": "Medium",
+    "pattern": "Fast & Slow Pointers (Floyd's Cycle)",
+    "tags": [
+      "Array",
+      "Two Pointers",
+      "Binary Search",
+      "Bit Manipulation"
+    ],
+    "fn_name": "findDuplicate",
+    "starter_py": "class Solution:\n    def findDuplicate(self, nums: list[int]) -> int:\n        # Must solve without modifying array nums and in O(1) extra space\n        pass\n",
+    "starter_js": "/**\n * @param {number[]} nums\n * @return {number}\n */\nfunction findDuplicate(nums) {\n  // Must solve without modifying nums and in O(1) extra space\n  return 0;\n}\n",
+    "description": "Given an array of integers `nums` containing `n + 1` integers where each integer is in the range `[1, n]` inclusive.\n\nThere is only **one repeated number** in `nums`, return *this repeated number*.\n\nYou must solve the problem **without** modifying the array `nums` and using only constant $O(1)$ extra space.",
+    "examples": [
+      {
+        "input": "nums = [1,3,4,2,2]",
+        "output": "2"
+      },
+      {
+        "input": "nums = [3,1,3,4,2]",
+        "output": "3"
+      },
+      {
+        "input": "nums = [3,3,3,3,3]",
+        "output": "3"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 10^5",
+      "nums.length == n + 1",
+      "1 <= nums[i] <= n",
+      "All integers in nums appear only once except for precisely one integer which appears two or more times."
+    ],
+    "hints": [
+      "Think of the array as a linked list where index i points to nums[i].",
+      "Because there is a duplicate, a cycle must exist.",
+      "Use Floyd's Cycle-Finding Algorithm (Tortoise and Hare)."
+    ],
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            3,
+            4,
+            2,
+            2
+          ]
+        ],
+        "expected": 2
+      },
+      {
+        "args": [
+          [
+            3,
+            1,
+            3,
+            4,
+            2
+          ]
+        ],
+        "expected": 3
+      },
+      {
+        "args": [
+          [
+            3,
+            3,
+            3,
+            3,
+            3
+          ]
+        ],
+        "expected": 3
+      },
+      {
+        "args": [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ],
+        "expected": 2
+      },
+      {
+        "args": [
+          [
+            2,
+            5,
+            9,
+            6,
+            9,
+            3,
+            8,
+            9,
+            7,
+            1
+          ]
+        ],
+        "expected": 9
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "04-median-of-two-sorted-arrays",
+    "title": "04. Median of Two Sorted Arrays",
+    "leetcode_num": 4,
+    "difficulty": "Hard",
+    "pattern": "Binary Search on Partition Index",
+    "tags": [
+      "Array",
+      "Binary Search",
+      "Divide and Conquer"
+    ],
+    "fn_name": "findMedianSortedArrays",
+    "starter_py": "class Solution:\n    def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:\n        # Overall run time complexity should be O(log (m+n))\n        pass\n",
+    "starter_js": "/**\n * @param {number[]} nums1\n * @param {number[]} nums2\n * @return {number}\n */\nfunction findMedianSortedArrays(nums1, nums2) {\n  // Must be O(log(m + n))\n  return 0.0;\n}\n",
+    "description": "Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return **the median** of the two sorted arrays.\n\nThe overall run time complexity should be **$O(\\log (m+n))$**.",
+    "examples": [
+      {
+        "input": "nums1 = [1,3], nums2 = [2]",
+        "output": "2.00000",
+        "explanation": "Merged array = [1,2,3] and median is 2."
+      },
+      {
+        "input": "nums1 = [1,2], nums2 = [3,4]",
+        "output": "2.50000",
+        "explanation": "Merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5."
+      }
+    ],
+    "constraints": [
+      "nums1.length == m",
+      "nums2.length == n",
+      "0 <= m <= 1000",
+      "0 <= n <= 1000",
+      "1 <= m + n <= 2000",
+      "-10^6 <= nums1[i], nums2[i] <= 10^6"
+    ],
+    "hints": [
+      "Can we partition both arrays such that the left half has (m+n+1)//2 elements?",
+      "Binary search on the smaller array for the partition cut position.",
+      "Check if max_left1 <= min_right2 and max_left2 <= min_right1."
+    ],
+    "tests": [
+      {
+        "args": [
+          [
+            1,
+            3
+          ],
+          [
+            2
+          ]
+        ],
+        "expected": 2.0
+      },
+      {
+        "args": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "expected": 2.5
+      },
+      {
+        "args": [
+          [],
+          [
+            1
+          ]
+        ],
+        "expected": 1.0
+      },
+      {
+        "args": [
+          [
+            2
+          ],
+          []
+        ],
+        "expected": 2.0
+      },
+      {
+        "args": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "expected": 2.5
+      },
+      {
+        "args": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "expected": 0.0
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "05-largest-rectangle-in-histogram",
+    "title": "05. Largest Rectangle in Histogram",
+    "leetcode_num": 84,
+    "difficulty": "Hard",
+    "pattern": "Monotonic Stack",
+    "tags": [
+      "Array",
+      "Stack",
+      "Monotonic Stack"
+    ],
+    "fn_name": "largestRectangleArea",
+    "starter_py": "class Solution:\n    def largestRectangleArea(self, heights: list[int]) -> int:\n        # Write your solution here\n        pass\n",
+    "starter_js": "/**\n * @param {number[]} heights\n * @return {number}\n */\nfunction largestRectangleArea(heights) {\n  // Write your solution here\n  return 0;\n}\n",
+    "description": "Given an array of integers `heights` representing the histogram's bar height where the width of each bar is `1`, return *the area of the largest rectangle in the histogram*.",
+    "examples": [
+      {
+        "input": "heights = [2,1,5,6,2,3]",
+        "output": "10",
+        "explanation": "The largest rectangle is shown in the red area, which has an area = 10 units (height 5 * width 2)."
+      },
+      {
+        "input": "heights = [2,4]",
+        "output": "4"
+      }
+    ],
+    "constraints": [
+      "1 <= heights.length <= 10^5",
+      "0 <= heights[i] <= 10^4"
+    ],
+    "hints": [
+      "For each bar, how far can it extend left and right while keeping its full height?",
+      "Use a monotonic increasing stack of bar indices.",
+      "When encountering a shorter bar, pop and calculate the area with the popped bar as the shortest."
+    ],
+    "tests": [
+      {
+        "args": [
+          [
+            2,
+            1,
+            5,
+            6,
+            2,
+            3
+          ]
+        ],
+        "expected": 10
+      },
+      {
+        "args": [
+          [
+            2,
+            4
+          ]
+        ],
+        "expected": 4
+      },
+      {
+        "args": [
+          [
+            1
+          ]
+        ],
+        "expected": 1
+      },
+      {
+        "args": [
+          [
+            2,
+            1,
+            2
+          ]
+        ],
+        "expected": 3
+      },
+      {
+        "args": [
+          [
+            5,
+            5,
+            5,
+            5
+          ]
+        ],
+        "expected": 20
+      },
+      {
+        "args": [
+          [
+            0,
+            9
+          ]
+        ],
+        "expected": 9
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "06-binary-tree-maximum-path-sum",
+    "title": "06. Binary Tree Maximum Path Sum",
+    "leetcode_num": 124,
+    "difficulty": "Hard",
+    "pattern": "Tree Post-Order DFS / Tree DP",
+    "tags": [
+      "Dynamic Programming",
+      "Tree",
+      "Depth-First Search",
+      "Binary Tree"
+    ],
+    "fn_name": "maxPathSum",
+    "starter_py": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def maxPathSum(self, root) -> int:\n        # Write your solution here\n        pass\n",
+    "starter_js": "/**\n * Definition for a binary tree node.\n * function TreeNode(val, left, right) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.left = (left===undefined ? null : left)\n *     this.right = (right===undefined ? null : right)\n * }\n */\n/**\n * @param {TreeNode} root\n * @return {number}\n */\nfunction maxPathSum(root) {\n  // Write your solution here\n  return 0;\n}\n",
+    "description": "A **path** in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence **at most once**. Note that the path does not need to pass through the root.\n\nThe **path sum** of a path is the sum of the node's values in the path.\n\nGiven the `root` of a binary tree, return *the maximum **path sum** of any **non-empty** path*.",
+    "examples": [
+      {
+        "input": "root = [1,2,3]",
+        "output": "6",
+        "explanation": "The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6."
+      },
+      {
+        "input": "root = [-10,9,20,null,null,15,7]",
+        "output": "42",
+        "explanation": "The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42."
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the tree is in the range [1, 3 * 10^4].",
+      "-1000 <= Node.val <= 1000"
+    ],
+    "hints": [
+      "A node can be the peak of the path (combining left + node + right).",
+      "Or it can contribute to its parent as max(left, right) + node.val.",
+      "Negative contributions should be floored to 0."
+    ],
+    "tests": [
+      {
+        "tree": [
+          1,
+          2,
+          3
+        ],
+        "expected": 6
+      },
+      {
+        "tree": [
+          -10,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ],
+        "expected": 42
+      },
+      {
+        "tree": [
+          -3
+        ],
+        "expected": -3
+      },
+      {
+        "tree": [
+          2,
+          -1
+        ],
+        "expected": 2
+      },
+      {
+        "tree": [
+          -2,
+          1
+        ],
+        "expected": 1
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "07-course-schedule-ii",
+    "title": "07. Course Schedule II",
+    "leetcode_num": 210,
+    "difficulty": "Medium",
+    "pattern": "Topological Sort (Kahn's BFS / DFS)",
+    "tags": [
+      "Depth-First Search",
+      "Breadth-First Search",
+      "Graph",
+      "Topological Sort"
+    ],
+    "fn_name": "findOrder",
+    "starter_py": "class Solution:\n    def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:\n        # Return topological sort order or [] if impossible\n        pass\n",
+    "starter_js": "/**\n * @param {number} numCourses\n * @param {number[][]} prerequisites\n * @return {number[]}\n */\nfunction findOrder(numCourses, prerequisites) {\n  // Return topological sort order or [] if cycle exists\n  return [];\n}\n",
+    "description": "There are a total of `numCourses` courses you have to take, labeled from `0` to `numCourses - 1`. You are given an array `prerequisites` where `prerequisites[i] = [a_i, b_i]` indicates that you **must** take course `b_i` first if you want to take course `a_i`.\n\nReturn *the ordering of courses you should take to finish all courses*. If there are many valid answers, return **any** of them. If it is impossible to finish all courses, return **an empty array**.",
+    "examples": [
+      {
+        "input": "numCourses = 2, prerequisites = [[1,0]]",
+        "output": "[0,1]",
+        "explanation": "To take course 1 you should have finished course 0. So the correct course order is [0,1]."
+      },
+      {
+        "input": "numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]",
+        "output": "[0,2,1,3] or [0,1,2,3]",
+        "explanation": "Both [0,1,2,3] and [0,2,1,3] are valid topological orders."
+      },
+      {
+        "input": "numCourses = 1, prerequisites = []",
+        "output": "[0]"
+      }
+    ],
+    "constraints": [
+      "1 <= numCourses <= 2000",
+      "0 <= prerequisites.length <= numCourses * (numCourses - 1)",
+      "prerequisites[i].length == 2",
+      "0 <= a_i, b_i < numCourses",
+      "a_i != b_i",
+      "All the pairs [a_i, b_i] are distinct."
+    ],
+    "hints": [
+      "This is equivalent to finding a topological order in a directed acyclic graph (DAG).",
+      "Track in-degrees of every vertex and use a queue of 0 in-degree nodes (Kahn's Algorithm).",
+      "If the final order has fewer than numCourses elements, a cycle exists."
+    ],
+    "tests": [
+      {
+        "args": [
+          2,
+          [
+            [
+              1,
+              0
+            ]
+          ]
+        ],
+        "valid_check": true,
+        "len": 2
+      },
+      {
+        "args": [
+          4,
+          [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ],
+        "valid_check": true,
+        "len": 4
+      },
+      {
+        "args": [
+          1,
+          []
+        ],
+        "expected": [
+          0
+        ]
+      },
+      {
+        "args": [
+          2,
+          [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "expected": []
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "08-edit-distance",
+    "title": "08. Edit Distance",
+    "leetcode_num": 72,
+    "difficulty": "Hard",
+    "pattern": "2D Dynamic Programming (Levenshtein Distance)",
+    "tags": [
+      "String",
+      "Dynamic Programming"
+    ],
+    "fn_name": "minDistance",
+    "starter_py": "class Solution:\n    def minDistance(self, word1: str, word2: str) -> int:\n        # Write your solution here\n        pass\n",
+    "starter_js": "/**\n * @param {string} word1\n * @param {string} word2\n * @return {number}\n */\nfunction minDistance(word1, word2) {\n  // Write your solution here\n  return 0;\n}\n",
+    "description": "Given two strings `word1` and `word2`, return *the minimum number of operations required to convert `word1` to `word2`*.\n\nYou have the following three operations permitted on a word:\n- Insert a character\n- Delete a character\n- Replace a character",
+    "examples": [
+      {
+        "input": "word1 = \"horse\", word2 = \"ros\"",
+        "output": "3",
+        "explanation": "horse -> rorse (replace 'h' with 'r')\nrorse -> rose (remove 'r')\nrose -> ros (remove 'e')"
+      },
+      {
+        "input": "word1 = \"intention\", word2 = \"execution\"",
+        "output": "5",
+        "explanation": "intention -> inention (remove 't')\ninention -> enention (replace 'i' with 'e')\nenention -> exention (replace 'n' with 'x')\nexention -> exection (replace 'n' with 'c')\nexection -> execution (insert 'u')"
+      }
+    ],
+    "constraints": [
+      "0 <= word1.length, word2.length <= 500",
+      "word1 and word2 consist of lowercase English letters."
+    ],
+    "hints": [
+      "Let dp[i][j] be the minimum edit distance between word1[0..i] and word2[0..j].",
+      "If characters match: dp[i][j] = dp[i-1][j-1].",
+      "If they differ: dp[i][j] = 1 + min(insert, delete, replace)."
+    ],
+    "tests": [
+      {
+        "args": [
+          "horse",
+          "ros"
+        ],
+        "expected": 3
+      },
+      {
+        "args": [
+          "intention",
+          "execution"
+        ],
+        "expected": 5
+      },
+      {
+        "args": [
+          "",
+          ""
+        ],
+        "expected": 0
+      },
+      {
+        "args": [
+          "a",
+          ""
+        ],
+        "expected": 1
+      },
+      {
+        "args": [
+          "",
+          "abc"
+        ],
+        "expected": 3
+      },
+      {
+        "args": [
+          "zoologico",
+          "zoologo"
+        ],
+        "expected": 2
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "09-n-queens",
+    "title": "09. N-Queens",
+    "leetcode_num": 51,
+    "difficulty": "Hard",
+    "pattern": "Backtracking / Bitmask Constraints",
+    "tags": [
+      "Array",
+      "Backtracking"
+    ],
+    "fn_name": "solveNQueens",
+    "starter_py": "class Solution:\n    def solveNQueens(self, n: int) -> list[list[str]]:\n        # Return all distinct solutions to the n-queens puzzle\n        pass\n",
+    "starter_js": "/**\n * @param {number} n\n * @return {string[][]}\n */\nfunction solveNQueens(n) {\n  // Return all distinct board configurations\n  return [];\n}\n",
+    "description": "The **n-queens** puzzle is the problem of placing `n` queens on an `n x n` chessboard such that no two queens attack each other.\n\nGiven an integer `n`, return *all distinct solutions to the **n-queens puzzle***. You may return the answer in **any order**.\n\nEach solution contains a distinct board configuration of the n-queens' placement, where `'Q'` and `'.'` both indicate a queen and an empty space, respectively.",
+    "examples": [
+      {
+        "input": "n = 4",
+        "output": "[\n  [\".Q..\",\"...Q\",\"Q...\",\"..Q.\"],\n  [\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]\n]",
+        "explanation": "There exist two distinct solutions to the 4-queens puzzle."
+      },
+      {
+        "input": "n = 1",
+        "output": "[[\"Q\"]]"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 9"
+    ],
+    "hints": [
+      "Place queens row by row from top to bottom.",
+      "Keep sets or bitmasks of attacked columns, main diagonals (r - c), and anti-diagonals (r + c).",
+      "Backtrack whenever a row has no valid queen placement."
+    ],
+    "tests": [
+      {
+        "args": [
+          1
+        ],
+        "expected_count": 1
+      },
+      {
+        "args": [
+          4
+        ],
+        "expected_count": 2
+      },
+      {
+        "args": [
+          8
+        ],
+        "expected_count": 92
+      },
+      {
+        "args": [
+          9
+        ],
+        "expected_count": 352
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "10-merge-intervals",
+    "title": "10. Merge Intervals",
+    "leetcode_num": 56,
+    "difficulty": "Medium",
+    "pattern": "Interval Scheduling / Sorting & Greedy Scanning",
+    "tags": [
+      "Array",
+      "Sorting"
+    ],
+    "fn_name": "merge",
+    "starter_py": "class Solution:\n    def merge(self, intervals: list[list[int]]) -> list[list[int]]:\n        # Merge all overlapping intervals and return non-overlapping\n        pass\n",
+    "starter_js": "/**\n * @param {number[][]} intervals\n * @return {number[][]}\n */\nfunction merge(intervals) {\n  // Merge overlapping intervals\n  return [];\n}\n",
+    "description": "Given an array of `intervals` where `intervals[i] = [start_i, end_i]`, merge all overlapping intervals, and return *an array of the non-overlapping intervals that cover all the intervals in the input*.",
+    "examples": [
+      {
+        "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+        "output": "[[1,6],[8,10],[15,18]]",
+        "explanation": "Since intervals [1,3] and [2,6] overlap, merge them into [1,6]."
+      },
+      {
+        "input": "intervals = [[1,4],[4,5]]",
+        "output": "[[1,5]]",
+        "explanation": "Intervals [1,4] and [4,5] are considered overlapping."
+      }
+    ],
+    "constraints": [
+      "1 <= intervals.length <= 10^4",
+      "intervals[i].length == 2",
+      "0 <= start_i <= end_i <= 10^4"
+    ],
+    "hints": [
+      "Sort intervals primarily by start time.",
+      "Compare the current interval's start time with the end time of the previous merged interval.",
+      "If they overlap, extend the merged interval's end to max(end1, end2)."
+    ],
+    "tests": [
+      {
+        "args": [
+          [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              15,
+              18
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            6
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            15,
+            18
+          ]
+        ]
+      },
+      {
+        "args": [
+          [
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            5
+          ]
+        ]
+      },
+      {
+        "args": [
+          [
+            [
+              1,
+              4
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            0,
+            4
+          ]
+        ]
+      },
+      {
+        "args": [
+          [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            1,
+            4
+          ]
+        ]
+      },
+      {
+        "args": [
+          [
+            [
+              1,
+              4
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            4
+          ]
+        ]
+      }
+    ]
+  }
+]
