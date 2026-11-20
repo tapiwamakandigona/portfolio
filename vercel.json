@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "tapride.tapiwa.me"
+        }
+      ],
+      "destination": "/tapride/"
+    }
+  ],
   "redirects": [
     {
       "source": "/blog/sending-files-between-phone-and-pc-no-internet",
